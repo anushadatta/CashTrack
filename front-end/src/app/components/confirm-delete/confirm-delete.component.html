@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>
+    {{data.title}}
+</h1>
+
+<div mat-dialog-content style="text-align: center;">
+    <p>{{data.message}}</p>
+</div>
+
+<div mat-dialog-actions style="justify-content: center;">
+    <button mat-button (click)="sendReply('No')">No</button>
+    <button mat-raised-button color="primary" (click)="sendReply('Yes')">Yes</button>
+</div>

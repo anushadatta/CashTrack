@@ -1,0 +1,42 @@
+<div>
+    <h1 mat-dialog-title class="title-text">Drop us a message</h1>
+    <button mat-icon-button tabindex="-1" (click)="funCloseDialog()">
+        <mat-icon>close</mat-icon>
+    </button>
+
+    <div mat-dialog-content>
+        <mat-form-field class="input" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="email" placeholder="Email" /><br />
+        </mat-form-field>
+        
+        
+        <mat-form-field class="input" appearance="outline">
+            <mat-label>Subject</mat-label>
+            <input matInput [(ngModel)]="subject" placeholder="Request for Demo Account Access" /><br />
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" style="width: 100%">
+                <mat-label>Message</mat-label>
+                <textarea matInput [(ngModel)]="message" placeholder="Please provide contact number, location and occupation details for access account."></textarea>
+              </mat-form-field>
+
+        <div *ngIf="isFieldEmpty" class="cred-invalid">
+            Please insert all field
+        </div>
+
+        <div *ngIf="isEmailValid" class="cred-invalid">
+            Email address is not valid
+        </div>
+
+        <div *ngIf="serverError != null" class="cred-invalid">
+            {{ serverError }}
+        </div>
+    </div>
+
+    <div class="footer" mat-dialog-actions>
+        <button class="btn btn-primary ok-btn" (click)="funSendClicked()">Send</button>
+    </div>
+    <notifier-container></notifier-container>
+</div>

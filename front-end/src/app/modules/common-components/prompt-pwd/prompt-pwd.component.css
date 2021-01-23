@@ -1,0 +1,41 @@
+.top-title {
+    margin-top: -24px;
+}
+
+.title {
+    text-align: center;
+    background-color: #6aca80;
+    color: #fff;
+    padding: 6px 0px;
+    margin-left: -24px;
+    margin-right: -24px;
+    font-family: inherit;
+}
+
+.message {
+    display: block;
+}
+
+.input-field {
+    margin: 0px 10px;
+    width: 90%;
+}
+
+.custom-btn {
+    margin: 10px;
+    background-color: #5dad6f;
+    border-width: 0px;
+    border-radius: 7px;
+}
+
+.custom-btn:hover, .custom-btn:active, .custom-btn:not(.disabled):active  {
+    background-color: #559c66;
+}
+
+.footer {
+    justify-content: center;
+}
+
+.cred-invalid {
+    color: brown;
+}

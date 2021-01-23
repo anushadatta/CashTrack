@@ -1,0 +1,29 @@
+<div>
+  <form [formGroup]="forgotPasswordForm">
+  <h1 mat-dialog-title class="title-text">Forgot Password</h1>
+  <button mat-icon-button tabindex="-1" (click)="funCloseDialog()">
+    <mat-icon>close</mat-icon>
+  </button>
+
+  <div class="content" mat-dialog-content>
+    <mat-form-field class="input" appearance="outline">
+      <mat-label>Email Address</mat-label>
+      <input matInput formControlName="email" /><br />
+      <mat-icon matSuffix style="color: #a7a7a6;">email</mat-icon>
+    </mat-form-field>
+
+    <span class='user-cred-invalid' *ngIf="emailNotValid">
+      Please enter a <strong>valid</strong> email address
+     </span>
+
+     <span class='user-cred-invalid' *ngIf="isCredentialsValid">
+        {{errorMsg}}
+      </span>
+
+  </div>
+
+  <div class="footer" mat-dialog-actions>
+    <button class="btn btn-primary ok-btn" (click)="funSendMail()">Submit</button>
+  </div>
+  </form>
+</div>

@@ -1,0 +1,89 @@
+<div class="app-container" [ngClass]="{'desktop-container': expandSidebar, 'mob-container': !expandSidebar}" (window:resize)="onResize()">
+  <div class="app-body">
+    <!-- Side Bar Content -->
+    <div *ngIf="!noSideBar" class="app-sidebar">
+      <div class="app-header">
+        <button class="toggle-btn" (click)="sideBarToggle()">
+          <i class="fas fa-chevron-left" *ngIf="expandSidebar"></i>
+          <i class="fas fa-chevron-right" *ngIf="!expandSidebar"></i>
+        </button>
+      </div>
+
+
+      <!-- <div class="mob-header color-white">
+        <button (click)="sideBarToggle()">
+          <i class="fas fa-cheveron-left color-white"></i>
+        </button>
+      </div> -->
+
+      <!-- Dynamic Rendered List -->
+      <div class="side-bar-list">
+        <div class="user-photo" *ngIf="user_img != 'undefined'" style="background-image:url({{user_img}})"></div>
+        <div class="user-name" *ngIf=" user_name != 'undefined'"> {{user_name}} </div>
+        <div class="user-email" *ngIf="user_email != 'undefined'">{{user_email}}</div>
+        <div *ngFor="let category of categories; trackBy: trackByIdAndExpanded">
+          <div *ngIf="(showOperationsHeader || !(category.id === 'operations'))">
+            <div *ngIf="category.id !== 'logout'">
+               <a class="sidebar-header link-style" (click)="toggleHeader(category)">
+                  <strong class="sidebar-item-text">
+                    {{ category.title}}
+                  </strong>
+                  <i class="fas fa-chevron-down header-arrow" [ngClass]="{selected: !category.expanded}"></i>
+                </a>
+              </div>
+          </div>
+          <div *ngFor="let item of sidebarItems; trackBy: trackById">
+            <div *ngIf="category.id === item.category">
+              <div *ngIf="mobileView || !(item.id === 'settings' || item.id === 'notifications' || item.id === 'logout')">
+                           <!-- Top level menu items -->
+                <div class="header-item" [ngClass]="{'header-collapse': (!category.expanded && item.id != 'all-sites'), 'pt-3': item.id === 'logout'}">
+                  <div class="sidebar-item" [ngClass]="{ selected: item.id == selectedItemIndex, 'open-sub-menu': selectedSubItemIndex == item.id, 'sub-menu-opened': selectedItemIndex == item.id || subMenuExpand == item.id }" >
+                    <a class="link-style sidebar-item-link" (click)="sidebarClicked(item)">
+                      <div class="vertical-center word-nowrap">
+                        <i *ngIf="item.icon" [class]="item.icon + ' sidebar-item-icon'"></i>
+                        <span class="sidebar-item-text">
+                          {{ item.pageTitle }}</span>
+                        </div>
+                        <button mat-raised-button *ngIf="item.isNew" color="warn" [id]="item.pageTitle" (click)="startTour(item.pageTitle);"
+                      style="margin-left: 6px;line-height:20px;min-width: 0px;padding: 0px 6px;"
+                      >
+                      <joyrideStep joyrideStep="firstStep" title="{{item.pageTitle}} Tour" text="Hi, Welcome to {{item.pageTitle}} tour." stepPosition="right" *ngIf="(item.pageTitle === 'Tickets')">
+                      New</joyrideStep>
+                      <joyrideStep joyrideStep="firstStepDoc" title="{{item.pageTitle}} Tour" text="Hi, Welcome to {{item.pageTitle}} tour." stepPosition="right" *ngIf="(item.pageTitle === 'Uploaded Files')">
+                          New</joyrideStep>
+                    </button>
+                      <i *ngIf="item.subMenu && item.subMenu.length > 0" [ngClass]="{ selected: item.id == subMenuExpand }" class="fas fa-chevron-right sub-menu-arrow" ></i>
+                    </a>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Sub level menu items -->
+            <div class="sidebar-sub-menu-container" [ngClass]="{ 'sub-menu-opened': item.id == subMenuExpand }" >
+              <div *ngFor="let subItem of item.subMenu" [ngClass]="{ selected: subItem.id == selectedItemIndex }">
+                <div *ngIf="category.id === subItem.category" class="sidebar-sub-menu" >
+                  <a class="link-style sidebar-item-link" (click)="sidebarClicked(subItem)" >
+                    <div class="padding-5 word-nowrap">
+                      <i *ngIf="subItem.icon" [class]="subItem.icon + ' sidebar-sub-item-icon'"></i>
+                      <span class="sidebar-item-text">
+                        {{ subItem.pageTitle }}</span
+                      >
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="sidebar-container" [ngClass]="{'padding-left-0': noSideBar}">
+      <div class="page-content">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

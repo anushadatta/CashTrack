@@ -1,0 +1,61 @@
+<mat-toolbar class="navbar">
+    <div class="top-bar-item" (window:resize)="onResize($event)">
+        <div class="hamburger-icon">
+            <ng-content></ng-content>
+        </div>
+        <div *ngIf="!customTheme" class="logo-container">
+            <h1
+                class="logo-text-heavy cursor-pointer"
+                (click)="removeTheme(); redirect('/')"
+            >
+                CASH
+            </h1>
+            <h1
+                class="logo-text-heavy-yellow cursor-pointer"
+                (click)="removeTheme(); redirect('/')"
+            >
+                TRACK
+            </h1>
+        </div>
+        <!-- <img *ngIf="!customTheme" class="top-bar-title-img pl-3 cursor-pointer" (click)="removeTheme(); redirect('/')" src="/assets/img/logo/resync_logo.png"  /> -->
+        <div *ngIf="customTheme" class="second-container">
+            <img
+                class="top-bar-title-custom-img pl-3 cursor-pointer"
+                (click)="removeTheme(); redirect('/')"
+                src="/assets/theme/{{ clientID }}/logo.png"
+                onerror="if (this.src != '/assets/img/logo/resync_logo.png') this.src = '/assets/img/logo/resync_logo.png'"
+            />
+        </div>
+    </div>
+    <h6
+        *ngIf="!mobileView && sitename"
+        class="top-bar-sitename"
+        [class]="{ 'top-bar-sitename-compact': !sidebarOpen }"
+    >
+        {{ sitename }}
+    </h6>
+
+    <div class="top-bar-item top-bar-icons">
+        <!-- <a [routerLink]="'/settings'">
+    <i class="fas fa-cog color-white"></i>
+  </a>
+  <a [routerLink]="'/'">
+    <i class="fas fa-paper-plane color-white"></i>
+  </a>
+  <a [routerLink]="'/'">
+    <i class="fas fa-bell color-white"></i>
+  </a>
+  <a [routerLink]="'/'">
+    <i class="fas fa-sign-out-alt color-white"></i>
+  </a>  -->
+        <a
+            *ngFor="let item of sidebarItems; trackBy: trackById"
+            [matTooltip]="item.pageTitle"
+            class="cursor-pointer"
+            (click)="sideBarClicked(item)"
+        >
+            <i [class]="item.icon"></i>
+        </a>
+        <div *ngIf="sidebarItems.length == 0" class="placeholder"></div>
+    </div>
+</mat-toolbar>

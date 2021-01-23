@@ -1,0 +1,27 @@
+<div>
+  <h1 class="title top-title" mat-dialog-title> Confirmation </h1>
+
+  <div mat-dialog-content>
+    <p class="message">Please Enter Admin Password</p>
+
+    <mat-form-field class="input-field">
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="password" type="password" [type]="hide ? 'password' : 'text'" /><br />
+      <mat-icon matSuffix class="mat-icons" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+
+    <div *ngIf="isPasswordEntered" class='cred-invalid'>
+      Please enter password
+    </div>
+
+    <div *ngIf="isPasswordCorrect" class='cred-invalid'>
+      Password is <strong>incorrect</strong>
+    </div>
+  </div>
+
+  <div class="footer" mat-dialog-actions>
+    <button class="btn btn-primary custom-btn" (click)="funCheckPassword()"> Submit </button>
+    <button class="btn btn-primary custom-btn" (click)="funCancelClicked()"> Cancel </button>
+  </div>
+
+</div>

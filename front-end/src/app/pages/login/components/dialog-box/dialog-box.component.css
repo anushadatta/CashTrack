@@ -1,0 +1,22 @@
+.login_btn {
+    width: 80px;
+}
+
+.footer {
+    text-align: center;
+    display: block;
+    margin-bottom: 0px;
+}
+
+.mat-dialog-content {
+    display: block;
+    padding: 24px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: auto;
+    outline: 0;
+    width: auto;
+    /* height: 100%; */
+    min-height: inherit;
+    max-height: inherit;
+}

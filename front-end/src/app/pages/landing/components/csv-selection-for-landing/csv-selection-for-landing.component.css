@@ -1,0 +1,58 @@
+.selection-button {
+    text-align: center;
+}
+
+.title-text {
+    font-family: inherit;
+    display: inline-block;
+    width: 94%;
+}
+
+.mat-form-field {
+    margin: 0px 20px;
+}
+
+.from-date, .to-date, .to-date-btn {
+    display: inline;
+}
+
+.text-center>h5 {
+    font-size: 12px;
+}
+
+.date-label {
+    font-size: 14px;
+}
+
+.to-label {
+    margin-left: 20px;
+}
+
+.change-date, .download-csv {
+    font-size: 14px;
+}
+
+.btn-effect {
+    color: #41832d;
+    border-color: #8cc96e;
+    background-color: transparent;
+}
+
+.btn-effect:hover {
+    color: #fff;
+    border-color: #fff;
+    background-color: #8cc96e;
+}
+
+.cred-invalid {
+    color: brown;
+}
+
+.note-table tbody td, .note-table tbody th {
+    padding: 3px 15px;
+    font-size: 12px;
+}
+
+.note-table thead td, .note-table thead th {
+    font-size: 14px;
+}

@@ -1,0 +1,51 @@
+.input {
+    width: 100%;
+}
+
+/* ::ng-deep .mat-form-field-label {
+    color: #6c716d !important;
+} */
+
+.forget-cred-invalid {
+    color: brown;
+}
+
+.content {
+    padding-top: 10px;
+}
+
+.title-text {
+    display: inline-block;
+    width: 88%;
+    font-family: inherit;
+}
+
+.ok-btn {
+    background-color: #44ab29;
+    border-width: 0px;
+}
+
+.ok-btn:not(.disabled):active {
+    background-color: #136b79;
+    color: #eee;
+}
+
+.ok-btn:focus, .ok-btn:active {
+    background-color: #115c68;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.ok-btn:hover {
+    background-color: #115c68;
+}
+
+.user-cred-invalid {
+    color: brown;
+}
+
+.footer {
+    text-align: center;
+    display: block;
+    margin-bottom: 0px;
+}

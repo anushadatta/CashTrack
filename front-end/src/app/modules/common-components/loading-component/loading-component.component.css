@@ -1,0 +1,21 @@
+:host {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.value-spinner {
+    width: 25px;
+}
+
+.chart-spinner {
+    width: 50px;
+}
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+    .chart-spinner {
+        width: 30px;
+    }
+}

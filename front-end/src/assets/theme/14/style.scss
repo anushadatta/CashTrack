@@ -1,0 +1,109 @@
+// Style Sheet for SC NEX
+
+// Side Bar theming variables
+$side-bar-bg-color: #3e7191 !important; // 008264 !important;
+$side-bar-item-color: #fff !important;
+$side-bar-selected-color: white !important; // #4eaf63 !important;
+$side-bar-selected-bg-color: #0e4e76 !important;
+$side-bar-font-family: Helvetica, sans-serif !important;
+
+$shadow-color: #6e6e6e !important;
+
+// Top Bar theming variables
+$top-bar-bg-color: white !important; // #008264 !important;
+$top-bar-item-color: #3e7191 !important; // white !important;
+
+.app-header {
+  background-color: $side-bar-bg-color;
+}
+
+.app-sidebar {
+  background-color: $side-bar-bg-color;
+  box-shadow: 2px 0px 5px $shadow-color;
+  z-index: 9001;
+}
+
+.sidebar-item,
+.sidebar-sub-menu {
+  border-left: 3px solid $side-bar-bg-color;
+}
+
+.toggle-btn {
+  box-shadow: 0 2px 4px 1px $side-bar-selected-bg-color;
+  color: $side-bar-selected-bg-color;
+}
+
+.toggle-btn:hover {
+  background-color: $side-bar-selected-color;
+  color: $side-bar-item-color;
+}
+
+.side-bar-separator {
+  border-color: $side-bar-selected-color;
+}
+
+.sidebar-item.open-sub-menu {
+  .sidebar-item-link,
+  .sidebar-item-link {
+    background-color: $side-bar-selected-bg-color;
+  }
+
+  .sidebar-item-link {
+    color: $side-bar-selected-color;
+    background-color: $side-bar-selected-bg-color;
+  }
+}
+
+.sidebar-item.sub-menu-opened,
+.sidebar-sub-menu-container.sub-menu-opened {
+  border-left: 3px solid $side-bar-selected-color;
+}
+
+.sidebar-item-icon {
+  color: $side-bar-item-color;
+}
+
+.sidebar-sub-item-icon {
+  color: $side-bar-item-color;
+}
+
+.sub-menu-arrow {
+  color: $side-bar-item-color;
+}
+
+.sidebar-item-text {
+  color: $side-bar-item-color;
+}
+
+.sidebar-item:hover,
+.sidebar-item.selected,
+.sidebar-sub-menu:hover,
+.sidebar-sub-menu.selected {
+  .sidebar-item-link,
+  .sidebar-item-link {
+    background-color: $side-bar-selected-bg-color;
+  }
+  .sidebar-item-text,
+  .sidebar-item-icon,
+  .sidebar-sub-item-icon {
+    color: $side-bar-selected-color;
+  }
+}
+
+.navbar {
+  background-color: $top-bar-bg-color;
+  box-shadow: 0px 2px 6px $shadow-color;
+  color: $top-bar-item-color;
+}
+
+.sidebar-item-text {
+  font-family: $side-bar-font-family;
+}
+
+.top-bar-title-custom-img {
+  height: 80% !important;
+}
+
+.sidebar-header {
+  background-color: $side-bar-selected-bg-color;
+}

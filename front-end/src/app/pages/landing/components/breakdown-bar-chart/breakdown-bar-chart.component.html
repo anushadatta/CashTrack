@@ -1,0 +1,13 @@
+<!-- Implementation without ngx-echarts -->
+<!-- <div #chartDiv (window:resize)="onResize()"></div> -->
+
+<!-- Implementation with ngx-echarts -->
+
+<div echarts *ngIf="!isEmptyData" [options]="options" class="bar-chart" (chartInit)="onChartInit($event)">
+    <app-loading-component className="value-spinner" imgSrc="/assets/img/loading_ios.gif">
+    </app-loading-component>
+</div>
+
+<div *ngIf="isEmptyData" style="display: flex;align-items: center; justify-content: center; flex-direction: column;">
+    <h5>Data not found</h5>
+</div>

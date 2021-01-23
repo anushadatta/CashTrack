@@ -1,0 +1,17 @@
+<app-top-bar [navItemList]="navItemList" (sideBarItemClicked)="navItemClicked($event)">
+  <i (click)="appSideBar.sideBarToggle()" class="fas fa-bars mob-header-icon"></i>
+</app-top-bar>
+<!-- <app-side-bar #appSideBar [navItemList]="navItemList" (sidebarItemClicked)="navItemClicked($event)">
+  <router-outlet (activate)="onActivate()"></router-outlet>
+  <div class="reserved-text"><small> Resync Technologies Pte. Ltd. © 2019 All rights reserved. </small></div>
+</app-side-bar> -->
+
+<app-side-bar-new #appSideBar [navItemList]="navItemList" [categoryList]="sidebarCategories" (sidebarItemClicked)="navItemClicked($event)">
+  <router-outlet (activate)="onActivate()"></router-outlet>
+  
+</app-side-bar-new>
+
+<mat-toolbar class="footer">
+  <div class="reserved-text" >
+    <small style="padding-left: 350px;"> Cash Track Pte. Ltd. © 2021 All rights reserved. </small></div>
+</mat-toolbar>

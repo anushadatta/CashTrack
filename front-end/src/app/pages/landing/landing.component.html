@@ -1,0 +1,482 @@
+<!-- <ng4-loading-spinner></ng4-loading-spinner> -->
+<app-custom-loading-spinner [show]="showLoadingSpinner"></app-custom-loading-spinner>
+
+<div class="main-container">
+
+  <!-- <div class="row customer-info-row" [ngStyle]="{'height': showCustomerProfile ? 'auto' : '75px'}">
+    <div class="col-sm-12 col-md-12 col-lg-12 columns center-col-padding">
+      <div class="tiles">
+
+        <div class="row customer-inner-row">
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="customer-info-title">
+
+              <!-- Collapse Button -- >
+              <button mat-button class="collapse-btn" [ngClass]="{'close-btn': !showCustomerProfile}"
+                (click)="funCollapseCustomerProfile()">
+                <mat-icon class="chart-down-arrow"> keyboard_arrow_down </mat-icon>
+              </button>
+
+              CUSTOMER PROFILE
+            </div>
+
+            <img *ngIf="showCustomerProfile && site_img" class="site-img" [src]="site_img">
+
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3" *ngIf="showCustomerProfile">
+
+            <table class="customer-info-table">
+              <tr>
+                <th> Company Name : </th>
+                <td> {{ customer_name | titlecase }} </td>
+              </tr>
+              <tr>
+                <th> User Name : </th>
+                <td> {{ username }} </td>
+              </tr>
+              <tr>
+                <th> Headquarters : </th>
+                <td> {{ location }} ({{ country }}) </td>
+              </tr>
+            </table>
+
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-6" *ngIf="showCustomerProfile">
+            <!-- <strong> Description : </strong> {{ description }} -- >
+            <table class="customer-info-table">
+              <tr>
+                <th class="word-nowrap"> Description : </th>
+                <td class="description-text"> {{ description }} </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div> -->
+
+  <div class="row overview-row">
+    <div class="col-sm-12 col-md-6 col-lg-3 columns left-col-padding">
+
+      <div class="tiles overview-tiles no-of-sites-tile">
+        <div style="display: flex; flex-direction: column;">
+          <div class="overview-title">
+            NUMBER OF SITES
+          </div>
+          <div class="overview-content" *ngIf="noOfSites">
+            <span class="overview-value"> {{ noOfSites }} </span>
+          </div>
+
+          <div *ngIf="!noOfSites" style="padding: 16px 0px">
+            <app-loading-component className="value-spinner" imgSrc="/assets/img/loading_ios.gif">
+            </app-loading-component>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-3 columns col-padding">
+
+      <div class="tiles overview-tiles generation-tile">
+        <div class="overview-title">
+          TOTAL GENERATION
+        </div>
+        <div class="overview-content" *ngIf="totalSolarGen">
+          <span class="overview-value"> {{ totalSolarGen }} </span>
+          <span class="overview-unit"> {{ totalSolarGenUnit }} </span>
+        </div>
+
+        <div *ngIf="!totalSolarGen" style="padding: 16px 0px">
+          <app-loading-component className="value-spinner" imgSrc="/assets/img/loading_ios.gif">
+          </app-loading-component>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-3 columns col-padding">
+
+      <div class="tiles overview-tiles consumption-tile">
+        <div class="overview-title">
+          TOTAL CONSUMPTION
+        </div>
+        <div class="overview-content" *ngIf="totalConsumption">
+          <span class="overview-value"> {{ totalConsumption }} </span>
+          <span class="overview-unit"> {{ totalConsumptionUnit }} </span>
+        </div>
+
+        <div *ngIf="!totalConsumption" style="padding: 16px 0px">
+          <app-loading-component className="value-spinner" imgSrc="/assets/img/loading_ios.gif">
+          </app-loading-component>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-3 columns right-col-padding">
+
+      <div class="tiles overview-tiles co2-saved-tile">
+        <div class="overview-title">
+          CO2 SAVED
+        </div>
+        <div class="overview-content" *ngIf="co2Savings">
+          <span class="overview-value"> {{ co2Savings }} </span>
+          <span class="overview-unit"> {{ co2SavingsUnit }} </span>
+        </div>
+
+        <div *ngIf="!co2Savings" style="padding: 16px 0px">
+          <app-loading-component className="value-spinner" imgSrc="/assets/img/loading_ios.gif">
+          </app-loading-component>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row energy-breakdown-row">
+
+   
+
+    <!-- Bar chart -->
+    <div class="col-sm-12 col-md-12 col-lg-8 columns center-col-padding energy-breakdown-columns">
+      <div class="tiles">
+
+        <div class="chart-content">
+          <div class="chart-title">
+            <span><b>ENERGY BREAKDOWN</b></span>
+
+            <div class="bar-chart-selection">
+
+                <mat-form-field style="width: 150px;margin:0 5px;">
+                    <mat-select #singleSelected multiple disableRipple=true [ngModel]="selectedSitesShow" 
+                    (ngModelChange)="selectedSitesShow" [matTooltip]="(allSelected) ? 'All Sites Selected' : 'Selected sites'" matTooltipPosition="below">
+                      <mat-checkbox class="mat-option" color="primary" [checked]="allSelected" (click)="$event.stopPropagation()"
+                          (change)="siteSelectAll()">
+                          <span [style.color]="allSelected ? 'green' : 'black'">SELECT All</span>
+                      </mat-checkbox>
+                        <mat-option *ngFor="let site of sitesList" [value]="site.site_id" #matOption
+                        (click)="onSiteSelect(site.sitename, selectedSiteList[site.site_id]=matOption.selected)">
+                            {{ site.sitename }} 
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+              <!-- <span> LAST </span> -->
+              <mat-form-field style="width: 130px;margin:0 5px;">
+                <!-- funGetChartData -->
+                <mat-select [(ngModel)]="barChartSelection" (selectionChange)="funGetEnergyBreakdownData(0)"
+                  [disabled]="(demoUserAccessControl['energyBreakdownBarChart'] && demoUserAccessControl['energyBreakdownBarChart'].disable)"
+                  [matTooltip]="(barChartSelection === '6_month') ? 'Last 6 months' : 'Last 1 '+barChartSelection" matTooltipPosition="below">
+                  <mat-option value="week"> This Week </mat-option>
+                  <mat-option value="month"> This Month </mat-option>
+                  <mat-option value="6_month"> LAST 6 Months </mat-option>
+                  <mat-option value="year"> LAST 1 Year </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <button class="btn btn-info btn-sm btn-effect download-csv" (click)="funGetCsvFile()"
+              [disabled]="(demoUserAccessControl['energyBreakdownBarChart'] && demoUserAccessControl['energyBreakdownBarChart'].disable)">
+              <i class="fa fa-download" matTooltip="Download CSV" matTooltipPosition="below"></i> CSV
+              <!-- <mat-icon matTooltip="Download CSV" matTooltipPosition="below" style="font-size: 30px;">cloud_download</mat-icon> -->
+            </button>
+            </div>
+          </div>
+
+          <div class="bar-chart-parent">
+            <app-breakdown-bar-chart [data]="barChartData.asObservable()"></app-breakdown-bar-chart>
+            <!-- <app-custom-loading-spinner [show]="showLoadingSpinner"></app-custom-loading-spinner> -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+     <!-- Map -->
+     <div class="col-sm-12 col-md-6 col-lg-4 columns left-col-padding map-columns">
+        <div class="map-tiles">
+          <agm-map #agmMap [minZoom]="2" [zoom]="zoom" [latitude]="lat" [longitude]="lng" [fitBounds]="fitBound"
+            [streetViewControl]="false" (mapReady)="funMapReady($event)" (boundsChange)="funZoomChanged()"
+            [styles]="styles">
+  
+            <agm-marker *ngFor="let location of locations" [latitude]="location.lat" [longitude]="location.lng"
+              (markerClick)="funMarkerClicked(location.site_id)" (mouseOver)="funMarkerHover(agmMap, infoWindow)"
+              [agmFitBounds]="fitBound">
+  
+              <agm-info-window #infoWindow>
+                <span [innerHTML]="location.site_info"></span>
+              </agm-info-window>
+  
+            </agm-marker>
+          </agm-map>
+        </div>
+      </div>
+
+    <!-- Site List -->
+    <!-- <div class="col-sm-12 col-md-6 col-lg-3 columns right-col-padding map-columns">
+      <div class="tiles">
+
+        <div class="selection-column">
+          <p class="tile-header"> SITE NAME </p>
+
+          <div class="site-section-radio checkbox-list-border">
+            <mat-checkbox *ngIf="sitesList.length > 0" [(ngModel)]="selectAllSites" (change)="siteSelectAll()"
+              class="check-box">
+              Select All
+            </mat-checkbox>
+            <mat-checkbox class="radio-button" [(ngModel)]="selectedSiteList[site.site_id]"
+              *ngFor="let site of sitesList" [value]="site.site_id"
+              (change)="onSiteSelect(site.sitename, selectedSiteList[site.site_id])">
+              {{ site.sitename }}
+            </mat-checkbox>
+          </div>
+        </div>
+
+      </div>
+    </div> -->
+
+    <!-- Donut Chart -->
+    <!-- <div class="col-sm-12 col-md-6 col-lg-5 columns right-col-padding energy-breakdown-columns">
+      <div class="tiles">
+
+        <div class="height-100-per">
+
+          <div class="chart-title">
+            <span>ENERGY BREAKDOWN</span>
+
+            <div class="bar-chart-selection">
+              <span> LAST </span>
+              <mat-form-field>
+                <!-- funGetChartData -- >
+                <mat-select [(ngModel)]="donutChartSelection" (selectionChange)="funGetEnergyBreakdownData(1)"
+                  [disabled]="(demoUserAccessControl['energyBreakdownDonutChart'] && demoUserAccessControl['energyBreakdownDonutChart'].disable)">
+                  <mat-option value="week"> 1 Week </mat-option>
+                  <mat-option value="month"> 1 Month </mat-option>
+                  <mat-option value="6_month"> 6 Months </mat-option>
+                  <mat-option value="year"> 1 Year </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="chart-content">
+            <div class="donut-chart-parent">
+              <app-breakdown-donut-chart [data]="donutChartData.asObservable()"></app-breakdown-donut-chart>
+              <!-- <div class="donut-chart"></div> -- >
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div> -->
+
+  </div>
+
+
+  <!-- <div class="row map-row">
+
+    <div class="col-sm-12 col-md-3 col-lg-3 columns col-padding map-columns">
+      <div class="tiles">
+
+        <div class="selection-column">
+          <p class="tile-header"> ENERGY ASSET </p>
+          <div class="site-section-check-box checkbox-list-border">
+            <mat-checkbox *ngIf="assetList.length > 0" [(ngModel)]="selectAllAssets" (change)="assetSelectAll()"
+              class="check-box">
+              Select All
+            </mat-checkbox>
+            <mat-checkbox class="check-box" *ngFor="let asset of assetList" [(ngModel)]="selectedAssetList[asset]"
+              (change)="assetSelected(asset, selectedAssetList[asset])">
+              {{ asset }}
+            </mat-checkbox>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div> -->
+
+  <!-- Portfolio table -->
+  <div class="row portfolio-row mb-5" [ngStyle]="{'height': showPortfolioTable ? 'auto' : '75px'}">
+    <div class="col-sm-12 col-md-12 col-lg-12 columns no-col-padding">
+      <div class="tiles">
+
+        <div class="height-100-per">
+
+          <div class="portfolio-title">
+            <span>
+
+              <!-- Collapse Button -->
+              <button mat-button class="collapse-btn" [ngClass]="{'close-btn': !showPortfolioTable}"
+                (click)="funCollapsePortfolioTable()"
+                [disabled]="(demoUserAccessControl['portfolioTable'] && demoUserAccessControl['portfolioTable'].disable)">
+                <mat-icon class="chart-down-arrow"> keyboard_arrow_down </mat-icon>
+              </button>
+
+              <b>PORTFOLIO SITES</b>
+            </span>
+
+            <!-- Portfolio button selection -->
+            <div class="portfolio-selection" *ngIf="showPortfolioTable" style="display: flex;justify-content:space-between;padding: 0px 10px;
+            overflow: auto;margin:6px;">
+              <mat-button-toggle-group [(ngModel)]="portfolioBtn"
+                [disabled]="(demoUserAccessControl['portfolioTable'] && demoUserAccessControl['portfolioTable'].disable)">
+                <mat-button-toggle class="portfolio-button-toggle" (click)="funGetPortfolioData()" value="today">
+                  Today
+                </mat-button-toggle>
+                <mat-button-toggle class="portfolio-button-toggle" (click)="funGetPortfolioData()" value="yesterday">
+                  Yesterday
+                </mat-button-toggle>
+                <mat-button-toggle class="portfolio-button-toggle" (click)="funGetPortfolioData()" value="week">
+                  Last 7 Day
+                </mat-button-toggle>
+                <mat-button-toggle class="portfolio-button-toggle" [matMenuTriggerFor]="menu" value="month">
+                  Month
+                </mat-button-toggle>
+              </mat-button-toggle-group>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item *ngFor="let month of monthList" (click)="funGetPortfolioData(month.month_no)"
+                  [value]="month.month_no">
+                  {{ month.month_str }}
+                </button>
+              </mat-menu>
+            <!-- </div> -->
+
+            <!-- check box -->
+            <div class="portfolio-checkbox-group" *ngIf="showPortfolioTable">
+              <mat-checkbox class="portfolio-checkbox" [(ngModel)]="portfolioCheckbox[asset]"
+                (change)="funPortfolioCheckboxEvent(asset)" *ngFor="let asset of assetListPortfolio"
+                [disabled]="(demoUserAccessControl['portfolioTable'] && demoUserAccessControl['portfolioTable'].disable)">
+                {{ asset }}
+              </mat-checkbox>
+            
+            
+            </div>
+          </div>
+
+          <div class="site-table-container" *ngIf="showPortfolioTable">
+              <table class="site-info-table">
+                  <thead>
+    
+                    <tr>
+                      <th [attr.rowspan]="generationColSpan == 1 ? 1 : 2">Alarm</th>
+                      <th [attr.rowspan]="generationColSpan == 1 ? 1 : 2">
+                        Sitename
+                        <button class="table-filter-btn" (click)="funSortPortfolioTable('sitename')">
+                          <i class="fa fa-sort table-filter-icon"
+                            [ngClass]="{active: portfolioSortIndex == 'sitename'}"></i>
+                        </button>
+                      </th>
+                      <th [attr.rowspan]="generationColSpan == 1 ? 1 : 2">
+                        City
+                        <button class="table-filter-btn" (click)="funSortPortfolioTable('site_location')">
+                          <i class="fa fa-sort table-filter-icon"
+                            [ngClass]="{active: portfolioSortIndex == 'site_location'}"></i>
+                        </button>
+                      </th>
+                      <th [attr.rowspan]="generationColSpan == 1 ? 1 : 2" [attr.colspan]="displayAssetCapacity.length">
+                        Capacity
+                      </th>
+                      <th [attr.colspan]="generationColSpan">
+                        Generation
+                        <button class="table-filter-btn" (click)="funSortPortfolioTable('generation')">
+                          <i class="fa fa-sort table-filter-icon"
+                            [ngClass]="{active: portfolioSortIndex == 'generation'}"></i>
+                        </button>
+                      </th>
+                      <th [attr.rowspan]="generationColSpan == 1 ? 1 : 2">
+                        PR
+                        <button class="table-filter-btn" (click)="funSortPortfolioTable('pr')">
+                          <i class="fa fa-sort table-filter-icon" [ngClass]="{active: portfolioSortIndex == 'pr'}"></i>
+                        </button>
+                      </th>
+                      <th [attr.rowspan]="generationColSpan == 1 ? 1 : 2">
+                        Specific Yield
+                        <button class="table-filter-btn" (click)="funSortPortfolioTable('specific_yield')">
+                          <i class="fa fa-sort table-filter-icon"
+                            [ngClass]="{active: portfolioSortIndex == 'specific_yield'}"></i>
+                        </button>
+                      </th>
+                      <th [attr.rowspan]="generationColSpan == 1 ? 1 : 2">
+                        Consumption
+                        <button class="table-filter-btn" (click)="funSortPortfolioTable('consumption')">
+                          <i class="fa fa-sort table-filter-icon"
+                            [ngClass]="{active: portfolioSortIndex == 'consumption'}"></i>
+                        </button>
+                      </th>
+                      <th [attr.rowspan]="generationColSpan == 1 ? 1 : 2">Maintenance</th>
+                      <th [attr.rowspan]="generationColSpan == 1 ? 1 : 2">Commissioned Date</th>
+                      <th [attr.rowspan]="generationColSpan == 1 ? 1 : 2">Tickets </th>
+                    </tr>
+    
+                    <!-- grid titles -->
+                    <tr>
+                      <th *ngIf="portfolioCheckbox['Grid Import'] || portfolioCheckbox['Grid Export']">
+                        Total Generation
+                      </th>
+                      <th *ngIf="portfolioCheckbox['Grid Import']"> Grid Import </th>
+                      <th *ngIf="portfolioCheckbox['Grid Export']"> Grid Export </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+    
+                    <tr *ngFor="let site of portfolioTableData; let i = index"
+                      [style.display]="visibleSiteList[i] ? 'table-row' : 'none'">
+                      <td>
+                        <button class="btn btn-alarm" [ngbTooltip]="alarmBtnTooltip[site.status]"
+                          (click)="funAlarmStatus(site.user_id, site.site_id, site.status)"
+                          [ngClass]="{'btn-alarm-green': site.status == WORKING, 'btn-alarm-disabled': site.status == DISABLED, 'btn-alarm-red': site.status == DEAD}">
+                        </button>
+                      </td>
+                      <td>
+                        <a class="dashboard-link" (click)="funSiteClicked(site.site_id)">
+                          {{ site.sitename }}
+                        </a>
+                      </td>
+                      <td> {{ site.site_location }} </td>
+    
+                      <!-- capacity -->
+                      <td *ngFor="let assetName of displayAssetCapacity">
+                        {{ assetCapacity[site.site_id][assetName] }}
+                      </td>
+    
+                      <!-- no capacity -->
+                      <td *ngIf="displayAssetCapacity.length < 1"> - </td>
+    
+                      <td> {{ site.total_generation }} </td>
+    
+                      <!-- grid import / export -->
+                      <td *ngIf="portfolioCheckbox['Grid Import']"> {{ site.grid_import }} </td>
+                      <td *ngIf="portfolioCheckbox['Grid Export']"> {{ site.grid_export }} </td>
+    
+                      <td> {{ site.pr }}</td>
+                      <td> {{ site.specific_yield }} </td>
+    
+                      <!-- consumption -->
+                      <td> {{ site.total_consumption }} </td>
+    
+                      <!-- maintenance -->
+                      <td> {{ site.maintenance_count }} </td>
+                      <td> {{ site.commissioned_date }} </td>
+                      <td>
+                        <a class="dashboard-link" (click)="funTicketClicked(site.site_id)">
+                          {{ site.ticket_count }}
+                        </a>
+                      </td>
+                    </tr>
+    
+                  </tbody>
+                </table>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

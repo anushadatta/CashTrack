@@ -1,0 +1,343 @@
+@font-face {
+    font-family: 'futura-light';
+    src: url('../../../assets/fonts/Futura-Light.woff');
+}
+
+@font-face {
+    font-family: 'DIN-Condense';
+    src: url('../../../assets/fonts/din-bold-webfont.woff');
+}
+
+.container-fluid {
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    background: #f1efea;
+}
+
+/* .login-main {
+    height: 100%;
+    width: 100%;
+    background-color: #f1efea;
+    background-image: url("/assets/bg-img/BG3.png");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    min-height: 950px; 
+} */
+
+.content {
+    width: 350px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 40px auto auto auto;
+}
+
+/* .logo-img {
+    height: 60px;
+    width: 60px;
+} */
+
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* .login-form-on-top {
+    z-index: 1;
+    position: relative;
+} */
+
+/* .title {
+    margin: 0 auto;
+    font-size: 95px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 75px 0px 0px 0px;
+    letter-spacing: 0px;
+    font-family: 'DIN-Condense';
+} */
+
+.subtitle {
+    margin: 0 auto;
+    font-size: 18px;
+    color: #ffffff;
+    font-family: 'futura-light';
+    font-weight: lighter;
+    padding-right: 30px
+}
+
+.subtitle-div p {
+    text-transform: uppercase;
+    font-size: 18px
+}
+
+.title-content {
+    margin: 0 auto;
+    padding: 90px 0px 0px 0px;
+    text-align: center;
+}
+
+.input {
+    width: 100%;
+    font-size: 20px;
+}
+
+.mat-card {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.input-form {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.user-cred-invalid {
+    color: brown;
+}
+
+.mat-icons, .input-box {
+    color: #ffffff;
+}
+
+/* ::ng-deep .mat-form-field-label {
+    color: #ffffff !important;
+} */
+
+.login_btn {
+    background-color: #17a2b8;
+    color: #eee;
+    border-radius: 8px;
+    border-width: 0px;
+}
+
+.login_btn:not(.disabled):active {
+    background-color: #136b79;
+    color: #eee;
+    border-width: 0px;
+}
+
+.login_btn:focus, .login_btn:active {
+    background-color: #115c68;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.login_btn:hover {
+    background-color: #115c68;
+}
+
+.link {
+    color: #8a8a8a !important;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.link:hover {
+    color: #8cc96e !important;
+}
+
+.link:active {
+    color: #5b2192;
+}
+
+.forgot-password {
+    text-decoration: underline;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.footer {
+    text-align: center;
+}
+
+.contact {
+    bottom: 0px;
+    right: 0px;
+    padding: 80px 40px 40px 80px;
+    position: fixed;
+    z-index: 1;
+}
+
+.contact-us {
+    padding: 10px 10px 10px 10px;
+    border: solid 1px transparent;
+    border-radius: 10px;
+    color: white;
+    background-color: #17a2b8;
+}
+
+@media screen and (max-height: 640px) {
+    .login-main {
+        min-height: 640px;
+    }
+}
+
+/* Mobile devices (mobile) */
+
+@media (min-width: 200px) and (max-width: 450px) {
+    .title {
+        font-size: 66px;
+        font-weight: 600;
+        color: #ffffff;
+        margin: 35px 0px 0px 0px;
+    }
+    .subtitle {
+        margin: 0px;
+        font-size: 14px;
+        color: #ffffff;
+    }
+    .title-content {
+        padding: 25px 0px 0px 0px;
+        text-align: center;
+    }
+    .input {
+        width: 100%;
+        font-size: 18px;
+    }
+    .contact {
+        position: inherit;
+        padding: 0px;
+        margin-top: 15px;
+        text-align: center;
+    }
+}
+
+/* Smaller devices (mobile, 768px and up) */
+
+@media (min-width: 451px) and (max-width: 767px) {
+    .title {
+        font-size: 95px;
+        font-weight: 600;
+        color: #ffffff;
+        margin: 75px 0px 0px 0px;
+    }
+    .subtitle {
+        margin: 0px;
+        font-size: 18px;
+        color: #ffffff;
+    }
+    .title-content {
+        padding: 75px 0px 0px 0px;
+        text-align: center;
+    }
+    .input {
+        width: 100%;
+        font-size: 20px;
+    }
+    .contact {
+        position: inherit;
+        padding: 0px;
+        margin-top: 15px;
+        text-align: center;
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .title {
+        font-size: 95px;
+        font-weight: 600;
+        color: #ffffff;
+        margin: 75px 0px 0px 0px;
+    }
+    .subtitle {
+        margin: 0px;
+        font-size: 18px;
+        color: #ffffff;
+    }
+    .title-content {
+        padding: 75px 0px 0px 0px;
+        text-align: center;
+    }
+    .input {
+        width: 100%;
+        font-size: 20px;
+    }
+    .contact {
+        position: inherit;
+        padding: 0px;
+        margin-top: 15px;
+        text-align: center;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .title {
+        font-size: 95px;
+        font-weight: 600;
+        color: #ffffff;
+        margin: 75px 0px 0px 0px;
+    }
+    .subtitle {
+        margin: 0px;
+        font-size: 18px;
+        color: #ffffff;
+    }
+    .title-content {
+        padding: 75px 0px 0px 0px;
+        text-align: center;
+    }
+    .input {
+        width: 100%;
+        font-size: 20px;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+    .title {
+        font-size: 95px;
+        font-weight: 600;
+        color: #ffffff;
+        margin: 75px 0px 0px 0px;
+    }
+    .subtitle {
+        margin: 0px;
+        font-size: 18px;
+        color: #ffffff;
+    }
+    .title-content {
+        padding: 15px 0px 0px 0px;
+        text-align: center;
+    }
+    .input {
+        width: 100%;
+        font-size: 20px;
+    }
+}
+
+/* Larger Desktops (Larger 1600px and up) */
+
+@media (min-width: 1600px) {
+    .title {
+        font-size: 95px;
+        font-weight: 600;
+        color: #ffffff;
+        margin: 75px 0px 0px 0px;
+    }
+    .subtitle {
+        margin: 0px;
+        font-size: 18px;
+        color: #ffffff;
+    }
+    .title-content {
+        padding: 150px 0px 0px 0px;
+        text-align: center;
+    }
+    .input {
+        width: 100%;
+        font-size: 20px;
+    }
+}
