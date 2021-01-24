@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+import { IsUserGaurd } from './auth/isUser.gaurd';
+
 import { LoginLayoutComponent } from './components/login-layout/login-layout.component';
 import { AppLayoutComponent } from './components/app-layout/app-layout.component';
 
@@ -13,7 +15,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule),
+        loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
       },
     ]
   },
@@ -24,6 +26,7 @@ const routes: Routes = [
       {
         path: 'landing-page',
         loadChildren: () => import('./pages/landing/landing.module').then(m => m.LandingModule),
+        canActivate: [IsUserGaurd],
       }
     ]
   }

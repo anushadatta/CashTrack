@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../../services/http.service';
 import { CookieService } from 'ngx-cookie-service';
@@ -47,16 +47,11 @@ export class LoginComponent {
         private cookie: CookieService,
         private localStorage: LocalStorageService,
         private dialog: MatDialog,
-        private logger: NGXLogger
+        private logger: NGXLogger,
+        private zone: NgZone
     ) { }
 
     ngOnInit() {
-
-        this.loginForm = new FormGroup({
-            'username': new FormControl(null, [Validators.required]),
-            'password': new FormControl(null, [Validators.required]),
-        });
-
         // this.myStyle = {
         //     'position': 'fixed', 'width': '100%', 'height': '100%',
         //     'z-index': 0, 'top': 0, 'left': 0, 'right': 0, 'bottom': 0
@@ -239,7 +234,11 @@ export class LoginComponent {
 
                     this.isLoading = false;
                     console.log('from cookie: ', this.cookie.get('user-name'));
-                    this.router.navigate(['dashboard/landing-page']);
+
+                    this.zone.run(() => {
+                        this.router.navigate(['dashboard/landing-page']);
+                    });
+                    
                 },
                 error => {
                     console.log(error);
