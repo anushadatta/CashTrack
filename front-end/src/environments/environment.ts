@@ -6,8 +6,8 @@ export const environment = {
     production: false,
     // endPoint: 'http://localhost:3000',
     // endPoint: 'https://resyncportal.com',
-    endPoint: 'http://18.221.144.37:4000',
-    reportGenerationEndPoint: "https://api.resyncdev.com",
+    endPoint: 'http://test.com',
+    reportGenerationEndPoint: "https://api.test.com",
     logging: true
 };
 

@@ -443,14 +443,14 @@ export const CustomValidation = {
     numbers_only: /^[0-9]*$/
 };
 
-export const APIXU_KEY = '727b6dfd767a447faec31736192401';
-export const OPENCAGEDATA_KEY = '7031b8b36ad6414db075a9eba43ef66c';
+export const APIXU_KEY = '7';
+export const OPENCAGEDATA_KEY = '703';
 
 export const loadImagePath = '/api/images/load_image/';
 // export const secret = '29kMTI2QGaadtYWlsLmNvbSxhZG';
-export const secret = '29kMTI2QGaadtYWlsLmNvbSxhZGdgy42';
+export const secret = 'qiydgf98';
 
-export const AGM_API_KEY = 'AIzaSyC0bleu8ivADPVt2sp7zF55NkpK7XQlzHs';
+export const AGM_API_KEY = 'q8675ce';
 
 export const registerNameMap = {
     'default': {

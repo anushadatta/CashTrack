@@ -39,7 +39,7 @@ const appRoutes: Routes = [
         RouterModule.forChild(appRoutes),
         CustomMaterialModule,
         AgmCoreModule.forRoot({
-            apiKey: AGM_API_KEY
+            apiKey: 'wrong_key'
     	}),
         // Ng4LoadingSpinnerModule,
         NgbModule,

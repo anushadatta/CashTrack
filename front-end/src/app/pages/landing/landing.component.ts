@@ -271,7 +271,7 @@ export class LandingComponent implements OnInit, OnDestroy {
       this.barChartData.next('resize-chart');
     });
 
-    this.showLoadingSpinner = true;
+    this.showLoadingSpinner = false;
 
     // delete from alert_configuration where user_id='11' and site_id='13'and alert_type='exp_energy_alert' and alert_category='pre-set-solar'
 
@@ -304,10 +304,10 @@ export class LandingComponent implements OnInit, OnDestroy {
   // initialize all http queries
   funGetLandingPageData() {
 
-    this.funGetCustomerDetail();
-    this.funGetSiteList();
-    this.funGetAssetNameList();
-    this.funGetTilesData();
+    // this.funGetCustomerDetail();
+    // this.funGetSiteList();
+    // this.funGetAssetNameList();
+    // this.funGetTilesData();
     // this.funGetChartData();
 
     // this.funGetEnergyBreakdownData();

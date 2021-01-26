@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  endPoint: 'https://resyncportal.com',
-  reportGenerationEndPoint: 'https://api.resyncportal.com',
+  endPoint: 'http://test.com',
+  reportGenerationEndPoint: "https://api.test.com",
   logging: false
 };

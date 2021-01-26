@@ -6,15 +6,15 @@ import * as S3 from 'aws-sdk/clients/s3';
 })
 export class UploadToS3Service {
 
-  BUCKET = 'elasticbeanstalk-us-east-2-109370915501'
-  FOLDER = 'resync_portal_document_upload/'
+  BUCKET = 'elasticbeanstalk'
+  FOLDER = 'cash'
 
   private getS3Bucket(): any {
     const bucket = new S3(
       {
-        accessKeyId: 'AKIARS5YDXKWWIHHVOVK',
-        secretAccessKey: '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',
-        region: 'us-east-2'
+        accessKeyId: 'A',
+        secretAccessKey: 'y',
+        region: 'us'
       }
     );
 

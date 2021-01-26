@@ -81,12 +81,12 @@ export class MyHttpInterceptor implements HttpInterceptor {
             } else {
 
                 // redirect to login page
-                this.cookie.deleteAll();
-                if (!this.router.url.includes('login')) {
-                    this.router.navigate(['/']);
-                }
-                // close all dialogs if found
-                this.dialogRef.closeAll();
+                // this.cookie.deleteAll();
+                // if (!this.router.url.includes('login')) {
+                //     this.router.navigate(['/']);
+                // }
+                // // close all dialogs if found
+                // this.dialogRef.closeAll();
 
                 // cancel request
                 return EMPTY;
@@ -168,13 +168,4 @@ export class MyHttpInterceptor implements HttpInterceptor {
         return JSON.parse(this.globalService.decrypt_request_body(event));
     }
 
-    // encrypt_string(string) {
-    //     let encrypted = CryptoJS.AES.encrypt(string, secret).toString();
-    //     return encrypted;
-    // }
-
-    // decrypt_string(string) {
-    //     let decrypted = CryptoJS.AES.decrypt(string, secret).toString(CryptoJS.enc.Utf8);
-    //     return decrypted;
-    // }
 }
