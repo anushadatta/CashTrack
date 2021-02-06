@@ -46,7 +46,7 @@ const appRoutes: Routes = [
         CookieService
     ],
     entryComponents: [
-        PersonalExpenseComponent
+        ExpenseCardComponent
     ]
 })
-export class LandingModule {}
+export class PersonalExpenseModule {}
