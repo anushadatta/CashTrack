@@ -73,6 +73,19 @@ async function insertOne (collection, insertDocument) {
 
 }
 
+async function deleteOne(collection, condition) {
+    var db = mongoUtil.getDb();
+    const getCollection = db.collection(collection);
+
+    const queryResult = await getCollection.deleteOne(condition)
+    .then(docs => {
+        console.log("select result: ", docs);
+        return docs;
+    })
+    .catch(error => {throw error});
+
+    return queryResult;
+}
 
 module.exports = {
 sendSuccess,
@@ -80,5 +93,6 @@ sendError,
 getAll,
 getOne,
 updateOne,
-insertOne
+insertOne,
+deleteOne
 }

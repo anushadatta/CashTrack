@@ -28,4 +28,9 @@ module.exports = {
         const returnList = await daoHelper.updateOne(collections.PERSONAL_EXPENSES, {bill_id:parseInt(bill_id)}, body);
         return daoHelper.sendSuccess('Personal Exp info updated', returnList['ops']);
     },
+
+    funDeletePersonalExp: async function (user_id, bill_id) {
+        const returnList = await daoHelper.deleteOne(collections.PERSONAL_EXPENSES, {bill_id:parseInt(bill_id)});
+        return daoHelper.sendSuccess('Personal Exp deleted', returnList['ops']);
+    }
 }

@@ -26,4 +26,9 @@ router.put('/updatePersonalExp', async function (req, res) {
   res.status(result.status).send(result.msg);
 });
 
+router.delete('/deletePersonalExp', async function (req, res) {
+  const result = await billsDao.funDeletePersonalExp(req.query.user_id, req.query.bill_id);
+  res.status(result.status).send(result.msg);
+})
+
 module.exports = router;
