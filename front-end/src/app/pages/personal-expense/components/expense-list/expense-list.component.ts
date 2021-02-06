@@ -7,6 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpenseListComponent implements OnInit {
 
+  personal_expenses = [
+    {
+      title : 'Pasta Express Diner',
+      amount: '15.80',
+      tag: 'Food',
+      created_at: '6th Febraury'
+    },
+    {
+      title : 'Crowded Bowl',
+      amount: '5.80',
+      tag: 'Food',
+      created_at: '2nd Febraury'
+    },
+  ]
+
   constructor() { }
 
   ngOnInit(): void {

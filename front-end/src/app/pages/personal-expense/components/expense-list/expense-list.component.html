@@ -1,1 +1,4 @@
-<p>expense-list works!</p>
+<div *ngFor="let expense of personal_expenses">
+    <app-expense-card [expense]="expense"></app-expense-card>
+    <br>
+</div>
