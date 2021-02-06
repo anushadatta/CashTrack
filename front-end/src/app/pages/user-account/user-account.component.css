@@ -1,0 +1,7 @@
+.main-container {
+    width: 100%;
+    background-color: #d3d3d352;
+    overflow: visible;
+    min-height: 97%;
+    padding: 0px 20px;
+}
