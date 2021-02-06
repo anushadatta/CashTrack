@@ -37,6 +37,11 @@ const routes: Routes = [
         path: 'personal-expense',
         loadChildren: () => import('./pages/personal-expense/personal-expense.module').then(m => m.PersonalExpenseModule),
         canActivate: [IsUserGaurd],
+      }, 
+      {
+        path: 'about-cashtrack',
+        loadChildren: () => import('./pages/about-cashtrack/about-cashtrack.module').then(m => m.AboutCashtrackModule),
+        canActivate: [IsUserGaurd],
       }
     ]
   },
