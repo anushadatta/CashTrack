@@ -15,5 +15,11 @@ module.exports = {
     funGetSharedExpPayer: async function (emailID) {
         const returnList = await daoHelper.getAll(collections.SHARED_EXPENSES, {'payer.user_id':{$eq:emailID}});
         return daoHelper.sendSuccess('Shared payer expenses found', returnList);
+    },
+
+    funCreatePersonalExp: async function (body) {
+        console.log(body);
+        const returnList = await daoHelper.insertOne(collections.PERSONAL_EXPENSES, body);
+        return daoHelper.sendSuccess('User created', returnList['ops']);  
     }
 }
