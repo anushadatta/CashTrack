@@ -27,4 +27,8 @@ export class ExpenseListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onDeleteExpense(index: number) {
+    this.personal_expenses.splice(index, 1);
+}
+
 }

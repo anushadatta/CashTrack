@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-expense-card',
@@ -9,9 +10,14 @@ import {MatCardModule} from '@angular/material/card';
 export class ExpenseCardComponent implements OnInit {
 
   @Input() expense; 
+  @Output() onDelete: EventEmitter<void> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  deleteExpense() {
+    this.onDelete.emit();
+   }
 
 }
