@@ -1,22 +1,19 @@
 @import "../../../assets/theme/variables";
-
 // @import '../../../assets/theme/master.scss';
 // $top-bar-bg-color: #273544;
 // $top-bar-item-color: white;
 $top-bar-height: 40px;
-
 // :host {
 //     overflow: visible;
-
 // }
 .navbar {
-    padding-left: 0;
+    padding-left: 20px;
     position: fixed;
     top: 0;
     // right: 0;
     z-index: 8000;
     height: $top-bar-height;
-    background-color: $top-bar-bg-color;
+    background-color: #0D1577;
     color: $top-bar-item-color;
     display: flex;
     justify-content: space-between;
@@ -60,7 +57,7 @@ $top-bar-height: 40px;
 }
 
 .logo-text-heavy {
-    font-family: "Montserrat";
+    font-family: "Yaldevi Colombo Medium";
     font-weight: 700;
     font-size: 170%;
     letter-spacing: 3px;
@@ -68,7 +65,7 @@ $top-bar-height: 40px;
 }
 
 .logo-text-heavy-yellow {
-    font-family: "Montserrat";
+    font-family: "Yaldevi Colombo Medium";
     font-weight: 700;
     font-size: 170%;
     letter-spacing: 3px;
@@ -97,16 +94,13 @@ $top-bar-height: 40px;
     .navbar {
         height: $top-bar-height + 10px;
     }
-
     .top-bar-icons {
         display: none;
     }
-
     .hamburger-icon {
         position: absolute;
         left: 15px;
     }
-
     .top-bar-item {
         width: 100%;
     }
