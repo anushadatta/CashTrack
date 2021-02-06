@@ -12,6 +12,10 @@ import { CommonComponentsModule } from 'src/app/modules/common-components/common
 import { CustomMaterialModule } from 'src/app/modules/custom-material/custom-material.module';
 import echarts from 'echarts/index.common'
 import { SharedExpenseComponent } from './shared-expense.component';
+import { SplitByComponent } from './split-by/split-by.component';
+import { InputExpenseComponent } from './input-expense/input-expense.component';
+import { ExpenseListComponent } from './expense-list/expense-list.component';
+import { ExpenseCardComponent } from './expense-card/expense-card.component';
 
 const appRoutes: Routes = [
     { path: '', component: SharedExpenseComponent }
@@ -20,6 +24,10 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [
         SharedExpenseComponent,
+        SplitByComponent,
+        InputExpenseComponent,
+        ExpenseListComponent,
+        ExpenseCardComponent,
     ],
     imports: [
         CommonModule,
