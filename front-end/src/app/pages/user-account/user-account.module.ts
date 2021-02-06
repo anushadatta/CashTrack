@@ -22,7 +22,7 @@ import echarts from 'echarts/index.common'
 
 
 const appRoutes: Routes = [
-    { path: 'user-account', component: UserAccountComponent }
+    { path: '', component: UserAccountComponent }
 ];
 
 @NgModule({
