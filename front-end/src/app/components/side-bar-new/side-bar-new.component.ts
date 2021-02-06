@@ -22,6 +22,7 @@ import { CookieKeys, UserType } from 'src/app/common/enum';
     templateUrl: "./side-bar-new.component.html",
     styleUrls: ["./side-bar-new.component.scss"],
 })
+
 export class SideBarNewComponent implements OnInit, OnDestroy {
     @Output() sidebarItemClicked = new EventEmitter<string>();
     @Input() categoryList: Observable<string[]>;
@@ -75,16 +76,6 @@ export class SideBarNewComponent implements OnInit, OnDestroy {
                 this.sidebarItems = navList;
 
                 const user_type = 'user';
-
-                // if (user_type == UserType.site || user_type == UserType.demo_site) {
-                //     const index = navList.findIndex(d => d.id == 'sites');
-
-                //     this.showOperationsHeader = false;
-
-                //     if (index > -1) {
-                //         navList.splice(index, 1);
-                //     }
-                // }
 
             }
         });

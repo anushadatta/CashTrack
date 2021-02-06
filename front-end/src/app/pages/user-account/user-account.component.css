@@ -1,7 +1,119 @@
-.main-container {
+/* Helper Styles */
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    overflow: hidden;
+    padding: 4rem 1rem;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+.grid-2 {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+/* User Information */
+
+.user-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+}
+
+.user-name {
+    height: 20px;
+    left: 32.22%;
+    right: 32.22%;
+    top: calc(50% - 20px/2 - 358px);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height, or 125% */
+    text-align: center;
+    letter-spacing: -0.05px;
+}
+
+.user-email {
+    height: 20px;
+    left: 32.22%;
+    right: 32.22%;
+    top: calc(50% - 20px/2 - 358px);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height, or 125% */
+    text-align: center;
+    letter-spacing: -0.05px;
+}
+
+
+/* Personal Expense Reminder Slider */
+
+.slidecontainer {
     width: 100%;
-    background-color: #d3d3d352;
-    overflow: visible;
-    min-height: 97%;
-    padding: 0px 20px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #455e77;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #455e77;
+    cursor: pointer;
+}
+
+
+/* Delete Account Button */
+
+.delete-button {
+    background-color: #455e77;
+    color: #f4f4f4;
+    margin-right: 40px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 1vh;
+    border-color: lightslategray;
 }

@@ -1,6 +1,39 @@
 <!-- <ng4-loading-spinner></ng4-loading-spinner> -->
 <app-custom-loading-spinner [show]="showLoadingSpinner"></app-custom-loading-spinner>
 
-<div class="main-container">
-    <div> USER ACCOUNT</div>
+<div class="container">
+
+    <!-- User Information -->
+    <div class="user-photo" *ngIf="user_img != 'undefined'" style="background-image:url({{user_img}})"></div>
+    <div class="user-name" *ngIf=" user_name != 'undefined'"> {{user_name}} </div>
+    <div class="user-email" *ngIf="user_email != 'undefined'">{{user_email}}</div>
+
+
+    <!-- Set Personal Expense Limit -->
+    <label>Personal Expense Limit:</label>
+    <select id="personal-expense-limit">
+        <option value="off">OFF</option>
+        <option value="daily">DAILY</option>
+        <option value="weekly">WEEKLY</option>
+        <option value="monthly">MONTHLY</option>
+        <option value="yearly">YEARLY</option>
+    </select>
+    <br>
+
+    <!-- Reminder % -->
+    <label>Personal Expense Limit [$]:</label>
+    <input type="text" id="fname" name="fname"><br>
+
+    <!-- Personal Expense Reminder Slider -->
+    <label>Reminder when Expense Limit reaches [%]:</label>
+    <div class="slidecontainer center">
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+    </div>
+
+    <!-- Delete Account Button  -->
+    <div class="center">
+        <button class="delete-button">Delete Account</button>
+    </div>
+
+
 </div>
