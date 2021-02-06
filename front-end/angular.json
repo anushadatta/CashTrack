@@ -39,7 +39,8 @@
                 "input": "src/assets/theme/103/style.scss",
                 "bundleName": "103",
                 "lazy": true
-              }, {
+              },
+              {
                 "input": "src/assets/theme/14/style.scss",
                 "bundleName": "14",
                 "lazy": true
@@ -139,5 +140,8 @@
       }
     }
   },
-  "defaultProject": "front-end"
+  "defaultProject": "front-end",
+  "cli": {
+    "analytics": false
+  }
 }

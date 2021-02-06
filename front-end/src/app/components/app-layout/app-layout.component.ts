@@ -28,7 +28,7 @@ import { FormModalComponent } from "../form-modal/form-modal.component";
 import {
   bottomNavList,
   dashboardElement,
-  aboutElement,
+  supportNavList,
   payNavList
 } from "../side-bar-new/NavLists";
 import { LoggingService } from "./../../services/logging.service";
@@ -188,7 +188,7 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
   funCreateLandingPageNavList() {
     let _sideNavItemList: SideBar[] = [];
 
-    _sideNavItemList = [...bottomNavList, ...payNavList, dashboardElement, aboutElement];
+    _sideNavItemList = [...bottomNavList, ...payNavList, dashboardElement, ...supportNavList];
 
     this.funUpdateSideBarList(_sideNavItemList);
     this.funUpdateSideBarCategories([
@@ -198,13 +198,8 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
         expanded: true,
       },
       {
-        id: "pay",
-        title: "Pay",
-        expanded: true,
-      },
-      {
-        id: "about",
-        title: "About",
+        id: "support",
+        title: "Support",
         expanded: true,
       },
       {
