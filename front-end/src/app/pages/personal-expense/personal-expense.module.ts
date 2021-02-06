@@ -46,7 +46,7 @@ const appRoutes: Routes = [
         CookieService
     ],
     entryComponents: [
-        ExpenseCardComponent
+        PersonalExpenseComponent
     ]
 })
 export class PersonalExpenseModule {}

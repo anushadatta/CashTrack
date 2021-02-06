@@ -1,4 +1,4 @@
 <div *ngFor="let expense of personal_expenses">
-    <app-expense-card [expense]="expense" (onDelete)="onDeleteExpense(expense)"></app-expense-card>
+    <app-expense-card [expense]="expense" (onEditCard)= "onEditExpense($event)" (onDelete)="onDeleteExpense(expense)"></app-expense-card>
     <br>
 </div>
