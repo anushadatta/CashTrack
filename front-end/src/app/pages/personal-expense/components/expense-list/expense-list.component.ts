@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import {EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-expense-list',
@@ -7,24 +8,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpenseListComponent implements OnInit {
 
+  @Input() editExpense;
+  @Output() onEdit: EventEmitter<void> = new EventEmitter();
+
   personal_expenses = [
     {
-      title : 'Pasta Express Diner',
+      name : 'Pasta Express Diner',
       amount: '15.80',
-      tag: 'Food',
-      created_at: '6th Febraury'
+      category: 'Food',
+      created_at: '6th Febraury, 2021'
     },
     {
-      title : 'Crowded Bowl',
+      name: 'Crowded Bowl',
       amount: '5.80',
-      tag: 'Food',
-      created_at: '2nd Febraury'
+      category: 'Food',
+      created_at: '2nd Febraury, 2021'
     },
   ]
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onDeleteExpense(index: number) {
+    this.personal_expenses.splice(index, 1);
+}
+
+  onEditExpense(expense){
+    this.editExpense = expense;
+    this.callParent();
+  }
+
+  callParent() {
+    this.onEdit.emit(this.editExpense);
   }
 
 }

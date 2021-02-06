@@ -4,6 +4,7 @@
     <mat-label>Label</mat-label>
     <input matInput [(ngModel)]="data.name">
   </mat-form-field>
+  <br>
   <mat-form-field>
     <mat-label>Category</mat-label>
     <mat-select [(value)]="category">
@@ -12,6 +13,7 @@
       </mat-option>
     </mat-select>    
   </mat-form-field>
+  <br>
   <mat-form-field>
    <mat-label>S$ Amount</mat-label>
     <input matInput [(ngModel)]="data.amount">
@@ -20,4 +22,5 @@
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()"> CANCEL </button>
   <button mat-button (click)="addExpense()" [mat-dialog-close]="data.amount" cdkFocusInitial> ADD </button>
+  <!-- 'update' or 'add' based on situation -->
 </div>
