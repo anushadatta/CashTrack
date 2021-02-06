@@ -1,0 +1,19 @@
+/* Helper Styles */
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    overflow: hidden;
+    padding: 4rem 1rem;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+hr {
+    width: 70%;
+    text-align-last: center;
+    border: 1.5px solid #c0c0c0;
+}

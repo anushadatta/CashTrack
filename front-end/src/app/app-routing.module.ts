@@ -38,13 +38,25 @@ const routes: Routes = [
         loadChildren: () => import('./pages/personal-expense/personal-expense.module').then(m => m.PersonalExpenseModule),
         canActivate: [IsUserGaurd],
       }, 
+    ]
+  },
+
+  {
+    path: 'support',
+    component: AppLayoutComponent,
+    children: [
       {
         path: 'about-cashtrack',
         loadChildren: () => import('./pages/about-cashtrack/about-cashtrack.module').then(m => m.AboutCashtrackModule),
         canActivate: [IsUserGaurd],
+      },
+      {
+        path: 'faq',
+        loadChildren: () => import('./pages/faq/faq.module').then(m => m.FaqModule),
+        canActivate: [IsUserGaurd],
       }
     ]
-  },
+  }
 ];
 
 @NgModule({

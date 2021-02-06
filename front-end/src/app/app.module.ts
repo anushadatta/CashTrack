@@ -14,14 +14,11 @@ import { AppComponent } from "./app.component";
 import { MyHttpInterceptor } from "./common/http.interceptor";
 import { notifierOptions } from "./common/variable";
 import { AppLayoutComponent } from "./components/app-layout/app-layout.component";
-// import { DetailInfoComponent } from './components/detail-info/detail-info.component';
 import { FormModalComponent } from "./components/form-modal/form-modal.component";
 import { LoginLayoutComponent } from "./components/login-layout/login-layout.component";
 import { SideBarNewComponent } from "./components/side-bar-new/side-bar-new.component";
 import { TopBarComponent } from "./components/top-bar/top-bar.component";
 import { CommonComponentsModule } from "./modules/common-components/common-components.module";
-// import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
-// import { ParticlesModule } from 'angular-particle';
 import { CustomMaterialModule } from "./modules/custom-material/custom-material.module";
 import { ConfirmDeleteDialog } from "./components/confirm-delete/confirm-delete.component";
 import { InfoAlertDialog } from "./components/info-alert/info-alert.component";
@@ -33,6 +30,7 @@ import { CustomShowHideDirective } from "./common/custom-show-hide.directive";
 
 import { LoggerModule, NgxLoggerLevel } from "ngx-logger";
 import { JoyrideModule } from 'ngx-joyride';
+
 
 @NgModule({
     declarations: [
