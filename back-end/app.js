@@ -10,7 +10,7 @@ const users = require('./routes/Users');
 mongoUtil.connectToServer( function( err, client ) {
   if (err) console.log(err);
   // start the rest of your app here
-  else console.log("Connected to Mongo! ...");
+  else console.log("Connected to Mongo!");
 } );
 
 server.use(bodyParser.json());
