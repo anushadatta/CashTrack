@@ -4,34 +4,19 @@
             <ng-content></ng-content>
         </div>
         <div *ngIf="!customTheme" class="logo-container">
-            <h1
-                class="logo-text-heavy cursor-pointer"
-                (click)="removeTheme(); redirect('dashboard/landing')"
-            >
-                CASH
+            <h1 class="logo-text-heavy cursor-pointer" (click)="removeTheme(); redirect('dashboard/landing')">
+                Cash
             </h1>
-            <h1
-                class="logo-text-heavy-yellow cursor-pointer"
-                (click)="removeTheme(); redirect('dashboard/landing')"
-            >
-                TRACK
+            <h1 class="logo-text-heavy-yellow cursor-pointer" (click)="removeTheme(); redirect('dashboard/landing')">
+                Track
             </h1>
         </div>
         <!-- <img *ngIf="!customTheme" class="top-bar-title-img pl-3 cursor-pointer" (click)="removeTheme(); redirect('/')" src="/assets/img/logo/resync_logo.png"  /> -->
         <div *ngIf="customTheme" class="second-container">
-            <img
-                class="top-bar-title-custom-img pl-3 cursor-pointer"
-                (click)="removeTheme(); redirect('/')"
-                src="/assets/theme/{{ clientID }}/logo.png"
-                onerror="if (this.src != '/assets/img/logo/resync_logo.png') this.src = '/assets/img/logo/resync_logo.png'"
-            />
+            <img class="top-bar-title-custom-img pl-3 cursor-pointer" (click)="removeTheme(); redirect('/')" src="/assets/theme/{{ clientID }}/logo.png" onerror="if (this.src != '/assets/img/logo/resync_logo.png') this.src = '/assets/img/logo/resync_logo.png'" />
         </div>
     </div>
-    <h6
-        *ngIf="!mobileView && sitename"
-        class="top-bar-sitename"
-        [class]="{ 'top-bar-sitename-compact': !sidebarOpen }"
-    >
+    <h6 *ngIf="!mobileView && sitename" class="top-bar-sitename" [class]="{ 'top-bar-sitename-compact': !sidebarOpen }">
         {{ sitename }}
     </h6>
 
@@ -48,12 +33,7 @@
   <a [routerLink]="'/'">
     <i class="fas fa-sign-out-alt color-white"></i>
   </a>  -->
-        <a
-            *ngFor="let item of sidebarItems; trackBy: trackById"
-            [matTooltip]="item.pageTitle"
-            class="cursor-pointer"
-            (click)="sideBarClicked(item)"
-        >
+        <a *ngFor="let item of sidebarItems; trackBy: trackById" [matTooltip]="item.pageTitle" class="cursor-pointer" (click)="sideBarClicked(item)">
             <i [class]="item.icon"></i>
         </a>
         <div *ngIf="sidebarItems.length == 0" class="placeholder"></div>

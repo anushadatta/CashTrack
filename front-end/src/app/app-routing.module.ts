@@ -32,10 +32,14 @@ const routes: Routes = [
       {
         path: 'user-account',
         loadChildren: () => import('./pages/user-account/user-account.module').then(m => m.UserAccountModule),
+      },
+      {
+        path: 'personal-expense',
+        loadChildren: () => import('./pages/personal-expense/personal-expense.module').then(m => m.PersonalExpenseModule),
         canActivate: [IsUserGaurd],
       }
     ]
-  }
+  },
 ];
 
 @NgModule({

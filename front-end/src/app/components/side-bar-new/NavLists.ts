@@ -73,13 +73,13 @@ export const bottomNavList: SideBar[] = [
     {
         id: "notifications",
         pageTitle: "Notifications",
-        icon: "fas fa-bell",
+        icon: "fas fa-bell color-white",
         category: "logout",
     },
     {
         id: "logout",
         pageTitle: "Logout",
-        icon: "fas fa-sign-out-alt",
+        icon: "fas fa-sign-out-alt color-white",
         category: "logout",
     },
 ];
