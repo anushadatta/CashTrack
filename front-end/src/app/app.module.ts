@@ -35,6 +35,7 @@ import { LoggerModule, NgxLoggerLevel } from "ngx-logger";
 import { JoyrideModule } from 'ngx-joyride';
 import { UserAccountComponent } from '../app/pages/user-account/user-account.component';
 import { PersonalExpenseComponent } from './pages/personal-expense/personal-expense.component';
+import { AboutCashtrackComponent } from './pages/about-cashtrack/about-cashtrack.component';
 
 @NgModule({
     declarations: [

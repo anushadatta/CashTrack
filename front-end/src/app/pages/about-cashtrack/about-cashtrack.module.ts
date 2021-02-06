@@ -9,15 +9,15 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { AGM_API_KEY } from 'src/app/common/variable';
 import { CommonComponentsModule } from 'src/app/modules/common-components/common-components.module';
 import { CustomMaterialModule } from 'src/app/modules/custom-material/custom-material.module';
-import { UserAccountComponent } from './user-account.component';
+import { AboutCashtrackComponent } from './about-cashtrack.component'; 
 
 const appRoutes: Routes = [
-    { path: '', component: UserAccountComponent }
+    { path: '', component: AboutCashtrackComponent }
 ];
 
 @NgModule({
     declarations: [
-        UserAccountComponent,
+        AboutCashtrackComponent,
     ],
     imports: [
         CommonModule,
@@ -38,4 +38,4 @@ const appRoutes: Routes = [
     ]
 })
 
-export class UserAccountModule {}
+export class AboutCashtrackModule {}
