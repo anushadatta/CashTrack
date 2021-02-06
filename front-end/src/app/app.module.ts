@@ -33,6 +33,7 @@ import { CustomShowHideDirective } from "./common/custom-show-hide.directive";
 
 import { LoggerModule, NgxLoggerLevel } from "ngx-logger";
 import { JoyrideModule } from 'ngx-joyride';
+import { PersonalExpenseComponent } from './components/personal-expense/personal-expense.component';
 
 @NgModule({
     declarations: [
@@ -45,7 +46,7 @@ import { JoyrideModule } from 'ngx-joyride';
         // DemoAccountComponent,
         ConfirmDeleteDialog,InfoAlertDialog,
         TopBarComponent,
-        SideBarNewComponent,CustomShowHideDirective
+        SideBarNewComponent,CustomShowHideDirective, PersonalExpenseComponent
     ],
     imports: [
         FormsModule,
