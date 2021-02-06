@@ -33,6 +33,7 @@ import { CustomShowHideDirective } from "./common/custom-show-hide.directive";
 
 import { LoggerModule, NgxLoggerLevel } from "ngx-logger";
 import { JoyrideModule } from 'ngx-joyride';
+import { PersonalExpenseComponent } from './pages/personal-expense/personal-expense.component';
 
 @NgModule({
     declarations: [

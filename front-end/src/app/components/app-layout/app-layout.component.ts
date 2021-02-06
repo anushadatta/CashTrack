@@ -234,7 +234,17 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
   navItemClicked(id: string) {
     if(id === 'logout') {
       this.cookie.deleteAll();
-      this.router.navigateByUrl("/");
+      this.router.navigateByUrl('/');
+    }
+
+    if(id=='personal_expenses') {
+      console.log(id);
+      this.router.navigateByUrl('/dashboard/personal-expense')
+    }
+
+    if(id=='home') {
+      console.log(id);
+      this.router.navigateByUrl('/dashboard/landing-page')
     }
    
     console.log(`clicked on id: ${id}`);

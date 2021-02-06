@@ -27,9 +27,14 @@ const routes: Routes = [
         path: 'landing-page',
         loadChildren: () => import('./pages/landing/landing.module').then(m => m.LandingModule),
         canActivate: [IsUserGaurd],
+      },
+      {
+        path: 'personal-expense',
+        loadChildren: () => import('./pages/personal-expense/personal-expense.module').then(m => m.PersonalExpenseModule),
+        canActivate: [IsUserGaurd],
       }
     ]
-  }
+  },
 ];
 
 @NgModule({
