@@ -27,6 +27,11 @@ const routes: Routes = [
         path: 'landing-page',
         loadChildren: () => import('./pages/landing/landing.module').then(m => m.LandingModule),
         canActivate: [IsUserGaurd],
+      }, 
+
+      {
+        path: 'user-account',
+        loadChildren: () => import('./pages/user-account/user-account.module').then(m => m.UserAccountModule),
       },
       {
         path: 'personal-expense',

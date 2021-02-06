@@ -246,6 +246,9 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
       console.log(id);
       this.router.navigateByUrl('/dashboard/landing-page')
     }
+    if(id === 'account') {
+      this.router.navigateByUrl("dashboard/user-account");
+    }
    
     console.log(`clicked on id: ${id}`);
   }
