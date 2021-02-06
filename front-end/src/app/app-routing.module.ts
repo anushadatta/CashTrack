@@ -38,6 +38,11 @@ const routes: Routes = [
         loadChildren: () => import('./pages/personal-expense/personal-expense.module').then(m => m.PersonalExpenseModule),
         canActivate: [IsUserGaurd],
       }, 
+      {
+        path: 'shared-expense',
+        loadChildren: () => import('./pages/shared-expense/shared-expense.module').then(m => m.SharedExpenseModule),
+        canActivate: [IsUserGaurd],
+      }, 
     ]
   },
 

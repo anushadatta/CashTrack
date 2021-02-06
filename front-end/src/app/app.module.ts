@@ -27,10 +27,8 @@ import { TimeagoModule} from 'ngx-timeago';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CUSTOM_BREAKPOINTS } from "./common/custom-breakpoints";
 import { CustomShowHideDirective } from "./common/custom-show-hide.directive";
-
 import { LoggerModule, NgxLoggerLevel } from "ngx-logger";
 import { JoyrideModule } from 'ngx-joyride';
-
 
 @NgModule({
     declarations: [

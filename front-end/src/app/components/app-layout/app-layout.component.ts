@@ -242,6 +242,11 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
       this.router.navigateByUrl('/dashboard/personal-expense')
     }
 
+    if(id=='shared_expenses') {
+      console.log(id);
+      this.router.navigateByUrl('/dashboard/shared-expense')
+    }
+
     if(id=='home') {
       console.log(id);
       this.router.navigateByUrl('/dashboard/landing-page')
