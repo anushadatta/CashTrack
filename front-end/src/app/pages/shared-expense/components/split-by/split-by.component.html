@@ -1,1 +1,16 @@
-<p>split-by works!</p>
+<h1 mat-dialog-title>Choose How To Split Cost</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Split By Method</mat-label>
+    <mat-select [(value)]="split_by_method">
+      <mat-option *ngFor="let method of methods" [value]="method">
+        {{method}}
+      </mat-option>
+    </mat-select>    
+  </mat-form-field>
+  <br>
+</div>
+<div mat-dialog-actions>
+  <button mat-button> CANCEL </button>
+  <button mat-button cdkFocusInitial> CONFIRM </button>
+</div>

@@ -1,11 +1,18 @@
 import { Component, OnInit, Input, Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {SplitByComponent} from '../split-by/split-by.component';
 
-export interface DialogData {
+export interface ExpenseData {
   name: string;
   category: string;
   amount: string;
   friend: string;
+  split_by_method: string;
+}
+
+export interface SplitData {
+  split_by_method: string;
+  
 }
 
 @Component({
@@ -19,14 +26,15 @@ export class InputExpenseComponent implements OnInit {
   categories = ['Food', 'Travel', 'Shopping', 'Others'];
   category = 'Others';
   friend = "";
+  split_by_method = "";
 
   friends = ['Anusha', 'Mehul']
 
   @Input() updateExpense: boolean;
   
-  constructor(
-    public dialogRef: MatDialogRef<InputExpenseComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+  constructor(public dialog: MatDialog,
+    public dialogRef: MatDialogRef<SplitByComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: ExpenseData, @Inject(MAT_DIALOG_DATA) public split_data: SplitData) {
     }
 
   onNoClick(): void {
@@ -40,6 +48,18 @@ export class InputExpenseComponent implements OnInit {
     this.data.category = this.category;
     this.data.friend = this.friend;
     console.log(this.data);
+  }
+
+  SplitByPopUp() {
+    console.log("split");
+    const dialogRef = this.dialog.open(SplitByComponent, {
+      width: '500px',
+      data: {split_by_method: this.split_by_method}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }
 
