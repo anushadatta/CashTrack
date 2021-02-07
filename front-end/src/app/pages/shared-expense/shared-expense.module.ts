@@ -16,6 +16,8 @@ import { SplitByComponent } from './components/split-by/split-by.component';
 import { InputExpenseComponent } from './components/input-expense/input-expense.component';
 import { ExpenseListComponent } from './components/expense-list/expense-list.component';
 import { ExpenseCardComponent } from './components/expense-card/expense-card.component';
+import { SummaryRowListComponent } from './components/summary-row-list/summary-row-list.component';
+import { SummaryCardsComponent } from './components/summary-cards/summary-cards.component';
 
 const appRoutes: Routes = [
     { path: '', component: SharedExpenseComponent }
@@ -28,6 +30,8 @@ const appRoutes: Routes = [
         InputExpenseComponent,
         ExpenseListComponent,
         ExpenseCardComponent,
+        SummaryRowListComponent,
+        SummaryCardsComponent
     ],
     imports: [
         CommonModule,
