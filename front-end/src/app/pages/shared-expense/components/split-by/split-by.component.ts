@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SplitByComponent implements OnInit {
 
+  methods = ['Equally', 'Shares', 'Amount'];
   constructor() { }
 
   ngOnInit(): void {
