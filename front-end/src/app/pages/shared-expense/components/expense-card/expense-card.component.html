@@ -1,42 +1,44 @@
-<mat-card>
-  <div *ngIf="expense.type=='1'">
-    <div class='border-red' style="padding:15px;">
-      <mat-card-header>
-        <div mat-card-avatar>
-            <img src="../../../../../assets/img/logo/R.png">
-            &nbsp; &nbsp;
-        </div>
-        <mat-card-title> {{ expense.name }} &nbsp; &nbsp; {{ expense.category }}</mat-card-title>
-        <mat-card-subtitle>{{ expense.created_at }}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-          <b> You owe {{ getName(expense.author) }} S$ {{ expense.amount }}  </b> 
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>COMMENTS</button>
-        <button mat-button>SETTLE UP</button>
-      </mat-card-actions>
+<div class="card-size">
+  <mat-card>
+    <div *ngIf="expense.type=='1'">
+      <div class='border-red' style="padding:15px;">
+        <mat-card-header>
+          <div mat-card-avatar>
+              <img src="../../../../../assets/img/logo/R.png">
+              &nbsp; &nbsp;
+          </div>
+          <mat-card-title> {{ expense.name }} &nbsp; &nbsp; {{ expense.category }}</mat-card-title>
+          <mat-card-subtitle>{{ expense.created_at }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <b> You owe {{ getName(expense.author) }} S$ {{ expense.amount }}  </b> 
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>COMMENTS</button>
+          <button mat-button>SETTLE UP</button>
+        </mat-card-actions>
+      </div>
     </div>
-  </div>
-  <div *ngIf="expense.type=='2'">
-    <div class='border-green' style="padding:15px;">
-      <mat-card-header>
-        <div mat-card-avatar>
-            <img src="../../../../../assets/img/logo/R.png">
-            &nbsp; &nbsp;
-        </div>
-        <mat-card-title> {{ expense.name }} &nbsp; &nbsp; {{ expense.category }}</mat-card-title>
-        <mat-card-subtitle>{{ expense.created_at }}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-          <div *ngFor="let payer of expense.payers; index as i">
-              <b> {{ getName(expense.payers) }} owes you S$ {{ expense.amount }} </b>
-          </div>   
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>COMMENTS</button>
-        <button mat-button>SETTLE UP</button>
-      </mat-card-actions>
+    <div *ngIf="expense.type=='2'">
+      <div class='border-green' style="padding:15px;">
+        <mat-card-header>
+          <div mat-card-avatar>
+              <img src="../../../../../assets/img/logo/R.png">
+              &nbsp; &nbsp;
+          </div>
+          <mat-card-title> {{ expense.name }} &nbsp; &nbsp; {{ expense.category }}</mat-card-title>
+          <mat-card-subtitle>{{ expense.created_at }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <div *ngFor="let payer of expense.payers; index as i">
+                <b> {{ getName(expense.payers) }} owes you S$ {{ expense.amount }} </b>
+            </div>   
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>COMMENTS</button>
+          <button mat-button>SETTLE UP</button>
+        </mat-card-actions>
+      </div>
     </div>
-  </div>
-</mat-card>
+  </mat-card>
+</div>
