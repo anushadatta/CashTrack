@@ -3,7 +3,7 @@ import { SideBar } from "src/app/types/common.type";
 export const dashboardElement: SideBar = 
     {
         id: "user_dashboard", // To be filled in when generating the dashboard component
-        pageTitle: "Home",
+        pageTitle: "Dashboard",
         icon: "fas fa-columns",
         category: "dashboard",
     };

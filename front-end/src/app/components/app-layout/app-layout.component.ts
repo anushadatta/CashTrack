@@ -188,13 +188,13 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
   funCreateLandingPageNavList() {
     let _sideNavItemList: SideBar[] = [];
 
-    _sideNavItemList = [...bottomNavList, ...payNavList, dashboardElement, ...supportNavList];
+    _sideNavItemList = [...bottomNavList, dashboardElement, ...payNavList, ...supportNavList];
 
     this.funUpdateSideBarList(_sideNavItemList);
     this.funUpdateSideBarCategories([
       {
         id: "dashboard",
-        title: "Dashboard",
+        title: "Home",
         expanded: true,
       },
       {

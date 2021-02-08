@@ -1,13 +1,12 @@
 // Side Bar theming variables
-$side-bar-bg-color: #008264;
-$side-bar-item-color: #fff; // #616161 ;
-$side-bar-selected-color: #fff;
-$side-bar-selected-bg-color: #00654e; // #1d2531 ;
-$side-bar-font-family: Helvetica, sans-serif;
+$side-bar-bg-color: rgba(255, 255, 255, 0.769);
+$side-bar-item-color: #66788A; // #616161 ;
+$side-bar-selected-color: white;
+$side-bar-selected-bg-color: #0D1577; // #1d2531 ;
+$side-bar-font-family: Helvetica,
+sans-serif;
 $side-bar-width: 240px;
-
-$shadow-color: #008264;
-
+$shadow-color: #66788A;
 // Top Bar theming variables
 $top-bar-bg-color: white; // #273544 ;
-$top-bar-item-color: #008264; // #008264 ;
+$top-bar-item-color: #0D1577; // #008264 ;

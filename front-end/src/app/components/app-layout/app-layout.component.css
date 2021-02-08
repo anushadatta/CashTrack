@@ -74,7 +74,7 @@ a:hover {
 .sidenav-example {
     position: fixed;
     width: 220px;
-    background-color:#3d4952;
+    background-color: #3d4952;
 }
 
 .mat-sidenav-open {
@@ -251,21 +251,18 @@ span {
     padding: 0px 13px;
 }
 
-.side-bar-item:active, .side-bar-item:focus {
-    background-color: #56d66c82;
-}
-
-.footer{
+.footer {
     flex-shrink: 0;
     flex-grow: 0;
     background: #eee;
     bottom: 0px;
     position: fixed;
-    height: 30px ! important;
+    height: 45px ! important;
     min-height: 30px ! important;
     background-color: white;
-    box-shadow: 0px 2px 6px #008264;
-  }
+    box-shadow: 0px 2px 6px #616161;
+    margin-top: 5px;
+}
 
 .reserved-text {
     text-align: center;
@@ -279,7 +276,8 @@ span {
     color: #fff !important;
 }
 
-.custom-accordion, .custom-accordion-sub-menu {
+.custom-accordion,
+.custom-accordion-sub-menu {
     width: 100%;
     background-color: inherit;
     border: none;
@@ -300,8 +298,7 @@ span {
 
 .custom-accordion:hover,
 .custom-accordion.is-open,
-.custom-accordion-sub-menu:hover
-.custom-accordion-sub-menu.is-open,
+.custom-accordion-sub-menu:hover .custom-accordion-sub-menu.is-open,
 .menu_hover-item:hover {
     background-color: #ffffff45;
 }
@@ -331,13 +328,9 @@ span {
 }
 
 .menu-selected-item {
-    background-color: #4eaf63;
+    background-color: #0D1577;
 }
 
-.bg-tv-color {
-    background-color: #1B5FA0 !important;
-    color: white !important;
-}
 
 /* Small devices (tablets, 768px and up) */
 
@@ -358,6 +351,7 @@ span {
     }
 }
 
+
 /* Medium devices (desktops, 992px and up) */
 
 @media (max-width: 1199px) and (min-width: 992px) {
@@ -375,7 +369,8 @@ span {
     .mat-expansion-panel-header {
         padding: 0px 15px;
     }
-    .custom-accordion, .custom-accordion-sub-menu {
+    .custom-accordion,
+    .custom-accordion-sub-menu {
         font-size: 13px;
     }
     .fa-style-bottom {
@@ -385,6 +380,7 @@ span {
         font-size: 0.9em;
     }
 }
+
 
 /* Large devices (large desktops, 1200px and up) */
 
@@ -442,42 +438,3 @@ span {
         display: block;
     }
 }
-/* @media (max-width: 3850px) and (min-width: 2000px) {
-    * {
-        font-size: 35px;
-    }
-    .logo-text {
-        font-size: 75px;
-    }
-    .sidebar-expand {
-        width: 40px;
-        height: 40px;
-    }
-    .navigation-icon {
-        padding-top: 28px;
-    }
-    ::ng-deep .mat-nav-list ::ng-deep .mat-list-item {
-        height: 90px !important;
-    }
-    .mat-sidenav-open {
-        width: 440px;
-    }
-    .mat-sidenav-content-open {
-        margin-left: 440px !important;
-    }
-    .mat-sidenav-close {
-        width: 90px;
-    }
-    .mat-sidenav-content-close {
-        margin-left: 90px !important;
-    }
-    .icon-style {
-        width: 60px;
-        height: 60px;
-        padding: 6px;
-    }
-    .energy-icon {
-        width: 50px;
-        height: 50px;
-    }
-} */

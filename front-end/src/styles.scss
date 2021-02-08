@@ -1,11 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+
 /* You can add global styles to this file, and also import other style files */
 
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~angular-notifier/styles.css";
+
 /* @import "~c3/c3.min.css"; */
 
-html, body {
+html,
+body {
     height: 100vh;
     font-family: 'geomanistregular' !important;
 }
@@ -14,17 +18,15 @@ html, body {
     font-family: 'Material Icons' !important;
 }
 
-::ng-deep .mat-form-field, ::ng-deep .mat-option {
+::ng-deep .mat-form-field,
+ ::ng-deep .mat-option {
     font-family: 'geomanistregular' !important;
 }
 
 @font-face {
     font-family: 'geomanistregular';
     src: url('/assets/fonts/giomenist/geomanist-regular-webfont.eot');
-    src: url('/assets/fonts/giomenist/geomanist-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/assets/fonts/giomenist/geomanist-regular-webfont.woff2') format('woff2'),
-         url('/assets/fonts/giomenist/geomanist-regular-webfont.woff') format('woff'),
-         url('/assets/fonts/giomenist/geomanist-regular-webfont.ttf') format('truetype');
+    src: url('/assets/fonts/giomenist/geomanist-regular-webfont.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/giomenist/geomanist-regular-webfont.woff2') format('woff2'), url('/assets/fonts/giomenist/geomanist-regular-webfont.woff') format('woff'), url('/assets/fonts/giomenist/geomanist-regular-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -50,7 +52,8 @@ input[type=number]::-webkit-outer-spin-button {
     outline-width: 0px !important;
 }
 
-.btn, .badge {
+.btn,
+.badge {
     font-size: inherit;
 }
 
@@ -69,6 +72,7 @@ p {
 .padding-5 {
     padding: 5px;
 }
+
 .padding-3 {
     padding: 3px;
 }
@@ -204,7 +208,7 @@ p {
     animation-iteration-count: infinite;
     animation-name: placeHolderShimmer;
     animation-timing-function: linear;
-    background: #F6F6F6;
+    background: #E5E5E5;
     // background: linear-gradient(153deg, #F6F6F6 8%, #e0e0e0 18%, #F6F6F6 33%);
     background: linear-gradient(to right, #F6F6F6 8%, #e0e0e0 18%, #F6F6F6 33%);
     background-size: 800px 104px;
@@ -226,7 +230,6 @@ p {
     0% {
         background-position: -468px 0
     }
-
     100% {
         background-position: 468px 0
     }
