@@ -10,6 +10,7 @@ import { AGM_API_KEY } from 'src/app/common/variable';
 import { CommonComponentsModule } from 'src/app/modules/common-components/common-components.module';
 import { CustomMaterialModule } from 'src/app/modules/custom-material/custom-material.module';
 import { UserAccountComponent } from './user-account.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 const appRoutes: Routes = [
     { path: '', component: UserAccountComponent }
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     	}),
         NgbModule,
         CommonComponentsModule,
+        HttpClientModule
     ],
 	providers: [
         CookieService
