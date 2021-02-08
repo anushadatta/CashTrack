@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { variables } from './variables';
 
 @Injectable(
     {
@@ -12,12 +11,10 @@ import { catchError, retry } from 'rxjs/operators';
 
 export class ConfigService {
 
-  endpoint = 'http://localhost:3000/api'; 
-
   constructor(private http: HttpClient) { }
 
   getUserInfo (email) {
-    return this.http.get(this.endpoint.concat(`/users/getInfo/${email}`));
+    return this.http.get(variables.endpoint + `/users/getInfo/${email}`);
   }
 
 }
