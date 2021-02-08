@@ -43,6 +43,16 @@ const routes: Routes = [
         loadChildren: () => import('./pages/shared-expense/shared-expense.module').then(m => m.SharedExpenseModule),
         canActivate: [IsUserGaurd],
       }, 
+      {
+        path: 'your-friends',
+        loadChildren: () => import('./pages/friends/friends.module').then(m => m.FriendsModule),
+        canActivate: [IsUserGaurd],
+      }, 
+      {
+        path: 'your-groups',
+        loadChildren: () => import('./pages/groups/groups.module').then(m => m.GroupsModule),
+        canActivate: [IsUserGaurd],
+      }, 
     ]
   },
 

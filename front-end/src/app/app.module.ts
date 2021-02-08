@@ -41,7 +41,7 @@ import { JoyrideModule } from 'ngx-joyride';
         // DemoAccountComponent,
         ConfirmDeleteDialog,InfoAlertDialog,
         TopBarComponent,
-        SideBarNewComponent,CustomShowHideDirective, 
+        SideBarNewComponent,CustomShowHideDirective
     ],
     imports: [
         FormsModule,
