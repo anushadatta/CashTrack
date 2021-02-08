@@ -53,6 +53,11 @@ const routes: Routes = [
         loadChildren: () => import('./pages/groups/groups.module').then(m => m.GroupsModule),
         canActivate: [IsUserGaurd],
       }, 
+      {
+        path: 'chat',
+        loadChildren: () => import('./pages/chat/chat.module').then(m => m.ChatModule),
+        canActivate: [IsUserGaurd],
+      }, 
     ]
   },
 

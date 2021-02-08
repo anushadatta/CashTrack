@@ -2,7 +2,7 @@ import { SideBar } from "src/app/types/common.type";
 
 export const dashboardElement: SideBar = 
     {
-        id: "user_dashboard", // To be filled in when generating the dashboard component
+        id: "home", // To be filled in when generating the dashboard component
         pageTitle: "Dashboard",
         icon: "fas fa-columns",
         category: "dashboard",

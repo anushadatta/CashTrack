@@ -251,9 +251,11 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
       console.log(id);
       this.router.navigateByUrl('/dashboard/landing-page')
     }
+
     if(id === 'account') {
       this.router.navigateByUrl("dashboard/user-account");
     }
+    
     if(id === 'about') {
       this.router.navigateByUrl("support/about-cashtrack");
     }
@@ -267,6 +269,10 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
 
     if(id === 'your_groups') {
       this.router.navigateByUrl("dashboard/your-groups");
+    }
+
+    if(id === 'chat') {
+      this.router.navigateByUrl("dashboard/chat");
     }
    
     console.log(`clicked on id: ${id}`);
