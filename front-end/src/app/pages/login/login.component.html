@@ -1,45 +1,45 @@
 <div class="container-fluid">
-  <div class="row no-gutters">
-    <div class="col-md-7 no-gutters d-none d-md-block">
-      <div class="left-img">
-        <img src="/assets/img/login-left-img.png" class="img-sizing" />
-      </div>
-    </div>
-    <div class="col-md-5 no-gutters">
-      <div class="row-md-6 no-gutters d-flex justify-content-center align-items-end logo-div">
-        <img src="/assets/img/logo/cashtrack_logo.png" class="logo-size" />
-        <!-- <img src="/assets/img/logo/sembcorp_logo_transparent.png" class="logo-size" /> -->
-      </div>
-      <div class="row-md-6 no-gutters d-flex justify-content-center align-items-center login-window">
-        <div class="card text-center login-card">
-          <p class="signIn-text">Sign In</p>
-          <div class="card-body">
+    <div class="row no-gutters">
+        <div class="col-md-7 no-gutters d-none d-md-block">
+            <div class="left-img">
+                <img src="/assets/bg-img/LandingPageVector-2.svg" class="img-sizing" />
+            </div>
+        </div>
+        <div class="col-md-5 no-gutters">
+            <div class="row-md-6 no-gutters d-flex justify-content-center align-items-end logo-div">
+                <img src="/assets/img/logo/cashtrack_logo.png" class="logo-size" />
+                <!-- <img src="/assets/img/logo/sembcorp_logo_transparent.png" class="logo-size" /> -->
+            </div>
+            <div class="row-md-6 no-gutters d-flex justify-content-center align-items-center login-window">
+                <div class="card text-center login-card">
+                    <p class="signIn-text">Sign In</p>
+                    <div class="card-body">
 
-              <div *ngIf="errorMsg != ''" class='user-cred-invalid'>
-                {{ errorMsg }}
-              </div>
+                        <div *ngIf="errorMsg != ''" class='user-cred-invalid'>
+                            {{ errorMsg }}
+                        </div>
 
-              <div class="footer">
-                <button class="btn btn-primary btn-lg login-btn" (click)="authenticate()">
+                        <div class="footer">
+                            <button class="btn btn-primary btn-lg login-btn" (click)="authenticate()">
                   <span *ngIf="!isLoading">Login</span>
                   <mat-icon *ngIf="isLoading">
                     <mat-spinner color="primary" diameter="20"></mat-spinner>
                   </mat-icon>
                 </button>
-              </div>
-          </div>
-          <!-- <div class="text-muted card-footer-text">
+                        </div>
+                    </div>
+                    <!-- <div class="text-muted card-footer-text">
             <a class="link" (click)="funForgotPassword()">Forgot Password?</a>
             &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
             <a class="link" (click)="funOpenFormModal()">Request Demo Account</a>
           </div> -->
+                </div>
+            </div>
         </div>
-      </div>
+        <div class="col-md-7 no-gutters d-md-none" style="background: #f1efea;">
+            <div class="d-flex justify-content-center align-items-center">
+                <img src="/assets/img/login-left-img.png" class="img-sizing" />
+            </div>
+        </div>
     </div>
-    <div class="col-md-7 no-gutters d-md-none" style="background: #f1efea;">
-      <div class="d-flex justify-content-center align-items-center">
-        <img src="/assets/img/login-left-img.png" class="img-sizing" />
-      </div>
-    </div>
-  </div>
 </div>

@@ -8,7 +8,6 @@
     src: url('../../../assets/fonts/din-bold-webfont.woff');
 }
 
-
 .container-fluid {
     padding: 0px;
     margin: 0px;
@@ -22,18 +21,17 @@
 //     width: 100%;
 //     background-color: #f1efea;
 // }
-
 .left-img {
-    position: relative;
+    position: absolute;
     bottom: 0px;
-    left: 0px;
+    left: 160px;
     right: 0px;
-    top: 130px;
+    top: 150px;
     z-index: 5;
 }
 
 .img-sizing {
-    max-width: 100%;
+    max-width: 60%;
     height: auto;
     width: auto;
 }
@@ -70,8 +68,8 @@
 }
 
 .mat-icon-styling {
-    margin-top:6px;
-    color:#a7a7a6;
+    margin-top: 6px;
+    color: #a7a7a6;
     padding: 0.1rem;
 }
 
@@ -82,7 +80,8 @@
 }
 
 input {
-    height: 40px !important; border-radius:10px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
 }
 
 .card-footer-text {
@@ -97,33 +96,27 @@ input {
 // .user-cred-valid {
 //     color: #44ab29;
 // }
-
 @media only screen and (max-width: 600px) {
     // .logo-size {
     //     height: 6vh;
     //     width: 17vh;
     // }
-
     .login-btn {
         width: 100px;
     }
-
     .card-footer-text {
         padding: 0.75rem 0.25rem;
         font-weight: bolder;
     }
-
     // .logo-div {
     //     height: 20vh;
     // }
-
     .login-window {
         padding: 15px;
     }
 }
 
 //from css file
-
 .link {
     color: #8a8a8a !important;
     cursor: pointer;
@@ -144,7 +137,6 @@ input {
 //     text-align: center;
 //     padding-top: 20px;
 // }
-
 .footer {
     text-align: center;
 }
@@ -156,7 +148,6 @@ input {
 //     position: fixed;
 //     z-index: 1;
 // }
-
 // .contact-us {
 //     padding: 10px 10px 10px 10px;
 //     border: solid 1px transparent;
@@ -164,7 +155,6 @@ input {
 //     color: white;
 //     background-color: #17a2b8;
 // }
-
 // @media screen and (max-height: 640px) {
 //     .login-main {
 //         min-height: 640px;
@@ -201,6 +191,7 @@ input {
     // }
 }
 
+
 /* Smaller devices (mobile, 768px and up) */
 
 @media (min-width: 451px) and (max-width: 767px) {
@@ -230,6 +221,7 @@ input {
     //     text-align: center;
     // }
 }
+
 
 /* Small devices (tablets, 768px and up) */
 
@@ -272,6 +264,7 @@ input {
     // }
 }
 
+
 /* Medium devices (desktops, 992px and up) */
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -307,6 +300,7 @@ input {
     // }
 }
 
+
 /* Large devices (large desktops, 1200px and up) */
 
 @media (min-width: 1200px) and (max-width: 1599px) {
@@ -334,6 +328,7 @@ input {
         font-size: 20px;
     }
 }
+
 
 /* Larger Desktops (Larger 1600px and up) */
 
