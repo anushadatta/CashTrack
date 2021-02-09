@@ -3,7 +3,6 @@ import {EventEmitter} from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { PersonalExpensesHttpService } from '../../../../cashtrack-services/personal-expenses-http.service';
 import { SubSink } from 'subsink';
-import { DateTimeISO8601 } from 'aws-sdk/clients/marketplacecatalog';
 
 interface PersonalExpenses {
   success: boolean;
