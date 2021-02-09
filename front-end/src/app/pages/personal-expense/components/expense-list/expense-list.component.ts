@@ -28,21 +28,27 @@ export class ExpenseListComponent implements OnInit {
 
   subSink: SubSink;
   user_email: string;
-  personal_expenses = [];
-  // personal_expenses = [
-  //   {
-  //     name : 'Pasta Express Diner',
-  //     amount: '15.80',
-  //     category: 'Food',
-  //     created_at: '6th Febraury, 2021'
-  //   },
-  //   {
-  //     name: 'Crowded Bowl',
-  //     amount: '5.80',
-  //     category: 'Food',
-  //     created_at: '2nd Febraury, 2021'
-  //   },
-  // ]
+  // personal_expenses = [];
+  personal_expenses = [
+    {
+      name : 'Pasta Express Diner',
+      amount: '15.80',
+      category: 'Food',
+      created_at: '6th Febraury, 2021'
+    },
+    {
+      name: 'Crowded Bowl',
+      amount: '5.80',
+      category: 'Food',
+      created_at: '2nd Febraury, 2021'
+    },
+    {
+      name: 'H&M',
+      amount: '50.25',
+      category: 'Shopping',
+      created_at: '1st Febraury, 2021'
+    },
+  ]
 
   constructor(private cookie: CookieService, private http: PersonalExpensesHttpService) { }
 
@@ -71,8 +77,8 @@ export class ExpenseListComponent implements OnInit {
         console.log(res);
         let res_str = JSON.stringify(res); 
         let res_obj: PersonalExpenses = JSON.parse(res_str);
-        this.personal_expenses = res_obj.data;
-        console.log(this.personal_expenses);
+        // this.personal_expenses = res_obj.data;
+        // console.log(this.personal_expenses);
       } ) 
 
   }
