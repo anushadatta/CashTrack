@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 
 const bills = require('./routes/Bills');
 const users = require('./routes/Users');
+const notifications = require('./routes/Notifications');
 
 mongoUtil.connectToServer(function(err, client) {
     if (err) console.log(err);
@@ -26,6 +27,7 @@ const port = 3000;
 
 server.use('/api/bills', bills);
 server.use('/api/users', users);
+server.use('/api/notifications', notifications);
 
 server.listen(port, () => {
     console.log(`Server listening at ${port}`);

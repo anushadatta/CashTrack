@@ -87,13 +87,13 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
   navSubscription: Subscription;
   route;
   showNotifications: Boolean;
+  user_email: string;
 
   assets = ["solar", "dg", "grid", "hvac", "light", "lift", "load"];
 
   constructor(
     private cookie: CookieService,
     private localStorage: LocalStorageService,
-    private http: HttpService,
     private router: Router,
     private msg: MessageService,
     private globalService: GlobalService,
@@ -151,6 +151,8 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
 
     this.funUpdateNavBar(this.router.url);
     this.showNotifications = false;
+
+    this.user_email = this.cookie.get("user-email");
 
     this.route = this.router.url;
   }
@@ -284,6 +286,7 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
    
     console.log(`clicked on id: ${id}`);
   }
+
 
   /**
    * scroll to top in every navigation
