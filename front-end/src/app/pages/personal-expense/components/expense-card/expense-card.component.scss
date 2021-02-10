@@ -9,3 +9,13 @@ img {
     grid-gap: 20px;
     grid-template-columns: repeat(2, 1fr);
 }
+
+.tag {
+  border-radius: 25px;
+  background: #E8DA2C;
+  padding: 20px;
+  width: 80px;
+  height: 20px;
+  text-align: center;
+  align-items: center;
+}

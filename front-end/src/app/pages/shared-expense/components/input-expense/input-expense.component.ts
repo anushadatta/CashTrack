@@ -7,12 +7,6 @@ export interface ExpenseData {
   category: string;
   amount: string;
   friend: string;
-  split_by_method: string;
-}
-
-export interface SplitData {
-  split_by_method: string;
-  
 }
 
 @Component({
@@ -26,15 +20,15 @@ export class InputExpenseComponent implements OnInit {
   categories = ['Food', 'Travel', 'Shopping', 'Others'];
   category = 'Others';
   friend = "";
-  split_by_method = "";
 
   friends = ['Anusha', 'Mehul']
 
   @Input() updateExpense: boolean;
+  @Input() split_by_method = "";
   
   constructor(public dialog: MatDialog,
     public dialogRef: MatDialogRef<SplitByComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: ExpenseData, @Inject(MAT_DIALOG_DATA) public split_data: SplitData) {
+    @Inject(MAT_DIALOG_DATA) public data: ExpenseData) {
     }
 
   onNoClick(): void {
@@ -56,7 +50,7 @@ export class InputExpenseComponent implements OnInit {
       width: '500px',
       data: {split_by_method: this.split_by_method}
     });
-
+    console.log(this.split_by_method);
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
