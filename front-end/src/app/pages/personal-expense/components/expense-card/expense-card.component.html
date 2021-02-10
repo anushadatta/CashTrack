@@ -6,10 +6,10 @@
           &nbsp; &nbsp;
       </div>
       <div style="padding-left:5px">
-        <mat-card-title> {{ expense.name }} &nbsp; &nbsp; <span class="tag"> {{ expense.category.toUpperCase() }} </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ expense.created_at }} </mat-card-title>
-        <mat-card-title>S$ {{ expense.amount }}</mat-card-title>
-      </div>
-    </mat-card-header>
+        <mat-card-title> <span style="color: #0D1577; font-weight: 800;"> {{ expense.name }} </span>  &nbsp; &nbsp;  <span class="tag"> {{ expense.category.toUpperCase() }} </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="font-weight: 200; font-size:15px"> {{ expense.created_at }} </span> </mat-card-title> 
+        <mat-card-title> <span style="font-weight: bolder; font-size: 30px;"> S$ {{ expense.amount }} </span> </mat-card-title>
+      </div>  
+  </mat-card-header>
     <mat-card-actions align="end">
       <button class="button-style" mat-button (click)="editExpense()"> <mat-icon [ngStyle]="{'color':'white'}"> edit </mat-icon> </button>
       <button class="button-style" mat-button (click)="deleteExpense()"><mat-icon [ngStyle]="{'color':'white'}"> delete </mat-icon></button>
