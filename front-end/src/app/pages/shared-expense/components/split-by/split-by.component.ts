@@ -16,7 +16,9 @@ export class SplitByComponent implements OnInit {
   methods = ['Equally', 'Shares', 'Amount'];
   split_by_method = "";
 
-  constructor(public dialogRef: MatDialogRef<SplitByComponent>, public dialog: MatDialog,  @Inject(MAT_DIALOG_DATA) public data: SplitMethodData) { }
+  constructor(public dialogRef: MatDialogRef<SplitByComponent>, public dialog: MatDialog,  @Inject(MAT_DIALOG_DATA) public data: SplitMethodData) {
+    console.log("In constructor: ", this.data);
+   }
 
   ngOnInit(): void {
   }
