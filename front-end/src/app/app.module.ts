@@ -29,6 +29,8 @@ import { CUSTOM_BREAKPOINTS } from "./common/custom-breakpoints";
 import { CustomShowHideDirective } from "./common/custom-show-hide.directive";
 import { LoggerModule, NgxLoggerLevel } from "ngx-logger";
 import { JoyrideModule } from 'ngx-joyride';
+import { NotificationsComponent } from './components/notifications/notifications.component';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
     declarations: [
@@ -41,7 +43,7 @@ import { JoyrideModule } from 'ngx-joyride';
         // DemoAccountComponent,
         ConfirmDeleteDialog,InfoAlertDialog,
         TopBarComponent,
-        SideBarNewComponent,CustomShowHideDirective
+        SideBarNewComponent,CustomShowHideDirective, NotificationsComponent
     ],
     imports: [
         FormsModule,
@@ -69,6 +71,7 @@ import { JoyrideModule } from 'ngx-joyride';
                 : NgxLoggerLevel.OFF,
             disableConsoleLogging: !environment.logging,
         }),
+        ClickOutsideModule
     ],
     entryComponents: [
         // DetailInfoComponent,

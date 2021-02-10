@@ -20,7 +20,6 @@
       <div class="side-bar-list">
         <div class="user-photo" *ngIf="user_img != 'undefined'" style="background-image:url({{user_img}})"></div>
         <div class="user-name" *ngIf=" user_name != 'undefined'"> {{user_name}} </div>
-        <div class="user-email" *ngIf="user_email != 'undefined'">{{user_email}}</div>
         <div *ngFor="let category of categories; trackBy: trackByIdAndExpanded">
           <div *ngIf="(showOperationsHeader || !(category.id === 'operations'))">
             <div *ngIf="category.id !== 'logout'">

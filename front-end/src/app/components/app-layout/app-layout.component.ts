@@ -86,6 +86,7 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
   activeNavState: NavigationState;
   navSubscription: Subscription;
   route;
+  showNotifications: Boolean;
 
   assets = ["solar", "dg", "grid", "hvac", "light", "lift", "load"];
 
@@ -149,6 +150,7 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
     // }
 
     this.funUpdateNavBar(this.router.url);
+    this.showNotifications = false;
 
     this.route = this.router.url;
   }
@@ -273,6 +275,11 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
 
     if(id === 'chat') {
       this.router.navigateByUrl("dashboard/chat");
+    }
+
+    if(id === 'notifications') {
+      this.showNotifications = !this.showNotifications;
+      console.log(`showNoti: ${this.showNotifications}`);
     }
    
     console.log(`clicked on id: ${id}`);
