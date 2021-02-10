@@ -40,6 +40,7 @@
     "html-to-image": "^0.1.0",
     "moment": "^2.23.0",
     "moment-timezone": "^0.5.23",
+    "ng-click-outside": "^7.0.1",
     "ng2-pdf-viewer": "^6.3.0",
     "ng4-loading-spinner": "^1.2.3",
     "ngx-build-plus": "^9.0.4",
