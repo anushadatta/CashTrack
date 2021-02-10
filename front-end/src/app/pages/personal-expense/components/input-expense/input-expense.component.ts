@@ -16,7 +16,7 @@ export interface DialogData {
 export class InputExpenseComponent implements OnInit {
 
   categories = ['Food', 'Travel', 'Shopping', 'Others'];
-  category = 'Others';
+  category = '';
 
   @Input() updateExpense: boolean;
   

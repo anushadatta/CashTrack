@@ -7,7 +7,7 @@
   <br>
   <mat-form-field>
     <mat-label>Category</mat-label>
-    <mat-select [(value)]="category">
+    <mat-select [(value)]="data.category">
       <mat-option *ngFor="let cat of categories" [value]="cat">
         {{cat}}
       </mat-option>
