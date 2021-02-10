@@ -6,7 +6,7 @@
           &nbsp; &nbsp;
       </div>
       <div style="padding-left:5px">
-        <mat-card-title> {{ expense.name }} &nbsp; &nbsp; <span class="tag"> {{ expense.category }} </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ expense.created_at }} </mat-card-title>
+        <mat-card-title> {{ expense.name }} &nbsp; &nbsp; <span class="tag"> {{ expense.category.toUpperCase() }} </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ expense.created_at }} </mat-card-title>
         <mat-card-title>S$ {{ expense.amount }}</mat-card-title>
       </div>
     </mat-card-header>
