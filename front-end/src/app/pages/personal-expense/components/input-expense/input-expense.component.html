@@ -1,26 +1,36 @@
-<h1 mat-dialog-title>Input Personal Expense</h1>
-<div mat-dialog-content>
-  <mat-form-field>
-    <mat-label>Label</mat-label>
-    <input matInput [(ngModel)]="data.name">
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <mat-label>Category</mat-label>
-    <mat-select [(value)]="category">
-      <mat-option *ngFor="let cat of categories" [value]="cat">
-        {{cat}}
-      </mat-option>
-    </mat-select>    
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-   <mat-label>S$ Amount</mat-label>
-    <input matInput [(ngModel)]="data.amount">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()"> CANCEL </button>
-  <button mat-button (click)="addExpense()" [mat-dialog-close]="data.amount" cdkFocusInitial> ADD </button>
-  <!-- 'update' or 'add' based on situation -->
+<div style="width: fit-content;">
+  <h1 mat-dialog-title> Input Personal Expense</h1>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Label</mat-label>
+      <input matInput [(ngModel)]="data.name">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select [(value)]="data.category">
+        <mat-option *ngFor="let cat of categories" [value]="cat">
+          {{cat}}
+        </mat-option>
+      </mat-select>    
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+    <mat-label>S$ Amount</mat-label>
+      <input matInput [(ngModel)]="data.amount">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <div *ngIf="updateExpense=='true'">
+      <button mat-button (click)="addExpense()" [mat-dialog-close]="data.amount" cdkFocusInitial> UPDATE </button>
+    </div>
+    <div *ngIf="updateExpense=='false'">
+      <button mat-button (click)="addExpense()" [mat-dialog-close]="data.amount" cdkFocusInitial> ADD </button>
+    </div>
+    <button mat-button (click)="onNoClick()"> CANCEL </button>
+    <!-- <button mat-button (click)="addExpense()" [mat-dialog-close]="data.amount" cdkFocusInitial> ADD </button> -->
+    <!-- 'update' or 'add' based on situation -->
+  </div>
+
+
 </div>

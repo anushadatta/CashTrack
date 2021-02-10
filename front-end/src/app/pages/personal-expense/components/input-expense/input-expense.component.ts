@@ -16,9 +16,9 @@ export interface DialogData {
 export class InputExpenseComponent implements OnInit {
 
   categories = ['Food', 'Travel', 'Shopping', 'Others'];
-  category = 'Others';
+  category = '';
 
-  @Input() updateExpense: boolean;
+  @Input() updateExpense: string = 'false';
   
   constructor(
     public dialogRef: MatDialogRef<InputExpenseComponent>,
@@ -33,7 +33,6 @@ export class InputExpenseComponent implements OnInit {
   }  
 
   addExpense():void {
-    this.data.category = this.category;
     console.log(this.data);
   }
 }
