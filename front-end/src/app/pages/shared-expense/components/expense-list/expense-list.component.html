@@ -1,16 +1,20 @@
-<div>
-    <h3> YOU OWE </h3>
-    <div *ngFor="let expense of shared_expenses">
-        <div *ngIf="expense.payers.includes('amritaravishankar00@gmail.com')">
-            <app-expense-card [expense]="expense"></app-expense-card>
+<div class="row">
+    <div  class="column">
+        <h3> YOU OWE </h3>
+        <div *ngFor="let expense of shared_expenses">
+            <div *ngIf="expense.payers.includes('amritaravishankar00@gmail.com')">
+                <app-expense-card [expense]="expense"></app-expense-card>
+            </div>
+            <br>
         </div>
-        <br>
     </div>
-    <h3> YOU ARE OWED </h3>
-    <div *ngFor="let expense of shared_expenses">
-        <div *ngIf="expense.author=='amritaravishankar00@gmail.com'">
-            <app-expense-card [expense]="expense"></app-expense-card>
+    <div  class="column">
+        <h3> YOU ARE OWED </h3>
+        <div *ngFor="let expense of shared_expenses">
+            <div *ngIf="expense.author ==='amritaravishankar00@gmail.com'">
+                <app-expense-card [expense]="expense"></app-expense-card>
+            </div>
+            <br>
         </div>
-        <br>
     </div>
 </div>
