@@ -30,7 +30,7 @@ export class ExpenseListComponent implements OnInit {
   // personal_expenses = [];
   personal_expenses = [
     {
-      name : 'Pasta Express Diner',
+      name : 'Pasta Express Dinner',
       amount: '15.80',
       category: 'Food',
       created_at: '6th Febraury, 2021'

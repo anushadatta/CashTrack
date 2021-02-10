@@ -20,7 +20,6 @@ export class PersonalExpenseComponent implements OnInit {
   addNewExpense(expense?): void {
     console.log("Add/Edit new expense");
     const dialogRef = this.dialog.open(InputExpenseComponent, {
-      width: '500px',
       data: {name: expense? expense.name:this.name, category:expense? expense.category:this.category, amount:expense? expense.amount:this.amount}
     });
 
