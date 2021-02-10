@@ -39,6 +39,26 @@ export class ExpenseListComponent implements OnInit {
       comments: "Please pay me fast"
     },
     {
+      name : 'Pasta Express Lunch',
+      amount: '8.60',
+      category: 'Food',
+      created_at: '6th Febraury, 2021', 
+      author: 'mehul.kumar171@gmail.com',
+      payers: ['amritaravishankar00@gmail.com'],
+      type: '1',
+      comments: "Please pay me fast"
+    },
+    {
+      name: 'Crowded Bowl',
+      amount: '5.80',
+      category: 'Food',
+      created_at: '2nd Febraury, 2021',
+      author: 'amritaravishankar00@gmail.com',
+      payers: ['mehul.kumar171@gmail.com'],
+      type: '2',
+      comments: "Pls pay me by next week"
+    },
+    {
       name: 'Crowded Bowl',
       amount: '5.80',
       category: 'Food',

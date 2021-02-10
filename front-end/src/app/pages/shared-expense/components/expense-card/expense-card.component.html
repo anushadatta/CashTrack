@@ -1,44 +1,40 @@
 <div class="card-size">
   <mat-card>
-    <div *ngIf="expense.type=='1'">
-      <div class='border-red' style="padding:15px;">
+    <div *ngIf="expense.type=='1'" class='border-red'>
         <mat-card-header>
           <div mat-card-avatar>
               <img src="../../../../../assets/img/logo/R.png">
               &nbsp; &nbsp;
           </div>
-          <mat-card-title> {{ expense.name }} &nbsp; &nbsp; <span class="tag"> {{ expense.category }} </span></mat-card-title>
+          <mat-card-title> {{ expense.name }} &nbsp; &nbsp; <span class="tag"> {{ expense.category.toUpperCase() }} </span></mat-card-title>
           <mat-card-subtitle>{{ expense.created_at }}</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content>
+        <mat-card-content style='font-size: 20px;'>
             <b> You owe {{ getName(expense.author) }} S$ {{ expense.amount }}  </b> 
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button>COMMENTS</button>
-          <button mat-button>SETTLE UP</button>
+          <button class="button-style" mat-button>COMMENTS</button>
+          <button class="button-style" mat-button>SETTLE UP</button>
         </mat-card-actions>
-      </div>
     </div>
-    <div *ngIf="expense.type=='2'">
-      <div class='border-green' style="padding:15px;">
+    <div *ngIf="expense.type=='2'" class='border-green'>
         <mat-card-header>
           <div mat-card-avatar>
               <img src="../../../../../assets/img/logo/R.png">
-              &nbsp; &nbsp;
+              &nbsp; &nbsp; 
           </div>
-          <mat-card-title> {{ expense.name }} &nbsp; &nbsp; <span class="tag"> {{ expense.category }} </span> </mat-card-title>
+          <mat-card-title> {{ expense.name }} &nbsp; &nbsp; <span class="tag"> {{ expense.category.toUpperCase() }} </span> </mat-card-title>
           <mat-card-subtitle>{{ expense.created_at }}</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content>
+        <mat-card-content style='font-size: 20px;'>
             <div *ngFor="let payer of expense.payers; index as i">
                 <b> {{ getName(expense.payers) }} owes you S$ {{ expense.amount }} </b>
             </div>   
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button>COMMENTS</button>
-          <button mat-button>SETTLE UP</button>
+          <button class="button-style" mat-button>COMMENTS</button>
+          <button class="button-style" mat-button>SETTLE UP</button>
         </mat-card-actions>
       </div>
-    </div>
   </mat-card>
 </div>

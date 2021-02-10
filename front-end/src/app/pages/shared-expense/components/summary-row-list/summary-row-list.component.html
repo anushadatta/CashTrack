@@ -1,4 +1,7 @@
-<div *ngFor="let summary of summary_row">
-    <app-summary-cards [summary]="summary"></app-summary-cards>
+<div class=row>
+    <div *ngFor="let summary of summary_row" class="column">
+        <app-summary-cards [summary]="summary"></app-summary-cards>
+    </div>
 </div>
+
 

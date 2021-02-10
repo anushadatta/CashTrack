@@ -6,12 +6,12 @@ img {
 .border-green {
   border-left: 15px solid green;
   height: 160px;
-  padding: 20 px;
+  padding: 15px;
 }
 .border-red {
   border-left: 15px solid red;
   height: 160px;
-  padding: 20 px;
+  padding: 15px;
 }
 .card-size {
   height: 200px;
@@ -20,9 +20,15 @@ img {
 .tag {
   border-radius: 25px;
   background: #E8DA2C;
-  padding: 20px;
+  padding: 10px;
   width: 80px;
   height: 20px;
   text-align: center;
-  align-items: center;
+  font-size: 15px;
+}
+
+.button-style {
+  background: white;
+  border-radius: 50px;
+  color: #0D1577;;
 }
