@@ -1,12 +1,25 @@
-.column {
+.column1 {
     // float: center;
-    width: 50%;
+    width: 60%;
     padding: 10px;
     align-items: center;
 }
+.column2 {
+    // float: center;
+    width: 40%;
+    padding: 10px;
+    align-items: flex-end;
+}
+
 
 .row:after {
     content: "";
     display: table;
     clear: both;
+}
+
+.button-style {
+    background-color: #0D1577;
+    color: white;
+    padding: 10px;
 }
