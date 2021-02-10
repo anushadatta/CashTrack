@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { InputExpenseComponent } from './components/input-expense/input-expense.component';
 import {MatDialog} from '@angular/material/dialog';
+import {EventEmitter} from 'events';
 
 @Component({
   selector: 'app-personal-expense',
@@ -12,7 +13,9 @@ export class PersonalExpenseComponent implements OnInit {
   name: string;
   category: string;
   amount: string;
-  update: boolean = false;
+  update: string = 'false';
+
+  @Output() updateExp = new EventEmitter();
 
   constructor(public dialog: MatDialog) { 
   }
@@ -22,6 +25,15 @@ export class PersonalExpenseComponent implements OnInit {
     const dialogRef = this.dialog.open(InputExpenseComponent, {
       data: {name: expense? expense.name:this.name, category:expense? expense.category:this.category, amount:expense? expense.amount:this.amount}
     });
+
+    if (expense===undefined) {
+      console.log("new");
+    }
+    else {
+      this.update = 'true';
+      this.updateExp.emit(this.update);
+      this.updatePersonalExpense();
+    }
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
@@ -33,8 +45,8 @@ export class PersonalExpenseComponent implements OnInit {
 
   }
 
-  checkUpdate() {
-    
+  updatePersonalExpense() {
+    console.log("update");
   }
 
 }

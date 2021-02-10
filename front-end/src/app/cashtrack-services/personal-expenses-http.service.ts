@@ -13,4 +13,8 @@ export class PersonalExpensesHttpService {
   getPersonalExpenses (email) {
     return this.http.get(variables.endpoint + `/bills/getPersonalExp/${email}`);
   }
+
+  updatePersonalExpenses(email, bill_id) {
+    return this.http.get(variables.endpoint + `/bills/updatePersonalExp/${email}/${bill_id}`);
+  }
 }
