@@ -7,6 +7,7 @@ export interface ExpenseData {
   category: string;
   amount: string;
   friend: string;
+  split_by_method:string;
 }
 
 @Component({
@@ -18,7 +19,7 @@ export interface ExpenseData {
 export class InputExpenseComponent implements OnInit {
 
   categories = ['Food', 'Travel', 'Shopping', 'Others'];
-  category = 'Others';
+  category = '';
   friend = "";
 
   friends = ['Anusha', 'Mehul']
@@ -39,9 +40,7 @@ export class InputExpenseComponent implements OnInit {
   }  
 
   addExpense():void {
-    this.data.category = this.category;
-    this.data.friend = this.friend;
-    console.log(this.data);
+    console.log("Expense data: ", this.data);
   }
 
   SplitByPopUp() {
@@ -50,7 +49,7 @@ export class InputExpenseComponent implements OnInit {
       width: '500px',
       data: {split_by_method: this.split_by_method}
     });
-    console.log(this.split_by_method);
+   
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
