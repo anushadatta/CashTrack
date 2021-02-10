@@ -5,5 +5,10 @@
         <span class="mdi mdi-settings"></span>
         <span class="label">Notifications</span>
       </div>
+       <!-- Design notification cards -->
+      <div *ngFor="let notification of itemList">
+        <a>{{notification.message}}</a>
+        <br>
+      </div>
     </div>
 </div>

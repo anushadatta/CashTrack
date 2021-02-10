@@ -2,7 +2,7 @@
   <i (click)="appSideBar.sideBarToggle()" class="fas fa-bars mob-header-icon"></i>
 </app-top-bar>
 
-<app-notifications [showNotification]="showNotifications"></app-notifications>
+<app-notifications [showNotification]="showNotifications" [user_email]="user_email"></app-notifications>
 
 <app-side-bar-new #appSideBar [navItemList]="navItemList" [categoryList]="sidebarCategories" (sidebarItemClicked)="navItemClicked($event)">
   <router-outlet (activate)="onActivate()"></router-outlet>

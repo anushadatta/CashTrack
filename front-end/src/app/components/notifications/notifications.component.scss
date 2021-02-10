@@ -1,14 +1,11 @@
-.nav-bar {
-    background-color: royalblue;
-    width: 100%;
-    height: 35px;
-  }
   
   .notification-wrapper {
+    width: fit-content;
+    block-size: fit-content;
     position: relative;
     padding: 8px 15px;
     float: right;
-    border-radius: 5px;
+    border-radius: 50px;
   }
   
   .notification-wrapper .notification-btn {
@@ -17,7 +14,7 @@
   }
   
   .notification-wrapper .notification-btn:hover {
-    color: royalblue;
+    color: #0D1577;
     padding: 1px;
     background-color: #ffffff;
     border-radius: 500px;
@@ -36,7 +33,7 @@
   .notification-wrapper .notification-header {
     padding: 10px;
     color: #ffffff;
-    background-color: royalblue;
+    background-color: #0D1577;
   }
   
   .notification-wrapper .notification-header .label {

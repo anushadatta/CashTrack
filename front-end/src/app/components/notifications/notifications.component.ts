@@ -1,16 +1,45 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { NotificationHttpService } from "src/app/cashtrack-services/notification-http.service";
+import { SubSink } from 'subsink';
+import { CookieService } from 'ngx-cookie-service';
+import '@angular/compiler';
+import { CookieKeys, UserType } from 'src/app/common/enum';
+
+interface Notifications {
+  success: boolean;
+  message: string;
+  data: [{
+    user_id: string;
+    bill_id: any;
+    type: string;
+    message: string;
+  }];
+}
 
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.scss']
 })
+
+
+
 export class NotificationsComponent implements OnInit {
 
   @Input() showNotification: boolean;
-  constructor() { }
+  @Input() user_email: string;
+
+  subSink: SubSink;
+  itemList: Array<any>;
+
+  constructor(
+    private http: NotificationHttpService,
+    private cookie: CookieService
+  ) { }
 
   ngOnInit(): void {
+    this.subSink = new SubSink();
+    this.getNotifications();
   }
 
 
@@ -18,6 +47,16 @@ export class NotificationsComponent implements OnInit {
     console.log(state);
 
     this.showNotification = state;
+  }
+
+  getNotifications () {
+    console.log(`noti user: ${this.user_email}`);
+    this.subSink.sink = this.http.getNotification(this.user_email)
+      .subscribe( (res) => {
+        let res_obj: Notifications = JSON.parse(res.toString()); 
+        console.log(res_obj.data);
+        this.itemList = res_obj.data;
+      }); 
   }
 
 }
