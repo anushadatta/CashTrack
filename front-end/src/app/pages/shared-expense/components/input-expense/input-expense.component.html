@@ -28,13 +28,19 @@
     </mat-select>    
   </mat-form-field>
   <br>
-  <div mat-dialog-actions>
-    <button mat-button (click)="SplitByPopUp()"> SPLIT-BY > </button>
-    <mat-form-field>
-      <mat-label>Split By </mat-label>
-      <input matInput [(ngModel)]="data.split_by_method">
-    </mat-form-field>
-  </div>  
+  <mat-form-field>
+    <mat-label>Choose pay option</mat-label>
+    <mat-select [(value)]="data.split_or_not">
+      <mat-option *ngFor="let pay of pay_options" [value]="pay">
+        {{pay}}
+      </mat-option>
+    </mat-select>    
+  </mat-form-field>
+  <div *ngIf="data.split_or_not === 'Split Bill'">
+    <div mat-dialog-actions>
+      <button mat-button class="split-button" (click)="SplitByPopUp()"> SPLIT-BY > </button>
+    </div>  
+  </div>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()"> CANCEL </button>
