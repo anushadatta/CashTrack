@@ -5,6 +5,8 @@ export interface DialogData {
   name: string;
   category: string;
   amount: string;
+  add:boolean;
+  update:boolean;
 }
 
 @Component({

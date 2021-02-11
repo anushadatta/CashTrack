@@ -21,6 +21,7 @@ export class ExpenseCardComponent implements OnInit {
   category: string;
   amount: string;
   update:boolean = false;
+  add:boolean = true;
 
   constructor(public dialog: MatDialog) { }
 
@@ -32,9 +33,11 @@ export class ExpenseCardComponent implements OnInit {
    }
 
   editExpense(expense): void {
+    this.update = true;
+    this.add = false;
     console.log("Edit new expense");
     const dialogRef = this.dialog.open(InputExpenseComponent, {
-      data: {name: expense.name, category:expense.category, amount:expense.amount}
+      data: {name: expense.name, category:expense.category, amount:expense.amount, update:this.update, add: this.add}
     });
     this.update = true;
     dialogRef.afterClosed().subscribe(result => {

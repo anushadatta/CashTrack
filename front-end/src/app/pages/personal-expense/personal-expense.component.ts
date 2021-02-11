@@ -13,7 +13,8 @@ export class PersonalExpenseComponent implements OnInit {
   name: string;
   category: string;
   amount: string;
-  update: string = 'false';
+  update: boolean = false;
+  add: boolean = true;
 
   constructor(public dialog: MatDialog) { 
   }
@@ -21,7 +22,7 @@ export class PersonalExpenseComponent implements OnInit {
   addNewExpense(): void {
     console.log("Add new expense");
     const dialogRef = this.dialog.open(InputExpenseComponent, {
-      data: {name: this.name, category:this.category, amount:this.amount}
+      data: {name: this.name, category:this.category, amount:this.amount, add:this.add, update: this.update}
     });
 
     dialogRef.afterClosed().subscribe(result => {
