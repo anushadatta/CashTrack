@@ -36,17 +36,19 @@ export class ExpenseListComponent implements OnInit {
       author: 'mehul.kumar171@gmail.com',
       payers: ['amritaravishankar00@gmail.com'],
       type: '1',
-      comments: "Please pay me fast"
+      comments: [
+        {name: "Mehul Kumar", comment: "Pls pay me by next week"}]
     },
     {
-      name : 'Pasta Express Lunch',
-      amount: '8.60',
+      name : 'Brio Lunch',
+      amount: '28.60',
       category: 'Food',
       created_at: '6th Febraury, 2021', 
       author: 'mehul.kumar171@gmail.com',
       payers: ['amritaravishankar00@gmail.com'],
       type: '1',
-      comments: "Please pay me fast"
+      comments: [
+        {name: "Mehul Kumar", comment: "Pls pay me fast"}]
     },
     {
       name: 'Crowded Bowl',
@@ -56,17 +58,20 @@ export class ExpenseListComponent implements OnInit {
       author: 'amritaravishankar00@gmail.com',
       payers: ['mehul.kumar171@gmail.com'],
       type: '2',
-      comments: "Pls pay me by next week"
+      comments: [
+        {name: "Amrita Ravishankar", comment: "Pls pay me by next week"},
+        {name:"Mehul Kumar", comment: "Sure"}]
     },
     {
-      name: 'Crowded Bowl',
-      amount: '5.80',
-      category: 'Food',
+      name: 'Grab',
+      amount: '15.80',
+      category: 'Travel',
       created_at: '2nd Febraury, 2021',
       author: 'amritaravishankar00@gmail.com',
       payers: ['mehul.kumar171@gmail.com'],
       type: '2',
-      comments: "Pls pay me by next week"
+      comments: [
+        {name: "Mehul Kumar", comment: "Pls pay me by next week"}],
     },
   ];
 

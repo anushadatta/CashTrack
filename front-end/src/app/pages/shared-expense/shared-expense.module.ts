@@ -18,6 +18,7 @@ import { ExpenseListComponent } from './components/expense-list/expense-list.com
 import { ExpenseCardComponent } from './components/expense-card/expense-card.component';
 import { SummaryRowListComponent } from './components/summary-row-list/summary-row-list.component';
 import { SummaryCardsComponent } from './components/summary-cards/summary-cards.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 const appRoutes: Routes = [
     { path: '', component: SharedExpenseComponent }
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
         ExpenseListComponent,
         ExpenseCardComponent,
         SummaryRowListComponent,
-        SummaryCardsComponent
+        SummaryCardsComponent,
+        CommentsComponent
     ],
     imports: [
         CommonModule,

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
 import { EventEmitter } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {InputExpenseComponent} from '../input-expense/input-expense.component';
