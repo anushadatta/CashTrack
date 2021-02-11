@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {CommentsComponent} from '../comments/comments.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-expense-card',
@@ -14,8 +16,10 @@ export class ExpenseCardComponent implements OnInit {
   name: string;
   category: string;
   amount: string;
+  // comments: [{name: "Mehul Kumar", comment: "Pls pay me fast"}];
+  comment_text="";
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +29,17 @@ export class ExpenseCardComponent implements OnInit {
     {
       return "Mehul Kumar"
     }
+  }
+
+  showComments(): void {
+    console.log("Comments");
+    const dialogRef = this.dialog.open(CommentsComponent, {
+      data: {comment: this.comment_text}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.amount = result;
+    });
   }
 
 }

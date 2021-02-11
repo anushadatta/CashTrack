@@ -13,7 +13,7 @@
             <b> You owe {{ getName(expense.author) }} S$ {{ expense.amount }}  </b> 
         </mat-card-content>
         <mat-card-actions>
-          <button class="button-style" mat-button>COMMENTS</button>
+          <button class="button-style" mat-button (click)="showComments()">COMMENTS</button>
           <button class="button-style" mat-button>SETTLE UP</button>
         </mat-card-actions>
     </div>
@@ -30,7 +30,7 @@
             <b> {{ getName(expense.payers) }} owes you S$ {{ expense.amount }} </b>
         </mat-card-content>
         <mat-card-actions>
-          <button class="button-style" mat-button>COMMENTS</button>
+          <button class="button-style" mat-button (click)="showComments()">COMMENTS</button>
           <button class="button-style" mat-button>SETTLE UP</button>
         </mat-card-actions>
       </div>
