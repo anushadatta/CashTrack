@@ -14,13 +14,26 @@ body {
 }
 
 #container {
-    width: 100%;
-    height: 100%;
-    background: #eff3f7;
-    margin: 0 auto;
-    font-size: 0;
-    border-radius: 5px;
+    max-width: 80%;
+    margin: auto;
     overflow: hidden;
+    padding: 4rem 1rem;
+}
+
+.grid-2 {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.new-chat {
+    float: right;
+    vertical-align: middle;
+    background-color: #0D1577;
+    color: #f4f4f4;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 1vh;
 }
 
 aside {
@@ -38,6 +51,7 @@ main {
     display: inline-block;
     font-size: 15px;
     vertical-align: top;
+    border: 3px solid #3b3e49;
 }
 
 aside header {
@@ -218,6 +232,7 @@ main header h3 {
 }
 
 main footer {
+    border-top: 5px solid #ddd;
     height: 155px;
     padding: 20px 30px 10px 20px;
 }
@@ -243,13 +258,15 @@ main footer img {
     cursor: pointer;
 }
 
-main footer a {
+.send-message {
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
-    color: #6fbced;
+    color: #3b3e49;
     vertical-align: top;
-    margin-left: 333px;
+    float: right;
+    padding-inline: 8px;
     margin-top: 5px;
     display: inline-block;
+    border: none;
 }

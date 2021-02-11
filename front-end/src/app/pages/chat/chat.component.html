@@ -1,4 +1,20 @@
 <div id="container">
+    <div class="grid-2" style="margin-bottom: 40px;">
+
+        <!-- Heading -->
+        <div>
+            <h1> <b> CHAT </b> </h1>
+        </div>
+
+        <!-- Create Group Button -->
+        <div>
+            <button class="new-chat" (click)="newChat()"> 
+                <p> + New Chat </p>
+            </button>
+        </div>
+    </div>
+
+
     <aside>
 
         <!-- Search Bar -->
@@ -83,7 +99,7 @@
             <textarea placeholder="Type your message"></textarea>
             <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_picture.png" alt="">
             <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_file.png" alt="">
-            <a href="#">Send</a>
+            <button class="send-message" onclick="">Send</button>
         </footer>
 
     </main>

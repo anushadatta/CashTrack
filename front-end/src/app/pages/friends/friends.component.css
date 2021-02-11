@@ -17,9 +17,13 @@
 }
 
 .add-friends {
-    text-align: right;
     float: right;
     vertical-align: middle;
+    background-color: #0D1577;
+    color: #f4f4f4;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 1vh;
 }
 
 img {
