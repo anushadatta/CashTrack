@@ -11,6 +11,7 @@ import { CommonComponentsModule } from 'src/app/modules/common-components/common
 import { CustomMaterialModule } from 'src/app/modules/custom-material/custom-material.module';
 import { FriendsComponent } from './friends.component';
 
+
 const appRoutes: Routes = [
     { path: '', component: FriendsComponent }
 ];
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [
         FriendsComponent,
+        
     ],
     imports: [
         CommonModule,

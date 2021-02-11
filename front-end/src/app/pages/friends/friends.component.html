@@ -1,4 +1,41 @@
 <!-- <ng4-loading-spinner></ng4-loading-spinner> -->
-<app-custom-loading-spinner [show]="showLoadingSpinner"></app-custom-loading-spinner>
+<!-- <app-custom-loading-spinner [show]="showLoadingSpinner"></app-custom-loading-spinner> -->
 
-<p>friends works!</p>
+<div class="container">
+    <div class="grid-2" style="margin-bottom: 40px;">
+
+        <!-- Heading -->
+        <div>
+            <h1> <b> MY FRIENDS </b> </h1>
+        </div>
+
+        <!-- Add Friends Button -->
+        <div>
+            <button class="add-friends" (click)="addNewFriends()"> 
+                <h5> + Add Friend </h5>
+            </button>
+        </div>
+    </div>
+
+    <!-- List of Friends -->
+    <div *ngFor="let friend of friends_list">
+        <mat-card>
+            <mat-card-header>
+                <img src="../../../assets/img/user-avatar.png" alt="">
+
+                <div style="margin: 15px;">
+                    <b> 
+                        {{friend.name}}
+                    </b>
+                    <br> {{friend.email}}
+                </div>
+            </mat-card-header>
+            <mat-card-actions align="end">
+                <button class="button-style" mat-button (click)="moreInfo(friend.email)"><mat-icon [ngStyle]="{'color':'grey'}"> info </mat-icon></button>
+            </mat-card-actions>
+        </mat-card>
+
+        <br>
+    </div>
+
+</div>
