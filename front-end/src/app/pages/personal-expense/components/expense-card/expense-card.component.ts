@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import { EventEmitter } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
+import {InputExpenseComponent} from '../input-expense/input-expense.component';
 
 @Component({
   selector: 'app-expense-card',
@@ -13,10 +14,13 @@ export class ExpenseCardComponent implements OnInit {
   @Input() expense; 
   @Output() onDelete: EventEmitter<void> = new EventEmitter();
   @Output() onEditCard: EventEmitter<void> = new EventEmitter();
+  @Output() updateFlag: EventEmitter<boolean> = new EventEmitter();
+
 
   name: string;
   category: string;
   amount: string;
+  update:boolean = false;
 
   constructor(public dialog: MatDialog) { }
 
@@ -27,10 +31,16 @@ export class ExpenseCardComponent implements OnInit {
     this.onDelete.emit();
    }
 
-  editExpense() {
-    console.log(this.expense);
-    console.log("edit card");
-    this.onEditCard.emit(this.expense);
+  editExpense(expense): void {
+    console.log("Edit new expense");
+    const dialogRef = this.dialog.open(InputExpenseComponent, {
+      data: {name: expense.name, category:expense.category, amount:expense.amount}
+    });
+    this.update = true;
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.amount = result;
+    });
   }
 
 }

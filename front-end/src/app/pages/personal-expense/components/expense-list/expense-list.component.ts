@@ -80,15 +80,6 @@ export class ExpenseListComponent implements OnInit {
     this.personal_expenses.splice(index, 1);
 }
 
-  onEditExpense(expense){
-    this.editExpense = expense;
-    this.callParent();
-  }
-
-  callParent() {
-    this.onEdit.emit(this.editExpense);
-  }
-
   getPersonalExpense (user_email) {
     this.subSink.sink = this.http.getPersonalExpenses(user_email)
       .subscribe( (res) => {
