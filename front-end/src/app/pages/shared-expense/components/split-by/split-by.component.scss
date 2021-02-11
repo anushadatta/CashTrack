@@ -1,0 +1,23 @@
+.column {
+    width: auto;
+    align-items: center;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.wrapper {
+    padding: 10px;
+    align-items: center;
+}
+
+.button-style {
+    color: white;
+    background: #0D1577;
+    border-radius: 0px !important;
+    font-size: 12px;
+    border: 1px solid white !important;
+  }
