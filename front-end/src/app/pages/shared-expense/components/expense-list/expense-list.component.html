@@ -4,8 +4,8 @@
         <div *ngFor="let expense of shared_expenses">
             <div *ngIf="expense.payers.includes('amritaravishankar00@gmail.com')">
                 <app-expense-card [expense]="expense"></app-expense-card>
+                <br>
             </div>
-            <br>
         </div>
     </div>
     <div  class="column">
@@ -13,8 +13,8 @@
         <div *ngFor="let expense of shared_expenses">
             <div *ngIf="expense.author ==='amritaravishankar00@gmail.com'">
                 <app-expense-card [expense]="expense"></app-expense-card>
+                <br>
             </div>
-            <br>
         </div>
     </div>
 </div>
