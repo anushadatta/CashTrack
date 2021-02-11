@@ -1,3 +1,90 @@
-<app-custom-loading-spinner [show]="showLoadingSpinner"></app-custom-loading-spinner>
+<div id="container">
+    <aside>
 
-<p>chat works!</p>
+        <!-- Search Bar -->
+        <header>
+            <input type="text" placeholder="search users">
+        </header>
+
+        <!-- List of chats -->
+        <ul>
+            <div *ngFor="let chat of chat_data">
+                <li>
+                    <img src="../../../assets/img/user-avatar.png" alt="">
+                    <div>
+                        <h2>{{chat.user_2}}</h2>
+                        <h3>
+                            <!-- <span class="status orange"></span> offline -->
+                            <span class="status green"></span> online
+                        </h3>
+                    </div>
+                </li>
+            </div>
+        </ul>
+    </aside>
+
+
+    <!-- Chat Window -->
+    <main>
+        <!-- Chat Header -->
+        <header>
+            <img src="../../../assets/img/user-avatar.png" alt="">
+            <div>
+                <h2>Chat with</h2>
+                <h1>Amrita Ravishankar</h1>
+            </div>
+        </header>
+
+        <!-- Chat Messages -->
+        <ul id="chat">
+            <div *ngFor="let chat of chat_data">
+
+                <!-- Update {{me}} according to sender of message-->
+                <!-- <input [(ngModel)]={{me}}> -->
+
+                <div *ngIf="chat_data.user_2!='anushadatta@gmail.com';then content else other_content"></div>
+
+                <!-- ME -->
+                <ng-template #content>
+                    <li class="me">
+                        <div class="entete">
+                            <span class="status green"></span>
+                            <h2> Vincent </h2>
+                            <h3> 10:12AM, Today </h3>
+                        </div>
+
+                        <div class="message">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                        </div>
+                    </li>
+                </ng-template>
+
+                <!-- YOU -->
+                <ng-template #other_content>
+                    <li class="you">
+                        <div class="entete">
+                            <span class="status green"></span>
+                            <h2> Vincent </h2>
+                            <h3> 10:12AM, Today </h3>
+                        </div>
+
+                        <div class="message">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                        </div>
+                    </li>
+                </ng-template>
+
+            </div>
+        </ul>
+
+
+        <!-- Type message -->
+        <footer>
+            <textarea placeholder="Type your message"></textarea>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_picture.png" alt="">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_file.png" alt="">
+            <a href="#">Send</a>
+        </footer>
+
+    </main>
+</div>
