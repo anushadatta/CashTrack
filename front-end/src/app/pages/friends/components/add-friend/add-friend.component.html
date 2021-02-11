@@ -1,0 +1,21 @@
+<!-- Add New Friend Input -->
+
+<div style="width: fit-content;">
+    <h1 mat-dialog-title> Add New Friend</h1>
+
+    <div mat-dialog-content>
+        <mat-form-field>
+            <mat-label>Friend Email ID: </mat-label>
+            <input matInput [(ngModel)]="data.friend_email">
+        </mat-form-field>
+        <br>
+    </div>
+
+    <br>
+
+    <div mat-dialog-actions class="center">
+        <button mat-button (click)="addFriend()" mat-dialog-close="data.friend_email"> INVITE </button> &nbsp;
+        <button mat-button (click)="onNoClick()"> CANCEL </button>
+    </div>
+
+</div>
