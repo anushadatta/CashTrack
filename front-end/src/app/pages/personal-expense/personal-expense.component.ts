@@ -13,27 +13,17 @@ export class PersonalExpenseComponent implements OnInit {
   name: string;
   category: string;
   amount: string;
-  update: string = 'false';
-
-  @Output() updateExp = new EventEmitter();
+  update: boolean = false;
+  add: boolean = true;
 
   constructor(public dialog: MatDialog) { 
   }
 
-  addNewExpense(expense?): void {
-    console.log("Add/Edit new expense");
+  addNewExpense(): void {
+    console.log("Add new expense");
     const dialogRef = this.dialog.open(InputExpenseComponent, {
-      data: {name: expense? expense.name:this.name, category:expense? expense.category:this.category, amount:expense? expense.amount:this.amount}
+      data: {name: this.name, category:this.category, amount:this.amount, add:this.add, update: this.update}
     });
-
-    if (expense===undefined) {
-      console.log("new");
-    }
-    else {
-      this.update = 'true';
-      this.updateExp.emit(this.update);
-      this.updatePersonalExpense();
-    }
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

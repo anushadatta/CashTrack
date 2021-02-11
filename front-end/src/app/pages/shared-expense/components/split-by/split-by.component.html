@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>Choose How To Split Cost</h1>
-<div mat-dialog-content>
+<!-- <div mat-dialog-content>
   <mat-form-field>
     <mat-label>Split By Method</mat-label>
     <mat-select [(value)]="split_by_method">
@@ -8,14 +8,51 @@
       </mat-option>
     </mat-select>    
   </mat-form-field>
-</div>
+</div> -->
 <div class="wrapper">
   <div class="row">
-    <div class="column"><button class="button-style" mat-button>Equal</button></div>
-    <div class="column"><button class="button-style" mat-button>Percent</button></div>
-    <div class="column"><button class="button-style" mat-button>Shares</button></div>
-    <div class="column"><button class="button-style" mat-button>Custom</button></div>
-    <div class="column"><button class="button-style" mat-button>$ Currency Exchange</button></div>
+    <div class="column"><button class="button-style" mat-button (click)="split_by_method1='Equal'">Equal</button></div>
+    <div class="column"><button class="button-style" mat-button (click)="split_by_method1='Percent'">Percent</button></div>
+    <div class="column"><button class="button-style" mat-button (click)="split_by_method1='Shares'">Shares</button></div>
+    <div class="column"><button class="button-style" mat-button (click)="split_by_method1='Custom'">Custom</button></div>
+    <div class="column"><button class="button-style" mat-button (click)="split_by_method1='Currency'">$ Currency Exchange</button></div>
+  </div>
+</div>
+<div class="ui-container">
+  <div *ngIf="split_by_method1 === 'Equal'" class="dropdown-content">
+    <div *ngFor="let f of friends">
+      <span style="font-size:20px; font-weight: 900;"> {{ f }} </span> 
+       <br>
+       <span style="font-size:12px"> Total Share: {{ amount*0.5 }} </span> 
+       <br>
+  </div>
+  <div *ngIf="split_by_method1 === 'Percent'" class="dropdown-content">
+    percent
+    <div *ngFor="let f of friends">
+      {{f}}
+      <!-- <input type="text"> -->
+      Total Share: {{ amount*0.5 }} 
+  </div>
+  <div *ngIf="split_by_method1 === 'Shares'" class="dropdown-content">
+    shares
+    <div *ngFor="let f of friends">
+      {{f}}
+      <!-- <input type="text"> -->
+      Total Share: {{ amount*0.5 }} 
+    </div>
+  </div>
+  <div *ngIf="split_by_method1 === 'Custom'" class="dropdown-content">
+    custom
+    <div *ngFor="let f of friends">
+      {{f}}
+      <!-- <input type="text"> -->
+      Total Share: {{ amount*0.5 }} 
+    </div>
+  </div>
+  <div *ngIf="split_by_method1 === 'Currency'" class="dropdown-content">
+      {{f}}
+      <!-- <input type="text"> -->
+      Total Share: {{ amount*0.5 }} 
   </div>
 </div>
 <div mat-dialog-actions>

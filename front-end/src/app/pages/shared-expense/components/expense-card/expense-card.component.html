@@ -26,10 +26,8 @@
           <mat-card-title> {{ expense.name }} &nbsp; &nbsp; <span class="tag"> {{ expense.category.toUpperCase() }} </span> </mat-card-title>
           <mat-card-subtitle>{{ expense.created_at }}</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content style='font-size: 20px;'>
-            <div *ngFor="let payer of expense.payers; index as i">
-                <b> {{ getName(expense.payers) }} owes you S$ {{ expense.amount }} </b>
-            </div>   
+        <mat-card-content style='font-size: 20px;'  *ngFor="let payer of expense.payers; index as i">
+            <b> {{ getName(expense.payers) }} owes you S$ {{ expense.amount }} </b>
         </mat-card-content>
         <mat-card-actions>
           <button class="button-style" mat-button>COMMENTS</button>

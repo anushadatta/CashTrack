@@ -5,6 +5,8 @@ export interface DialogData {
   name: string;
   category: string;
   amount: string;
+  add:boolean;
+  update:boolean;
 }
 
 @Component({
@@ -18,7 +20,7 @@ export class InputExpenseComponent implements OnInit {
   categories = ['Food', 'Travel', 'Shopping', 'Others'];
   category = '';
 
-  @Input() updateExpense: string = 'false';
+  updateExpense: string = 'false';
   
   constructor(
     public dialogRef: MatDialogRef<InputExpenseComponent>,
