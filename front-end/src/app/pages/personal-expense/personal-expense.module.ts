@@ -15,7 +15,7 @@ import { PersonalExpenseComponent } from './personal-expense.component';
 import { ExpenseCardComponent } from './components/expense-card/expense-card.component';
 import { InputExpenseComponent } from './components/input-expense/input-expense.component';
 import { ExpenseListComponent } from './components/expense-list/expense-list.component';
-
+import { DeleteConfirmationComponent} from './components/delete-confirmation/delete-confirmation.component';
 
 const appRoutes: Routes = [
     { path: '', component: PersonalExpenseComponent }
@@ -27,6 +27,7 @@ const appRoutes: Routes = [
         InputExpenseComponent,
         ExpenseListComponent,
         ExpenseCardComponent,
+        DeleteConfirmationComponent
     ],
     imports: [
         CommonModule,
