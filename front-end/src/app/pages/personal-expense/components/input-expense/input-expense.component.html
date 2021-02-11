@@ -21,7 +21,7 @@
     </mat-form-field>
   </div>
   <div mat-dialog-actions>
-    <button ngIf="updateExpense=='true'" mat-button (click)="addExpense()" [mat-dialog-close]="data.amount" cdkFocusInitial> UPDATE </button>
+    <button *ngIf="updateExpense=='true'" mat-button (click)="addExpense()" [mat-dialog-close]="data.amount" cdkFocusInitial> UPDATE </button>
     <button *ngIf="updateExpense=='false'" mat-button (click)="addExpense()" [mat-dialog-close]="data.amount" cdkFocusInitial> ADD </button>
     <button mat-button (click)="onNoClick()"> CANCEL </button>
     <!-- 'update' or 'add' based on situation -->
