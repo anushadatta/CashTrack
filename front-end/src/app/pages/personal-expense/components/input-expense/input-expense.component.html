@@ -24,7 +24,6 @@
     <button *ngIf="data.update" mat-button (click)="addExpense()" [mat-dialog-close]="data.amount" cdkFocusInitial> UPDATE </button>
     <button *ngIf="data.add" mat-button (click)="addExpense()" [mat-dialog-close]="data.amount" cdkFocusInitial> ADD </button>
     <button mat-button (click)="onNoClick()"> CANCEL </button>
-    <!-- 'update' or 'add' based on situation -->
   </div>
 
 

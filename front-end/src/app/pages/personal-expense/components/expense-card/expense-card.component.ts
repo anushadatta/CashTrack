@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {InputExpenseComponent} from '../input-expense/input-expense.component';
+import {PersonalExpensesHttpService} from '../../../../cashtrack-services/personal-expenses-http.service';
 
 @Component({
   selector: 'app-expense-card',
@@ -22,7 +23,7 @@ export class ExpenseCardComponent implements OnInit {
   update:boolean = false;
   add:boolean = true;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private http: PersonalExpensesHttpService) { }
 
   ngOnInit(): void {
   }
@@ -43,6 +44,16 @@ export class ExpenseCardComponent implements OnInit {
       console.log('The dialog was closed');
       this.amount = result;
     });
+    this.postUpdatedExpense(expense);
   }
 
+  postUpdatedExpense(expense) {
+    console.log("post expense");
+  //   let url = "kjalj";
+  //   this.http.updatePersonalExpenses(url, { title: 'Angular POST Request Example' }).subscribe(data => {
+  //       this.name = expense.name;
+  //       this.category = expense.category;
+  //       this.amount = expense.amount
+  //   })
+  }
 }

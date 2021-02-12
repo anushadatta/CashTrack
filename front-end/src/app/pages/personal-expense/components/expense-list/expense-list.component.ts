@@ -62,7 +62,6 @@ export class ExpenseListComponent implements OnInit {
   deleteExpenseConfirm(expense) {  
     const dialogRef = this.dialog.open(DeleteConfirmationComponent, {               //Pass data object as a second parameter  
       data: { id: expense.id }, 
-      backdropClass: "backdrop"
     });  
 
     dialogRef.afterClosed().subscribe(confirmresult => {  
@@ -85,12 +84,12 @@ export class ExpenseListComponent implements OnInit {
       .subscribe( (res) => {
         console.log(res);
         let res_str = JSON.stringify(res); 
-        let res_obj: PersonalExpenses = JSON.parse(res_str);
+        let res_obj = JSON.parse(res_str);
+        console.log(res_obj);
+        // : PersonalExpenses = JSON.parse(res_str);
         // this.personal_expenses = res_obj.data;
         // console.log(this.personal_expenses);
-      } ) 
-      console.log(this.convertDate(1612281600000));
-
+      }); 
   }
 
   convertDate(timestamp) {
