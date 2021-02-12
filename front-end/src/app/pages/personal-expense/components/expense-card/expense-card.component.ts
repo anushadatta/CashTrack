@@ -28,6 +28,29 @@ export class ExpenseCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  convertDate(timestamp) {
+    timestamp = parseFloat(timestamp);
+    let months = {1: "January", 2:"February", 3:"March", 4:"April", 5:"May", 6: "June", 7: "July", 8:"August", 9:"September", 10:"October", 11:"November", 12:"December"};
+    let theDate = new Date(timestamp);
+    let month = theDate.getMonth() + 1;
+    let date = theDate.getDate() - 1;
+    let year = theDate.getFullYear();
+    let date_postfix = this.datePostfix(date);
+    let final_date = date + date_postfix + " " +  months[month] + ", " + year; 
+    return final_date
+  }
+
+  datePostfix(d) {
+    if (d > 3 && d < 21) 
+      return 'th';
+    switch (d % 10) {
+      case 1:  return "st";
+      case 2:  return "nd";
+      case 3:  return "rd";
+      default: return "th";
+    }
+  }
+
   deleteExpense() {
     this.onDelete.emit();
    }
