@@ -1,5 +1,6 @@
 <div style="width: fit-content;">
-  <h1 mat-dialog-title> Input Personal Expense</h1>
+  <h1 *ngIf="data.add" mat-dialog-title> Input Personal Expense</h1>
+  <h1 *ngIf="data.update" mat-dialog-title> Update Personal Expense</h1>
   <div mat-dialog-content>
     <mat-form-field>
       <mat-label>Label</mat-label>
