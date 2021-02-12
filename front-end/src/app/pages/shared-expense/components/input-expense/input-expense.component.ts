@@ -7,6 +7,7 @@ export interface ExpenseData {
   category: string;
   amount: string;
   friend: string;
+  split_or_not:string;
   split_by_method:string;
 }
 
@@ -22,7 +23,8 @@ export class InputExpenseComponent implements OnInit {
   category = '';
   friend = "";
 
-  friends = ['Anusha', 'Mehul']
+  friends = ['Anusha', 'Mehul'];
+  pay_options = ['You owe Anusha money', 'Split Bill'];
 
   @Input() updateExpense: boolean;
   @Input() split_by_method = "";
