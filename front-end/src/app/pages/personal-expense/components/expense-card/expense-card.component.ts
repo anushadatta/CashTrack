@@ -9,6 +9,7 @@ import {PersonalExpensesHttpService} from '../../../../cashtrack-services/person
   templateUrl: './expense-card.component.html',
   styleUrls: ['./expense-card.component.scss']
 })
+
 export class ExpenseCardComponent implements OnInit {
 
   @Input() expense; 
@@ -60,9 +61,11 @@ export class ExpenseCardComponent implements OnInit {
     this.add = false;
     console.log("Edit new expense");
     const dialogRef = this.dialog.open(InputExpenseComponent, {
-      data: {name: expense.name, category:expense.category, amount:expense.amount, update:this.update, add: this.add}
+      data: {name: expense.label, category:expense.tag, amount:expense.expense_amount, update:this.update, add: this.add}
     });
-    this.update = true;
+
+    console.log(expense);
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.amount = result;
