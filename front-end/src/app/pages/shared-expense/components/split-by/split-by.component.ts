@@ -19,6 +19,10 @@ export class SplitByComponent implements OnInit {
   friends = ['Anusha Datta', 'Mehul Kumar'];
   amount = 20;
   percent = 0;
+  valueAvailable:boolean = false;
+  share = 0;
+
+  split_data = [{friend: 'Anusha Datta', split:0, amount:0}, {friend:'Mehul Kumar', split:0, amount:0}];
 
   constructor(public dialogRef: MatDialogRef<SplitByComponent>, public dialog: MatDialog,  @Inject(MAT_DIALOG_DATA) public data: SplitMethodData) {
     console.log("In constructor: ", this.data);
@@ -40,6 +44,38 @@ export class SplitByComponent implements OnInit {
     this.percent = parseFloat((<HTMLInputElement>document.getElementById("share-input")).value);
     console.log(this.percent)
     return this.percent;
+  }
+
+  onCalculate(button) {
+    console.log(button);
+    if(button==="Shares")
+    {
+      let total = 0;
+      for (let split of this.split_data) {
+        split.split = parseFloat((<HTMLInputElement>document.getElementById(split.friend)).value);
+        console.log(split.split);
+        total += split.split;
+      }
+      console.log(total)
+
+      for (let split of this.split_data) {
+        split.amount = (split.split/total) * this.amount;
+        console.log(split.amount);
+      }
+    }
+    else if (button=="Percent") {
+      for (let split of this.split_data) {
+        split.split = parseFloat((<HTMLInputElement>document.getElementById(split.friend)).value);
+        split.amount = (split.split/100) * this.amount;
+      }
+    } 
+    else if (button=="Custom") {
+      for (let split of this.split_data) {
+        split.split = parseFloat((<HTMLInputElement>document.getElementById(split.friend)).value);
+        split.amount = split.split;
+      }
+    } 
+    this.valueAvailable = true;
   }
 
 
