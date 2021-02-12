@@ -81,4 +81,8 @@ export class ChatComponent implements OnInit {
     console.log("Message sender updated, me is: " + this.me); 
   }
 
+  newChat() {
+    console.log("Dummy function: Create a new chat");
+  }
+
 }
