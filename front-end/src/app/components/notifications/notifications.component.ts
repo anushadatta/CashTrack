@@ -29,6 +29,13 @@ export class NotificationsComponent implements OnInit {
   @Input() showNotification: boolean;
   @Input() user_email: string;
 
+  notifications = [
+    {title: "New Chat", sender:"Amrita Ravishankar", time:"6:41 p.m", date:"12th February, 2021"},
+    {title: "Acknowledgement", sender:"Anusha Datta", time:"6:41 p.m", date:"12th February, 2021"},
+    {title: "Acknowledgement", sender:"Anusha Datta", time:"6:41 p.m", date:"12th February, 2021"},
+    {title: "Acknowledgement", sender:"Anusha Datta", time:"6:41 p.m", date:"12th February, 2021"},
+  ]
+
   subSink: SubSink;
   itemList: Array<any>;
 
