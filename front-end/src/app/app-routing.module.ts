@@ -47,7 +47,12 @@ const routes: Routes = [
         path: 'your-friends',
         loadChildren: () => import('./pages/friends/friends.module').then(m => m.FriendsModule),
         canActivate: [IsUserGaurd],
-      }, 
+      },
+      {
+        path: 'your-friends/details',
+        loadChildren: () => import('./pages/friends-detail/friends-detail.module').then(m => m.FriendsDetailModule),
+        canActivate: [IsUserGaurd],
+      },
       {
         path: 'your-groups',
         loadChildren: () => import('./pages/groups/groups.module').then(m => m.GroupsModule),
