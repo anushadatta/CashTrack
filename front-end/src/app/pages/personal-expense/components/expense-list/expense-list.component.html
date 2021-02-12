@@ -1,4 +1,6 @@
-<div *ngFor="let expense of personal_expenses">
-    <app-expense-card [expense]="expense" (updateFlag)="updateFlag($event)" (onDelete)="deleteExpenseConfirm(expense)"></app-expense-card>
-    <br>
+<div *ngIf="isDataAvailable">
+    <div *ngFor="let expense of personal_expenses">
+        <app-expense-card [expense]="expense" (updateFlag)="updateFlag($event)" (onDelete)="deleteExpenseConfirm(expense)"></app-expense-card>
+        <br>
+    </div>
 </div>

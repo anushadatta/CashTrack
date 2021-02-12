@@ -5,10 +5,34 @@
         <span class="mdi mdi-settings"></span>
         <span class="label">Notifications</span>
       </div>
+
        <!-- Design notification cards -->
-      <div *ngFor="let notification of itemList">
-        <a>{{notification.message}}</a>
+      <div *ngFor="let notification of notifications">
+        <mat-card class="card-size unread-border">
+          <div style="padding-top: 15px; padding-bottom: 0px;">
+            <mat-card-header>
+              <div mat-card-avatar>
+                  <img src="../../../../../assets/img/logo/R.png">
+                  &nbsp; &nbsp;
+              </div>
+              <div style="padding-left:5px">
+                <div class="row">
+                  <div class="column-title">
+                    <a href="#"> <span style="color: #0D1577; font-weight: 800; font-size: 20px;"> {{ notification.title }} </span></a>
+                  </div>
+                  <div>
+                    <span style="font-weight: 200; font-size:12px;"> {{ notification.time }} , {{ notification.date }}  </span>
+                  </div>
+                </div>
+                <div class="row">
+                    <span style="font-weight: 200; font-size:12px;"> by {{ notification.sender }} </span>
+                </div>
+              </div>  
+          </mat-card-header>
+          </div>
+        </mat-card>
         <br>
       </div>
     </div>
 </div>
+

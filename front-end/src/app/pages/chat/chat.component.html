@@ -58,7 +58,7 @@
                 <!-- Update {{me}} according to sender of message-->
                 <!-- <input [(ngModel)]={{me}}> -->
 
-                <div *ngIf="chat_data.user_2!='anushadatta@gmail.com';then content else other_content"></div>
+                <div *ngIf="chat_data.user_2=='anushadatta@gmail.com';then content else other_content"></div>
 
                 <!-- ME -->
                 <ng-template #content>
