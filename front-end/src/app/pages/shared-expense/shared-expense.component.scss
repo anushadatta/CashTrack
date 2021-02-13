@@ -1,9 +1,22 @@
+.container {
+    max-width: 1160px;
+    margin: auto;
+    overflow: hidden;
+    padding: 4rem 1rem;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+}
+
 .column1 {
     // float: center;
     width: 60%;
     padding: 10px;
     align-items: center;
 }
+
 .column2 {
     // float: center;
     width: 40%;
@@ -12,7 +25,11 @@
 }
 
 .button-style {
+    float: right;
+    vertical-align: middle;
     background-color: #0D1577;
-    color: white;
-    padding: 8px;
+    color: #f4f4f4;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 1vh;
 }
