@@ -4,12 +4,13 @@
             <ng-content></ng-content>
         </div>
         <div *ngIf="!customTheme" class="logo-container">
-            <h1 class="logo-text-heavy cursor-pointer" (click)="removeTheme(); redirect('dashboard/landing-page')">
+            <img src="../../../assets/img/CashTrack.png" style="height: 30px; width: auto"> &nbsp;
+            <h3 class="logo-text-heavy cursor-pointer" (click)="redirect('dashboard/landing-page')">
                 Cash
-            </h1>
-            <h1 class="logo-text-heavy-yellow cursor-pointer" (click)="removeTheme(); redirect('dashboard/landing-page')">
+            </h3>
+            <h3 class="logo-text-heavy-yellow cursor-pointer" (click)="redirect('dashboard/landing-page')">
                 Track
-            </h1>
+            </h3>
         </div>
         <!-- <img *ngIf="!customTheme" class="top-bar-title-img pl-3 cursor-pointer" (click)="removeTheme(); redirect('/')" src="/assets/img/logo/resync_logo.png"  /> -->
         <div *ngIf="customTheme" class="second-container">
