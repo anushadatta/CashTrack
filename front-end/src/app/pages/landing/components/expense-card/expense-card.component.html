@@ -1,0 +1,30 @@
+<div class="card-size">
+  <mat-card>
+    <div *ngIf="expense.type=='1'" class='border-red'>
+        <mat-card-header>
+          <div mat-card-avatar>
+              <img src="../../../../../assets/img/logo/R.png">
+              &nbsp; &nbsp;
+          </div>
+          <mat-card-title style='font-size: 15px;'> {{ expense.name }} &nbsp; &nbsp; <span class="tag"> {{ expense.category.toUpperCase() }} </span></mat-card-title>
+          <mat-card-subtitle style='font-size: 10px;'>{{ expense.created_at }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content style='font-size: 15px;'>
+            <b> You owe {{ getName(expense.author) }} S$ {{ expense.amount }}  </b> 
+        </mat-card-content>
+    </div>
+    <div *ngIf="expense.type=='2'" class='border-green'>
+        <mat-card-header>
+          <div mat-card-avatar>
+              <img src="../../../../../assets/img/logo/R.png">
+              &nbsp; &nbsp; 
+          </div>
+          <mat-card-title style='font-size: 15px;'> {{ expense.name }} &nbsp; &nbsp; <span class="tag"> {{ expense.category.toUpperCase() }} </span></mat-card-title>
+          <mat-card-subtitle style='font-size: 10px;'>{{ expense.created_at }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content style='font-size: 15px;'  *ngFor="let payer of expense.payers; index as i">
+            <b> {{ getName(expense.payers) }} owes you S$ {{ expense.amount }} </b>
+        </mat-card-content>
+      </div>
+  </mat-card>
+</div>
