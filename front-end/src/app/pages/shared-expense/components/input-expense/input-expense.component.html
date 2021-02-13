@@ -1,10 +1,12 @@
 <h1 mat-dialog-title>Input Shared Expense</h1>
 <div mat-dialog-content>
+  <!-- Label -->
   <mat-form-field>
     <mat-label>Label</mat-label>
     <input matInput [(ngModel)]="data.name">
   </mat-form-field>
   <br>
+  <!-- Category -->
   <mat-form-field>
     <mat-label>Category</mat-label>
     <mat-select [(value)]="data.category">
@@ -14,21 +16,23 @@
     </mat-select>    
   </mat-form-field>
   <br>
+  <!-- Amount -->
   <mat-form-field>
    <mat-label>S$ Amount</mat-label>
     <input matInput [(ngModel)]="data.amount">
   </mat-form-field>
   <br>
+    <!-- Select Friends -->
   <mat-form-field>
     <mat-label>Select Friend(s) or Group</mat-label>
-    <mat-select [(value)]="data.friend">
-      <mat-option *ngFor="let f of friends" [value]="f">
-        {{f}}
-      </mat-option>
-    </mat-select>    
+    <mat-select [(value)]="data.friend_list" multiple>
+      <mat-option *ngFor="let f of your_friends" [value]="f">{{f}}</mat-option>
+    </mat-select>
   </mat-form-field>
   <br>
-  <mat-form-field>
+  <!-- Choose Pay Option -->
+  <!--  *ngIf="data.friend_list.length == 1" -->
+  <mat-form-field> 
     <mat-label>Choose pay option</mat-label>
     <mat-select [(value)]="data.split_or_not">
       <mat-option *ngFor="let pay of pay_options" [value]="pay">
@@ -36,6 +40,7 @@
       </mat-option>
     </mat-select>    
   </mat-form-field>
+  <!-- Split by-->
   <div *ngIf="data.split_or_not === 'Split Bill'">
     <div mat-dialog-actions>
       <button mat-button class="split-button" (click)="SplitByPopUp()"> SPLIT-BY > </button>
@@ -45,5 +50,5 @@
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()"> CANCEL </button>
   <button mat-button (click)="addExpense()" cdkFocusInitial> ADD </button>
-  <!-- 'update' or 'add' based on situation -->
+  <!-- <button mat-button (click)="addExpense()" cdkFocusInitial> UPDATE </button> -->
 </div>
