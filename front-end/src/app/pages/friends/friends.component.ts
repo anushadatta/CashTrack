@@ -57,8 +57,9 @@ export class FriendsComponent implements OnInit {
     });
   }
 
-  moreInfo (friend_email) {
+  moreInfo (friend_email, friend_name) {
     this.cookie.set('selected-friend', friend_email, null, null, null, null, null);
+    this.cookie.set('selected-friend-name', friend_name, null, null, null, null, null);
     console.log("Need more Info about " + friend_email);
     this.router.navigateByUrl('/dashboard/your-friends/details');
   }

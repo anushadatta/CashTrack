@@ -17,6 +17,8 @@ export class FriendsDetailComponent implements OnInit {
 
   showLoadingSpinner = true;
   friend_email: string = '';
+  friend_name: string = '';
+
   public canvas : any;
   public ctx;
   public chartColor;
@@ -29,6 +31,7 @@ export class FriendsDetailComponent implements OnInit {
     this.showLoadingSpinner = false;
 
     this.friend_email = this.cookie.get('selected-friend');
+    this.friend_name = this.cookie.get('selected-friend-name');
     this.chartColor = "#FFFFFF";
     this.showLoadingSpinner = false;
 
@@ -37,7 +40,7 @@ export class FriendsDetailComponent implements OnInit {
     let speedCanvas = document.getElementById("speedChart1");
 
     var dataFirst = {
-      data: [0, 19, 15, 20, 30, 40, 40, 50, 25, 30, 50, 70],
+      data: [0, -19, 15, 20, 30, 40, 40, 50, 25, 30, 50, 70],
       fill: false,
       borderColor: '#fbc658',
       backgroundColor: 'transparent',
