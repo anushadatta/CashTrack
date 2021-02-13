@@ -4,7 +4,7 @@ export const dashboardElement: SideBar =
     {
         id: "home", // To be filled in when generating the dashboard component
         pageTitle: "Dashboard",
-        icon: "fas fa-columns",
+        icon: "	fa fa-cubes",
         category: "dashboard",
     };
 
@@ -19,37 +19,37 @@ export const payNavList: SideBar[] = [
     {
         id: "personal_expenses", // To be filled in when generating the dashboard component
         pageTitle: "Personal Expenses",
-        icon: "fas fa-columns",
+        icon: "fa fa-money",
         category: "dashboard",
     },
     {
         id: "shared_expenses", // To be filled in when generating the dashboard component
         pageTitle: "Shared Expenses",
-        icon: "fas fa-columns",
+        icon: "	fa fa-share-alt",
         category: "dashboard",
     },
     {
         id: "your_friends", // To be filled in when generating the dashboard component
         pageTitle: "Your Friends",
-        icon: "fas fa-columns",
+        icon: "	fa fa-handshake-o",
         category: "dashboard",
     },
     {
         id: "your_groups", // To be filled in when generating the dashboard component
         pageTitle: "Your Groups",
-        icon: "fas fa-columns",
+        icon: "fa fa-group",
         category: "dashboard",
     },
     {
         id: "chat", // To be filled in when generating the dashboard component
         pageTitle: "Chat",
-        icon: "fas fa-columns",
+        icon: "fa fa-comments",
         category: "dashboard",
     },
     {
         id: "account", // To be filled in when generating the dashboard component
         pageTitle: "Account",
-        icon: "fas fa-columns",
+        icon: "	fa fa-user-circle",
         category: "dashboard",
     }
 ];
@@ -58,13 +58,13 @@ export const supportNavList: SideBar[] = [
     {
         id: "about",
         pageTitle: "About CashTrack",
-        icon: "fas fa-bell",
+        icon: "fas fa-columns",
         category: "support",
     },
     {
         id: "faqs",
         pageTitle: "FAQs",
-        icon: "fas fa-sign-out-alt",
+        icon: "	fa fa-info-circle",
         category: "support",
     },
 ];
