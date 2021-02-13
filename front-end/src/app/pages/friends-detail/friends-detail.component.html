@@ -3,5 +3,25 @@
 
 <div class="container">
     <button class="button-style" mat-button (click)="goBack()"><mat-icon [ngStyle]="{'color':'grey'}"> arrow_back </mat-icon></button>
- selected friend: {{friend_email}}
+<div>selected friend: {{friend_email}}</div>
+<div class="card card-chart">
+    <div class="card-header">
+      <h5 class="card-title">Your Money</h5>
+      <p class="card-category">Money In vs Money Out</p>
+    </div>
+    <div class="card-body">
+      <canvas id="speedChart1" width="400" height="100"></canvas>
+    </div>
+    <div class="card-footer">
+      <div class="chart-legend">
+        <i class="fa fa-circle text-info"></i> Money In
+        <i class="fa fa-circle text-warning"></i> Money Out
+      </div>
+      <hr/>
+      <div class="card-stats">
+        <i class="fa fa-check"></i> Updated just now
+      </div>
+    </div>
+  </div>
 </div>
+
