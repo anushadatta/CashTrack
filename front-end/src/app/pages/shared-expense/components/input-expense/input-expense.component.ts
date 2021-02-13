@@ -1,12 +1,13 @@
 import { Component, OnInit, Input, Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {SplitByComponent} from '../split-by/split-by.component';
+import {FormControl, ReactiveFormsModule} from '@angular/forms';
 
 export interface ExpenseData {
   name: string;
   category: string;
   amount: string;
-  friend: string;
+  friend_list: string[];
   split_or_not:string;
   split_by_method:string;
 }
@@ -19,11 +20,8 @@ export interface ExpenseData {
 
 export class InputExpenseComponent implements OnInit {
 
-  categories = ['Food', 'Travel', 'Shopping', 'Others'];
-  category = '';
-  friend = "";
-
-  friends = ['Anusha', 'Mehul'];
+  categories = ['Food', 'Travel', 'Entertainment', 'Shopping', 'Others'];
+  your_friends = ['Anusha', 'Mehul'];
   pay_options = ['You owe Anusha money', 'Split Bill'];
 
   @Input() updateExpense: boolean;
