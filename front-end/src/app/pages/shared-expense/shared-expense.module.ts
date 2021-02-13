@@ -19,6 +19,7 @@ import { ExpenseCardComponent } from './components/expense-card/expense-card.com
 import { SummaryRowListComponent } from './components/summary-row-list/summary-row-list.component';
 import { SummaryCardsComponent } from './components/summary-cards/summary-cards.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 const appRoutes: Routes = [
     { path: '', component: SharedExpenseComponent }
