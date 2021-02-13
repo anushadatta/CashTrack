@@ -1,12 +1,20 @@
 <mat-card>
-  <mat-card-header>
-    <!-- <img src="../../../../../assets/img/logo/R.png"> -->
-    <mat-card-title> {{ summary.label }} &nbsp; &nbsp; </mat-card-title>
-    <mat-card-title>S$ {{ summary.amount }}</mat-card-title>
-    &nbsp; &nbsp; &nbsp;
-    <img src="../../../../../assets/img/logo/R.png">
-  </mat-card-header>
-  <mat-card-content style="padding-left: 15px;">
-     {{ summary.content }}
-  </mat-card-content>
+
+    <mat-card-header style="position:relative;">
+
+        <mat-card-title> {{ summary.label }} &nbsp; &nbsp; </mat-card-title>
+        <mat-card-title [ngStyle]="{'color': summary.color}">S$ {{ summary.amount }}</mat-card-title>
+
+        <div style="position: absolute; right: 0px; top: 0px; width: 50px; ">
+            <img src="../../../../../assets/cashtrack-assets/{{summary.icon}}" style="height: 45px; width:auto;">
+        </div>
+
+    </mat-card-header>
+
+    <br>
+
+    <mat-card-content style="padding-left: 15px; ">
+        {{ summary.content }}
+    </mat-card-content>
+
 </mat-card>
