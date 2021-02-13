@@ -14,6 +14,7 @@ import { ExpenseListComponent } from './components/expense-list/expense-list.com
 import { ExpenseCardComponent } from './components/expense-card/expense-card.component';
 import { LandingComponent } from './landing.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 // tree shaking
 // import * as echarts from 'echarts'
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
         CommonComponentsModule,
         NgxEchartsModule.forRoot({
             echarts
-        })
+        }),
+        MatProgressBarModule
     ],
 	providers: [
         CookieService

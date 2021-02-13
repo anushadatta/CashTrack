@@ -1,6 +1,8 @@
 <!-- <ng4-loading-spinner></ng4-loading-spinner> -->
 <app-custom-loading-spinner [show]="showLoadingSpinner"></app-custom-loading-spinner>
 <br>
+
+
     <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
@@ -107,6 +109,29 @@
           </div>
         </div>
       </div>
+
+      <div class="col-md-12">
+        <div class="card ">
+          <div class="card-header ">
+            
+            <div class="grid-2">
+            <div>
+                <h5> Personal Expense Limit</h5>
+                </div>
+                <div class="card-right">
+                  {{spendingTimeline}}
+                </div>
+            </div>
+              
+            <p class="card-category">{{spendingLimit}}% limit reached</p>
+          </div>
+         
+          <div class="card-body ">
+            <mat-progress-bar mode="determinate" value="{{spendingLimit}}"></mat-progress-bar>
+          </div>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-md-4">
           <div class="card ">

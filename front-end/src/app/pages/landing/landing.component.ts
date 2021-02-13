@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js';
 
-
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -15,9 +14,15 @@ export class LandingComponent implements OnInit {
   public chartHours;
   showLoadingSpinner = true;
 
+  public spendingLimit: number;
+  public spendingTimeline: string;
+
     ngOnInit(){
       this.chartColor = "#FFFFFF";
       this.showLoadingSpinner = false;
+
+      this.spendingLimit = 80;
+      this.spendingTimeline = 'MONTHLY';
 
       this.canvas = document.getElementById("chartHours");
       this.ctx = this.canvas.getContext("2d");
