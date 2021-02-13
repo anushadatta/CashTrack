@@ -15,6 +15,8 @@ import { ExpenseCardComponent } from './components/expense-card/expense-card.com
 import { LandingComponent } from './landing.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { SummaryRowListComponent } from './components/summary-row-list/summary-row-list.component';
+import { SummaryCardsComponent } from './components/summary-cards/summary-cards.component';
 
 // tree shaking
 // import * as echarts from 'echarts'
@@ -30,7 +32,9 @@ const appRoutes: Routes = [
         LandingComponent,
         ExpenseCardComponent,
         ExpenseListComponent,
-        CommentsComponent
+        CommentsComponent,
+        SummaryCardsComponent,
+        SummaryRowListComponent
     ],
     imports: [
         CommonModule,
