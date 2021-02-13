@@ -2,33 +2,38 @@ img {
     border-radius: 50%;
     width: 50px;
     height: 50px;
-  }
+}
+
 .border-green {
-  border-left: 15px solid green;
-  height: 160px;
-  padding: 15px;
+    border-left: 15px solid #47B881;
+    height: 160px;
+    padding: 15px;
 }
+
 .border-red {
-  border-left: 15px solid red;
-  height: 160px;
-  padding: 15px;
+    border-left: 15px solid #EC4C47;
+    height: 160px;
+    padding: 15px;
 }
+
 .card-size {
-  height: 200px;
-  width: 500px;
+    height: 200px;
+    width: 500px;
 }
+
 .tag {
-  border-radius: 25px;
-  background: #E8DA2C;
-  padding: 10px;
-  width: 80px;
-  height: 20px;
-  text-align: center;
-  font-size: 15px;
+    border-radius: 25px;
+    background: #E8DA2C;
+    padding: 10px;
+    width: 80px;
+    height: 20px;
+    text-align: center;
+    font-size: 15px;
 }
 
 .button-style {
-  background: white;
-  border-radius: 50px;
-  color: #0D1577;;
+    background: white;
+    border-radius: 50px;
+    color: #0D1577;
+    ;
 }
