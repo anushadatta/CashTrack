@@ -1,0 +1,15 @@
+<h4> COMMENTS </h4>
+<br>
+<div *ngFor="let comment of comments">
+    <span style="font-weight: 900;"> {{ comment.name }} </span>
+    <br>
+    <span> &nbsp; &nbsp; > {{ comment.comment }} </span>
+    <br>
+    <br>
+</div>
+<input placeholder="Enter your comment" type="text" id="input-comment">
+<button mat-button (click)="getComment()"><mat-icon>send</mat-icon></button>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onClose()"> CLOSE </button>
+ </div>
