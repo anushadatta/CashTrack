@@ -6,15 +6,26 @@
 <div class="details-container">
 
     <!-- Heading -->
-    <div>
-        <h1> <b> {{friend_name}} </b> </h1>
+    <div style="display: inline-block;">
+
+        <div style="float:left;">
+            <img src="../../../assets/img/user-avatar.png" style="margin-right: 20px;">
+        </div>
+        <div style="float:left;">
+            <h1 style="margin-bottom: 0px;"> <b> {{friend_name}} </b> </h1>
+        </div>
+
+        <div>{{friend_email}}</div>
     </div>
 
-    <div>{{friend_email}}</div>
+    <br>
+    <br>
+    <br>
 
+    <!-- Chart -->
     <div class="card card-chart">
         <div class="card-header">
-            <h5 class="card-title">Your Money</h5>
+            <h5 class="card-title">Your Transactions with {{friend_name}}</h5>
             <p class="card-category">Money In vs Money Out</p>
         </div>
         <div class="card-body">
@@ -22,8 +33,8 @@
         </div>
         <div class="card-footer">
             <div class="chart-legend">
-                <i class="fa fa-circle text-info"></i> Money In
-                <i class="fa fa-circle text-warning"></i> Money Out
+                <!-- <i class="fa fa-circle text-info"></i> Money In -->
+                <i class="fa fa-circle text-warning"></i> -ve: Money Out | +ve: Money In
             </div>
             <hr/>
             <div class="card-stats">
@@ -33,9 +44,12 @@
     </div>
 
     <br>
+    <br>
+    <br>
 
+    <!-- Transactions History -->
     <div>
-        <h2> <b> TRANSACTIONS HISTORY </b> </h2>
-            <app-expense-list></app-expense-list>
+        <h2 style="margin: 2px"> <b> TRANSACTIONS HISTORY </b> </h2>
+        <app-expense-list></app-expense-list>
     </div>
 </div>
