@@ -30,7 +30,7 @@ export class ExpenseListComponent implements OnInit {
   shared_expenses = [
     {
       name : 'Pasta Express Lunch',
-      amount: '8.60',
+      amount: '4.10',
       category: 'Food',
       created_at: '6th Febraury, 2021', 
       author: 'mehul.kumar171@gmail.com',
@@ -40,20 +40,20 @@ export class ExpenseListComponent implements OnInit {
         {name: "Mehul Kumar", comment: "Pls pay me by next week"}]
     },
     {
-      name : 'Brio Lunch',
-      amount: '28.60',
-      category: 'Food',
-      created_at: '6th Febraury, 2021', 
-      author: 'mehul.kumar171@gmail.com',
+      name : 'Cab to MBS',
+      amount: '17.20',
+      category: 'Travel',
+      created_at: '4th Febraury, 2021', 
+      author: 'daniel@gmail.com',
       payers: ['amritaravishankar00@gmail.com'],
       type: '1',
       comments: [
-        {name: "Mehul Kumar", comment: "Pls pay me fast"}]
+        {name: "Anusha Datta", comment: "Pls pay me fast"}]
     },
     {
-      name: 'Crowded Bowl',
-      amount: '5.80',
-      category: 'Food',
+      name: 'Movie Night',
+      amount: '21.20',
+      category: 'Entertainment',
       created_at: '2nd Febraury, 2021',
       author: 'amritaravishankar00@gmail.com',
       payers: ['mehul.kumar171@gmail.com'],
@@ -61,17 +61,6 @@ export class ExpenseListComponent implements OnInit {
       comments: [
         {name: "Amrita Ravishankar", comment: "Pls pay me by next week"},
         {name:"Mehul Kumar", comment: "Sure"}]
-    },
-    {
-      name: 'Grab',
-      amount: '15.80',
-      category: 'Travel',
-      created_at: '2nd Febraury, 2021',
-      author: 'amritaravishankar00@gmail.com',
-      payers: ['mehul.kumar171@gmail.com'],
-      type: '2',
-      comments: [
-        {name: "Mehul Kumar", comment: "Pls pay me by next week"}],
     },
   ];
 
