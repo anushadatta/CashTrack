@@ -40,7 +40,7 @@ export class FriendsDetailComponent implements OnInit {
     let speedCanvas = document.getElementById("speedChart1");
 
     var dataFirst = {
-      data: [0, -19, 15, 20, 30, 40, 40, 50, 25, 30, 50, 70],
+      data: [0, -19, 15, 20, 30, -35, 0, 40, 50, -25, 30, 50, 70],
       fill: false,
       borderColor: '#fbc658',
       backgroundColor: 'transparent',

@@ -59,7 +59,7 @@ $top-bar-height: 40px;
 .logo-text-heavy {
     font-family: "Roboto";
     font-weight: 400;
-    font-size: 150%;
+    font-size: 110%;
     letter-spacing: 3px;
     color: #E5E5E5;
 }
@@ -67,7 +67,7 @@ $top-bar-height: 40px;
 .logo-text-heavy-yellow {
     font-family: "Roboto";
     font-weight: 400;
-    font-size: 150%;
+    font-size: 110%;
     letter-spacing: 3px;
     color: #E8DA2C;
 }
@@ -75,7 +75,7 @@ $top-bar-height: 40px;
 .logo-container {
     width: $side-bar-width;
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 .second-container {

@@ -30,13 +30,13 @@ export const payNavList: SideBar[] = [
     },
     {
         id: "your_friends", // To be filled in when generating the dashboard component
-        pageTitle: "Your Friends",
+        pageTitle: "My Friends",
         icon: "	fa fa-handshake-o",
         category: "dashboard",
     },
     {
         id: "your_groups", // To be filled in when generating the dashboard component
-        pageTitle: "Your Groups",
+        pageTitle: "My Groups",
         icon: "fa fa-group",
         category: "dashboard",
     },
