@@ -63,7 +63,7 @@ export class ExpenseListComponent implements OnInit {
         {name:"Mehul Kumar", comment: "Sure"}]
     },
     {
-      name: 'Grab',
+      name: 'Grab Trip to MBS',
       amount: '15.80',
       category: 'Travel',
       created_at: '2nd Febraury, 2021',

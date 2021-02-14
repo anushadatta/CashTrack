@@ -26,6 +26,8 @@ export class InputExpenseComponent implements OnInit {
 
   @Input() updateExpense: boolean;
   @Input() split_by_method = "";
+
+  show_drop_or_not: boolean = true;
   
   constructor(public dialog: MatDialog,
     public dialogRef: MatDialogRef<SplitByComponent>,
@@ -34,6 +36,12 @@ export class InputExpenseComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  showDropOrNot() {
+    if (this.data.friend_list.length > 1) {
+      this.show_drop_or_not = false;
+    }
   }
 
   ngOnInit(): void {
@@ -47,7 +55,7 @@ export class InputExpenseComponent implements OnInit {
     console.log("split");
     const dialogRef = this.dialog.open(SplitByComponent, {
       width: '500px',
-      data: {split_by_method: this.split_by_method}
+      data: {split_by_method: this.split_by_method, expense_amount: this.data.amount, friends: this.data.friend_list}
     });
    
     dialogRef.afterClosed().subscribe(result => {

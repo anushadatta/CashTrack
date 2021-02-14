@@ -1,5 +1,7 @@
 <h1 mat-dialog-title>Choose How To Split Cost</h1>
-<h4>Amount: S$ {{ amount }} </h4>
+<h4>Amount: S$ {{ data.expense_amount }} </h4>
+
+<!-- Buttons -->
 <div class="wrapper">
   <div class="row">
     <div class="column"><button class="button-style" mat-button (click)="split_by_method1='Equal'">Equal</button></div>
@@ -10,6 +12,8 @@
   </div>
 </div>
 <br>
+
+<!-- Equal -->
 <div class="ui-container">
   <div *ngIf="split_by_method1 === 'Equal'" class="dropdown-content">
     <div *ngFor="let f of friends">
@@ -27,6 +31,8 @@
       <br>
     </div>
   </div>
+
+  <!-- Percent -->
   <div *ngIf="split_by_method1 === 'Percent'" class="dropdown-content">
     <div *ngFor="let split of split_data">
       <div class="row">
@@ -47,6 +53,8 @@
     </div>
     <button class="button-style" mat-button (click)="onCalculate(split_by_method1)"> Calculate </button>
   </div>
+
+  <!-- Shares -->
   <div *ngIf="split_by_method1 === 'Shares'" class="dropdown-content">
     <div *ngFor="let split of split_data">
       <div class="row">
@@ -67,6 +75,8 @@
     </div>
     <button class="button-style" mat-button (click)="onCalculate(split_by_method1)"> Calculate </button>
   </div>
+
+  <!-- Custom -->
   <div *ngIf="split_by_method1 === 'Custom'" class="dropdown-content">
     <div *ngFor="let split of split_data">
       <div class="row">
@@ -87,7 +97,18 @@
     </div>
     <button class="button-style" mat-button (click)="onCalculate(split_by_method1)"> Calculate </button>
   </div>
+
+  <!-- Currency -->
   <div *ngIf="split_by_method1 === 'Currency'" class="dropdown-content">
+    <form-field>
+      <span style="font-size: 15px;"> Select Currency &nbsp;&nbsp; </span>
+      <select [(ngModel)]="selected_currency">
+        <option *ngFor="let currency of currency_data" [value]="currency.currency">{{currency.currency}}</option>
+      </select>
+    </form-field>
+    <br>
+    <br>
+    <br>
     <div *ngFor="let split of split_data">
       <div class="row">
         <div class="column" style="padding-left:10px;">
@@ -108,7 +129,9 @@
     <button class="button-style" mat-button (click)="onCalculate(split_by_method1)"> Calculate </button>
   </div>
 </div>
-<div mat-dialog-actions>
+
+<!-- Confirm or Cancel -->
+<div mat-dialog-actions align="center">
   <button mat-button (click)="onNoClickSplit()"> CANCEL </button>
   <button mat-button cdkFocusInitial (click)="onConfirm()" [mat-dialog-close]="data.split_by_method" cdkFocusInitial> CONFIRM </button>
 </div>
