@@ -1,136 +1,149 @@
 <div class="mat-dialog-box">
+  <h1 mat-dialog-title class="center">
+    <b>Choose How To Split Cost</b>
+  </h1>
+  <h4>Amount: S$ {{ data.expense_amount }} </h4>
 
-    <h1 mat-dialog-title class="center">
-        <b>Choose How To Split Cost</b>
-    </h1>
+  <!-- Buttons -->
+  <div class="wrapper">
+    <div class="row">
+      <div class="column"><button class="button-style" mat-button (click)="split_by_method1='Equal'">Equal</button></div>
+      <div class="column"><button class="button-style" mat-button (click)="split_by_method1='Percent'">Percent</button></div>
+      <div class="column"><button class="button-style" mat-button (click)="split_by_method1='Shares'">Shares</button></div>
+      <div class="column"><button class="button-style" mat-button (click)="split_by_method1='Custom'">Custom</button></div>
+      <div class="column"><button class="button-style" mat-button (click)="split_by_method1='Currency'">$ Currency Exchange</button></div>
+    </div>
+  </div>
+  <br>
 
-    <h4 class="center">Amount: S${{ amount }} </h4>
-    <div class="wrapper">
+  <!-- Equal -->
+  <div class="ui-container">
+    <div *ngIf="split_by_method1 === 'Equal'" class="dropdown-content">
+      <div *ngFor="let f of friends">
         <div class="row">
-            <div class="column"><button class="button-style" mat-button (click)="split_by_method1='Equal'">Equal</button></div>
-            <div class="column"><button class="button-style" mat-button (click)="split_by_method1='Percent'">Percent</button></div>
-            <div class="column"><button class="button-style" mat-button (click)="split_by_method1='Shares'">Shares</button></div>
-            <div class="column"><button class="button-style" mat-button (click)="split_by_method1='Custom'">Custom</button></div>
-            <div class="column"><button class="button-style" mat-button (click)="split_by_method1='Currency'">$ Currency Exchange</button></div>
+          <div class="column" style="padding-left:10px;">
+            <img src="../../../../../assets/img/user-avatar.png">
+            &nbsp; &nbsp;
+          </div>
+          <div class="column">
+            <span style="font-size:20px; font-weight: 900;"> {{ f }} </span> 
+            <br>
+            <span style="font-size:12px"> Total Share: {{ amount*0.5 }} </span> 
+          </div>
         </div>
+        <br>
+      </div>
     </div>
 
-    <br>
-
-    <div class="ui-container">
-        <div *ngIf="split_by_method1 === 'Equal'" class="dropdown-content">
-            <div *ngFor="let f of friends">
-                <div class="row">
-                    <div class="column" style="padding-left:10px;">
-                        <img src="../../../../../assets/img/user-avatar.png"> &nbsp; &nbsp;
-                    </div>
-                    <div class="column">
-                        <span style="font-size:20px; font-weight: 900;"> {{ f }} </span>
-                        <br>
-                        <span style="font-size:12px"> Total Share: {{ amount*0.5 }} </span>
-                    </div>
-                </div>
-                <br>
-            </div>
+    <!-- Percent -->
+    <div *ngIf="split_by_method1 === 'Percent'" class="dropdown-content">
+      <div *ngFor="let split of split_data">
+        <div class="row">
+          <div class="column" style="padding-left:10px;">
+            <img src="../../../../../assets/img/user-avatar.png">
+            &nbsp; &nbsp;
+          </div>
+          <div class="column">
+            <span style="font-size:20px; font-weight: 900;"> {{ split.friend }} </span> 
+            <br>
+            <span *ngIf="valueAvailable" style="font-size:12px"> Total Share: ${{ split.amount }} </span> 
+          </div>
+          <div class="column" style="padding-left: 200px;">
+            <div class="row column-input"> <input [id]="split.friend" size="5" type="text"> </div>
+          </div>
         </div>
-        <div *ngIf="split_by_method1 === 'Percent'" class="dropdown-content">
-            <div *ngFor="let split of split_data">
-                <div class="row">
-                    <div class="column" style="padding-left:10px;">
-                        <img src="../../../../../assets/img/user-avatar.png"> &nbsp; &nbsp;
-                    </div>
-                    <div class="column">
-                        <span style="font-size:20px; font-weight: 900;"> {{ split.friend }} </span>
-                        <br>
-                        <span *ngIf="valueAvailable" style="font-size:12px"> Total Share: ${{ split.amount }} </span>
-                    </div>
-                    <div class="column" style="padding-left: 200px;">
-                        <div class="row column-input"> <input [id]="split.friend" size="5" type="text"> </div>
-                    </div>
-                </div>
-                <br>
-            </div>
-
-            <div class="center">
-                <button class="button-style" mat-button (click)="onCalculate(split_by_method1)"> Calculate </button>
-            </div>
-
-        </div>
-        <div *ngIf="split_by_method1 === 'Shares'" class="dropdown-content">
-            <div *ngFor="let split of split_data">
-                <div class="row">
-                    <div class="column" style="padding-left:10px;">
-                        <img src="../../../../../assets/img/user-avatar.png"> &nbsp; &nbsp;
-                    </div>
-                    <div class="column">
-                        <span style="font-size:20px; font-weight: 900;"> {{ split.friend }} </span>
-                        <br>
-                        <span *ngIf="valueAvailable" style="font-size:12px"> Total Share: ${{ split.amount }} </span>
-                    </div>
-                    <div class="column" style="padding-left: 200px;">
-                        <div class="row column-input"> <input [id]="split.friend" size="5" type="text"> </div>
-                    </div>
-                </div>
-                <br>
-            </div>
-
-            <div class="center">
-                <button class="button-style" mat-button (click)="onCalculate(split_by_method1)"> Calculate </button>
-            </div>
-
-        </div>
-        <div *ngIf="split_by_method1 === 'Custom'" class="dropdown-content">
-            <div *ngFor="let split of split_data">
-                <div class="row">
-                    <div class="column" style="padding-left:10px;">
-                        <img src="../../../../../assets/img/user-avatar.png"> &nbsp; &nbsp;
-                    </div>
-                    <div class="column">
-                        <span style="font-size:20px; font-weight: 900;"> {{ split.friend }} </span>
-                        <br>
-                        <span *ngIf="valueAvailable" style="font-size:12px"> Total Share: ${{ split.amount }} </span>
-                    </div>
-                    <div class="column" style="padding-left: 200px;">
-                        <div class="row column-input"> <input [id]="split.friend" size="5" type="text"> </div>
-                    </div>
-                </div>
-                <br>
-            </div>
-
-            <div class="center">
-                <button class="button-style" mat-button (click)="onCalculate(split_by_method1)"> Calculate </button>
-            </div>
-
-        </div>
-        <div *ngIf="split_by_method1 === 'Currency'" class="dropdown-content">
-            <div *ngFor="let split of split_data">
-                <div class="row">
-                    <div class="column" style="padding-left:10px;">
-                        <img src="../../../../../assets/img/user-avatar.png"> &nbsp; &nbsp;
-                    </div>
-                    <div class="column">
-                        <span style="font-size:20px; font-weight: 900;"> {{ split.friend }} </span>
-                        <br>
-                        <span *ngIf="valueAvailable" style="font-size:12px"> Total Share: ${{ split.amount }} </span>
-                    </div>
-                    <div class="column" style="padding-left: 200px;">
-                        <div class="row column-input"> <input [id]="split.friend" size="5" type="text"> </div>
-                    </div>
-                </div>
-                <br>
-            </div>
-
-            <div class="center">
-                <button class="button-style" mat-button (click)="onCalculate(split_by_method1)"> Calculate </button>
-            </div>
-        </div>
+        <br>
+      </div>
+      <div class="center"> 
+        <button class="button-style" mat-button (click)="onCalculate(split_by_method1)"> Calculate </button>
+      </div>    
     </div>
 
-    <br>
-
-    <div class="center">
-        <button mat-button (click)="onNoClickSplit()"> CANCEL </button>
-        <button mat-button cdkFocusInitial (click)="onConfirm()" [mat-dialog-close]="data.split_by_method" cdkFocusInitial> CONFIRM </button>
+    <!-- Shares -->
+    <div *ngIf="split_by_method1 === 'Shares'" class="dropdown-content">
+      <div *ngFor="let split of split_data">
+        <div class="row">
+          <div class="column" style="padding-left:10px;">
+            <img src="../../../../../assets/img/user-avatar.png">
+            &nbsp; &nbsp;
+          </div>
+          <div class="column">
+            <span style="font-size:20px; font-weight: 900;"> {{ split.friend }} </span> 
+            <br>
+            <span *ngIf="valueAvailable" style="font-size:12px"> Total Share: ${{ split.amount }} </span> 
+          </div>
+          <div class="column" style="padding-left: 200px;">
+            <div class="row column-input"> <input [id]="split.friend" size="5" type="text"> </div>
+          </div>
+        </div>
+        <br>
+      </div>
+      <div class="center"> 
+        <button class="button-style" mat-button (click)="onCalculate(split_by_method1)"> Calculate </button>
+      </div>    
     </div>
 
+    <!-- Custom -->
+    <div *ngIf="split_by_method1 === 'Custom'" class="dropdown-content">
+      <div *ngFor="let split of split_data">
+        <div class="row">
+          <div class="column" style="padding-left:10px;">
+            <img src="../../../../../assets/img/user-avatar.png">
+            &nbsp; &nbsp;
+          </div>
+          <div class="column">
+            <span style="font-size:20px; font-weight: 900;"> {{ split.friend }} </span> 
+            <br>
+            <span *ngIf="valueAvailable" style="font-size:12px"> Total Share: ${{ split.amount }} </span> 
+          </div>
+          <div class="column" style="padding-left: 200px;">
+            <div class="row column-input"> <input [id]="split.friend" size="5" type="text"> </div>
+          </div>
+        </div>
+        <br>
+      </div>
+      <div class="center"> 
+        <button class="button-style" mat-button (click)="onCalculate(split_by_method1)"> Calculate </button>
+      </div>    
+    </div>
+
+    <!-- Currency -->
+    <div *ngIf="split_by_method1 === 'Currency'" class="dropdown-content">
+      <form-field>
+        <span style="font-size: 15px;"> Select Currency &nbsp;&nbsp; </span>
+        <select [(ngModel)]="selected_currency">
+          <option *ngFor="let currency of currency_data" [value]="currency.currency">{{currency.currency}}</option>
+        </select>
+      </form-field>
+      <br>
+      <br>
+      <br>
+      <div *ngFor="let split of split_data">
+        <div class="row">
+          <div class="column" style="padding-left:10px;">
+            <img src="../../../../../assets/img/user-avatar.png">
+            &nbsp; &nbsp;
+          </div>
+          <div class="column">
+            <span style="font-size:20px; font-weight: 900;"> {{ split.friend }} </span> 
+            <br>
+            <span *ngIf="valueAvailable" style="font-size:12px"> Total Share: ${{ split.amount }} </span> 
+          </div>
+          <div class="column" style="padding-left: 200px;">
+            <div class="row column-input"> <input [id]="split.friend" size="5" type="text"> </div>
+          </div>
+        </div>
+        <br>
+      </div>
+      <div class="center"> 
+        <button class="button-style" mat-button (click)="onCalculate(split_by_method1)"> Calculate </button>
+      </div>    
+    </div>
+  </div>
+
+  <!-- Confirm or Cancel -->
+  <div class="center">
+    <button mat-button (click)="onNoClickSplit()"> CANCEL </button>
+    <button mat-button cdkFocusInitial (click)="onConfirm()" [mat-dialog-close]="data.split_by_method" cdkFocusInitial> CONFIRM </button>
+  </div>
 </div>

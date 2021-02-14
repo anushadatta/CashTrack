@@ -1,63 +1,61 @@
 <div class="mat-dialog-box center">
-
-    <h1 mat-dialog-title>
-        <b> Input Shared Expense </b>
-    </h1>
-
-    <div mat-dialog-content>
-        <!-- Label -->
-        <mat-form-field>
-            <mat-label>Label</mat-label>
-            <input matInput [(ngModel)]="data.name">
-        </mat-form-field>
-        <br>
-        <!-- Category -->
-        <mat-form-field>
-            <mat-label>Category</mat-label>
-            <mat-select [(value)]="data.category">
-                <mat-option *ngFor="let cat of categories" [value]="cat">
-                    {{cat}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <br>
-        <!-- Amount -->
-        <mat-form-field>
-            <mat-label>S$ Amount</mat-label>
-            <input matInput [(ngModel)]="data.amount">
-        </mat-form-field>
-        <br>
-        <!-- Select Friends -->
-        <mat-form-field>
-            <mat-label>Select Friend(s) or Group</mat-label>
-            <mat-select [(value)]="data.friend_list" multiple>
-                <mat-option *ngFor="let f of your_friends" [value]="f">{{f}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <br>
-        <!-- Choose Pay Option -->
-        <!--  *ngIf="data.friend_list.length == 1" -->
-        <mat-form-field>
-            <mat-label>Choose pay option</mat-label>
-            <mat-select [(value)]="data.split_or_not">
-                <mat-option *ngFor="let pay of pay_options" [value]="pay">
-                    {{pay}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <!-- Split by-->
-        <div *ngIf="data.split_or_not === 'Split Bill'">
-            <div class="center">
-                <button mat-button class="split-button" (click)="SplitByPopUp()"> SPLIT-BY > </button>
-            </div>
-        </div>
-    </div>
-
+  <h1 mat-dialog-title>
+    <b> Input Shared Expense </b>
+  </h1>
+  <div mat-dialog-content style="text-align: center;">
+    <!-- Label -->
+    <mat-form-field>
+      <mat-label>Label</mat-label>
+      <input matInput [(ngModel)]="data.name">
+    </mat-form-field>
     <br>
-
-    <div class="center">
-        <button mat-button (click)="onNoClick()"> CANCEL </button>
-        <button mat-button (click)="addExpense()" cdkFocusInitial> ADD </button>
-        <!-- <button mat-button (click)="addExpense()" cdkFocusInitial> UPDATE </button> -->
+    <!-- Category -->
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select [(value)]="data.category">
+        <mat-option *ngFor="let cat of categories" [value]="cat">
+          {{cat}}
+        </mat-option>
+      </mat-select>    
+    </mat-form-field>
+    <br>
+    <!-- Amount -->
+    <mat-form-field>
+     <mat-label>S$ Amount</mat-label>
+      <input matInput [(ngModel)]="data.amount">
+    </mat-form-field>
+    <br>
+      <!-- Select Friends -->
+    <mat-form-field>
+      <mat-label>Select Friend(s) or Group</mat-label>
+      <mat-select [(value)]="data.friend_list" multiple>
+        <mat-option *ngFor="let f of your_friends" [value]="f">{{f}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+  
+    <!-- Choose Pay Option -->
+    <!-- <mat-form-field> 
+      <mat-label>Choose pay option</mat-label>
+      <mat-select [(value)]="data.split_or_not">
+        <mat-option *ngFor="let pay of pay_options" [value]="pay">
+          {{pay}}
+        </mat-option>
+      </mat-select>    
+    </mat-form-field> -->
+  
+    <!-- Split by  *ngIf="data.split_or_not === 'Split Bill'" -->
+  
+    <!-- Split by button -->
+    <div>
+      <div mat-dialog-actions class="center">
+        <button mat-button class="split-button" (click)="SplitByPopUp()"> SPLIT-BY > </button>
+      </div>  
     </div>
+  </div>
+  <div mat-dialog-actions class="center">
+    <button mat-button (click)="onNoClick()"> CANCEL </button>
+    <button mat-button (click)="addExpense()" cdkFocusInitial> ADD </button>
+    <!-- <button mat-button (click)="addExpense()" cdkFocusInitial> UPDATE </button> -->
+  </div>
 </div>

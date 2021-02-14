@@ -25,6 +25,7 @@ export class SharedExpenseComponent implements OnInit {
     console.log(expense);
     this.update = expense? true:false;
     const dialogRef = this.dialog.open(InputExpenseComponent, {
+      width: '500px',
       data: {name: expense? expense.name:this.name, category:expense? expense.category:this.category, amount:expense? expense.amount:this.amount}
     });
 
