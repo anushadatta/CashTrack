@@ -1,0 +1,7 @@
+<div  class="column">
+    <div *ngFor="let expense of shared_expenses | slice:0:3;">
+        <app-expense-card [expense]="expense"></app-expense-card>
+        <br>
+        <br>
+    </div>
+</div>

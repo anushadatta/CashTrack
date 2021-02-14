@@ -10,7 +10,8 @@ import { AGM_API_KEY } from 'src/app/common/variable';
 import { CommonComponentsModule } from 'src/app/modules/common-components/common-components.module';
 import { CustomMaterialModule } from 'src/app/modules/custom-material/custom-material.module';
 import { FriendsDetailComponent } from './friends-detail.component';
-
+import { ExpenseListComponent } from './components/expense-list/expense-list.component';
+import { ExpenseCardComponent } from './components/expense-card/expense-card.component';
 
 const appRoutes: Routes = [
     { path: '', component: FriendsDetailComponent }
@@ -19,6 +20,8 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [
         FriendsDetailComponent, 
+        ExpenseCardComponent,
+        ExpenseListComponent,
     ],
     imports: [
         CommonModule,
