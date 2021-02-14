@@ -29,6 +29,14 @@ export class ExpenseCardComponent implements OnInit {
     {
       return "Mehul Kumar"
     }
+    else if (name=="anushadatta@gmail.com")
+    {
+      return "Anusha Datta"
+    }
+    else if (name=="daniel@gmail.com")
+    {
+      return "Daniel Leong"
+    }
   }
 
   showComments(): void {
