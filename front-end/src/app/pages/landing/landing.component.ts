@@ -31,26 +31,34 @@ export class LandingComponent implements OnInit {
         type: 'line',
 
         data: {
-          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+          labels: ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb"],
           datasets: [{
-              borderColor: "#6bd098",
-              backgroundColor: "#6bd098",
+              borderColor:   '#fcc468',
+              backgroundColor: "#fcc468",
               pointRadius: 0,
               pointHoverRadius: 0,
               borderWidth: 3,
               data: [300, 310, 316, 322, 330, 326, 333, 345, 338, 354]
             },
             {
-              borderColor: "#f17e5d",
-              backgroundColor: "#f17e5d",
+              borderColor:  '#4acccd',
+              backgroundColor: "#4acccd",
               pointRadius: 0,
               pointHoverRadius: 0,
               borderWidth: 3,
               data: [320, 340, 365, 360, 370, 385, 390, 384, 408, 420]
             },
             {
-              borderColor: "#fcc468",
-              backgroundColor: "#fcc468",
+              borderColor:   '#6bd098',
+              backgroundColor: '#6bd098',
+              pointRadius: 0,
+              pointHoverRadius: 0,
+              borderWidth: 3,
+              data: [280, 250, 150, 275, 245, 300, 265, 300, 320, 420]
+            },
+            {
+              borderColor: '#ef8157',
+              backgroundColor: '#ef8157',
               pointRadius: 0,
               pointHoverRadius: 0,
               borderWidth: 3,
@@ -107,19 +115,20 @@ export class LandingComponent implements OnInit {
       this.chartEmail = new Chart(this.ctx, {
         type: 'pie',
         data: {
-          labels: [1, 2, 3],
+          labels: [1, 2, 3, 4],
           datasets: [{
-            label: "Emails",
+            label: "Categories",
             pointRadius: 0,
             pointHoverRadius: 0,
             backgroundColor: [
               '#e3e3e3',
               '#4acccd',
               '#fcc468',
+              '#6bd098',
               '#ef8157'
             ],
             borderWidth: 0,
-            data: [342, 480, 530, 120]
+            data: [342, 480, 530, 340,120]
           }]
         },
 
