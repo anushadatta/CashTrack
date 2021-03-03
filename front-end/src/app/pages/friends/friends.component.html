@@ -21,14 +21,23 @@
     <div *ngFor="let friend of friends_list">
         <mat-card>
             <mat-card-header>
-                <img src="../../../assets/img/user-avatar.png" alt="">
+                <div>
+                    <div style="float:left;">
+                        <img src="../../../assets/img/user-avatar.png" alt="" style="height:80px; width: auto;">
+                    </div>
 
-                <div style="margin: 15px;">
-                    <b> 
-                        {{friend.name}}
-                    </b>
-                    <br> {{friend.email}}
+
+                    <div style="margin: 15px; float:left; padding-top: 6px;">
+                        <b style="font-size: 24px;"> 
+                            {{friend.name}}
+                        </b>
+                        <br>
+                        <p style="color: grey;">
+                            {{friend.email}}
+                        </p>
+                    </div>
                 </div>
+
             </mat-card-header>
             <mat-card-actions align="end">
                 <button class="button-style" mat-button (click)="moreInfo(friend.email, friend.name)"><mat-icon [ngStyle]="{'color':'grey'}"> info </mat-icon></button>
