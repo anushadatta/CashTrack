@@ -39,7 +39,8 @@
                 </div>
             </mat-card-header>
             <mat-card-actions align="end">
-                <button class="button-style" mat-button (click)="moreInfo(group.group_id)"><mat-icon [ngStyle]="{'color':'grey'}"> info </mat-icon></button>
+                <!-- <button class="button-style" mat-button (click)="moreInfo(group.group_id)"><mat-icon [ngStyle]="{'color':'grey'}"> info </mat-icon></button> -->
+                <button class="button-style" mat-button (click)="moreInfo(group.group_id, group.name, group.friends)"><mat-icon [ngStyle]="{'color':'grey'}"> info </mat-icon></button>
             </mat-card-actions>
         </mat-card>
 
