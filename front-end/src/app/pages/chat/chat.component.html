@@ -25,13 +25,13 @@
         <!-- List of chats -->
         <ul>
             <div *ngFor="let chat of chat_data">
-                <li>
-                    <img src="../../../assets/img/user-avatar.png" alt="">
+                <li (click)="changeCurrentFriendID(chat.id)">
+                    <img src="../../../assets/img/user-avatar-light.png " alt=" " style="height: 80px; width: auto; vertical-align: middle; ">
                     <div>
-                        <h2>{{chat.user_2}}</h2>
+                        <h2 style="margin: 0px; ">{{chat.user_2_name}}</h2>
                         <h3>
-                            <!-- <span class="status orange"></span> offline -->
-                            <span class="status green"></span> online
+                            <!-- <span class="status orange "></span> offline -->
+                            <span [ngClass]="(chat.status=='online' )? 'status green': 'status orange' "></span> {{chat.status}}
                         </h3>
                     </div>
                 </li>
@@ -39,67 +39,42 @@
         </ul>
     </aside>
 
-
     <!-- Chat Window -->
     <main>
         <!-- Chat Header -->
         <header>
-            <img src="../../../assets/img/user-avatar.png" alt="">
+            <img src="../../../assets/img/user-avatar.png " alt=" ">
             <div>
                 <h2>Chat with</h2>
-                <h1>Amrita Ravishankar</h1>
+                <h1> {{chat_data[current_friend_id].user_2_name}} </h1>
             </div>
         </header>
 
         <!-- Chat Messages -->
         <ul id="chat">
-            <div *ngFor="let chat of chat_data">
+            <div *ngFor="let message of chat_data[current_friend_id].messages ">
 
-                <!-- Update {{me}} according to sender of message-->
-                <!-- <input [(ngModel)]={{me}}> -->
+                <li [ngClass]="(user_email==message[0])?'me':'you'">
+                    <div class="entete">
+                        <span [ngClass]="(user_email==message[0] || chat_data[current_friend_id].status =='online')? 'status green': 'status orange' "></span>
+                        <h2 style="margin-right: 5px; "> {{message[0]}} </h2>
+                        <h3> {{message[2]}} </h3>
+                    </div>
 
-                <div *ngIf="chat_data.user_2=='anushadatta@gmail.com';then content else other_content"></div>
-
-                <!-- ME -->
-                <ng-template #content>
-                    <li class="me">
-                        <div class="entete">
-                            <span class="status green"></span>
-                            <h2> Vincent </h2>
-                            <h3> 10:12AM, Today </h3>
-                        </div>
-
-                        <div class="message">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                        </div>
-                    </li>
-                </ng-template>
-
-                <!-- YOU -->
-                <ng-template #other_content>
-                    <li class="you">
-                        <div class="entete">
-                            <span class="status green"></span>
-                            <h2> Vincent </h2>
-                            <h3> 10:12AM, Today </h3>
-                        </div>
-
-                        <div class="message">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                        </div>
-                    </li>
-                </ng-template>
-
+                    <div class="message ">
+                        {{message[1]}}
+                    </div>
+                </li>
             </div>
         </ul>
 
-
         <!-- Type message -->
         <footer>
-            <textarea placeholder="Type your message"></textarea>
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_picture.png" alt="">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_file.png" alt="">
-            <button class="send-message" onclick="">Send</button>
+            <!-- <textarea placeholder="Type your message " [(ngModel)]="text_message"></textarea> -->
+            <input #textbox type="text" placeholder="Type your message here" required>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_picture.png " alt=" ">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_file.png " alt=" ">
+            <button class="send-message " (click)="newMessage(textbox.value)">Send</button>
         </footer>
 
     </main>

@@ -237,7 +237,7 @@ main footer {
     padding: 20px 30px 10px 20px;
 }
 
-main footer textarea {
+main footer input {
     resize: none;
     border: none;
     display: block;
