@@ -115,4 +115,12 @@ export class GroupsDetailComponent implements OnInit {
    }
   }
 
+  addFriend() {
+    console.log("add new friend to group here"); 
+  }
+
+  deleteGroup() {
+    console.log("delete group here"); 
+  }
+
 }

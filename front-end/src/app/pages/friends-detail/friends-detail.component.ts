@@ -86,5 +86,9 @@ export class FriendsDetailComponent implements OnInit {
     this.router.navigateByUrl('/dashboard/your-friends');
   }
 
+  deleteFriend() {
+    console.log("delete friend here");
+  }
+
 
 }
