@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { CookieKeys, UserType } from 'src/app/common/enum';
-
+import {MatSliderModule} from '@angular/material/slider';
 import { HttpClient } from '@angular/common/http';
 import { ConfigService } from '../../cashtrack-services/user-account-http.service';
 import { SubSink } from 'subsink';
@@ -20,12 +20,16 @@ export class UserAccountComponent implements OnInit {
   user_email: string;
   user_img: string;
 
+  limit_percent: number;
+  limit_time: string;
+  limit: string;
+
   constructor(
     private cookie: CookieService,
     private http: ConfigService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     this.subSink = new SubSink();
 
     this.showLoadingSpinner = false;
@@ -38,14 +42,20 @@ export class UserAccountComponent implements OnInit {
 
     console.log(`got name from cookie ${this.user_name}`);
 
-  }
+    this.limit_percent = 50;
+    this.limit = "1000";
+    this.limit_time = "weekly";
+  }​
 
-  getUserAccountInfo (user_email) {
+  getUserAccountInfo (user_email): void {
     this.subSink.sink = this.http.getUserInfo(user_email)
       .subscribe( (res) => {
         console.log(res);
       } ) 
+  }
 
+  changePercent (newVal): void {
+    console.log(newVal);
   }
 
 }
