@@ -1,0 +1,105 @@
+<!-- <ng4-loading-spinner></ng4-loading-spinner> -->
+<!-- <app-custom-loading-spinner [show]="showLoadingSpinner"></app-custom-loading-spinner> -->
+
+<button class="button-style" mat-button (click)="goBack()"><mat-icon [ngStyle]="{'color':'grey'}"> arrow_back </mat-icon></button>
+
+<div class="details-container">
+
+    <!-- Heading -->
+    <div style="display: inline-block;">
+
+        <div style="float:left;">
+            <img src="../../../assets/img/group-icon.png" style="margin-right: 20px;">
+        </div>
+        <div style="float:left;">
+            <h1 style="margin-bottom: 0px;"> <b> {{group_name}} </b> </h1>
+        </div>
+
+        <!-- Group members count -->
+        <div>Group Members: {{friends.length + 1}}</div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <!-- Chart -->
+    <div class="card card-chart">
+        <div class="card-header">
+            <h5 class="card-title">Your Transactions with {{group_name}}</h5>
+            <p class="card-category">Money In vs Money Out</p>
+        </div>
+        <div class="card-body">
+            <canvas id="speedChart1" width="400" height="100"></canvas>
+        </div>
+        <div class="card-footer">
+            <div class="chart-legend">
+                <i class="fa fa-circle text-warning"></i> -ve: Money Out | +ve: Money In
+            </div>
+            <hr/>
+            <div class="card-stats">
+                <i class="fa fa-check"></i> Updated just now
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <!-- Group Members -->
+    <div class="grid-2">
+        <div>
+            <h2 style="margin-bottom: 18px"> <b> GROUP MEMBERS </b> </h2>
+        </div>
+
+        <!-- Add Member Button -->
+        <div>
+            <button class="add-friend" (click)="addFriend()"> 
+                <p style="margin: 0px;"> + Add Friend </p>
+            </button>
+        </div>
+    </div>
+
+    <ul>
+        <li>
+            <h4 style="margin: 0px;"> {{user_name}} </h4> {{user_email}}
+        </li>
+
+        <br>
+
+        <div *ngFor="let friend of friends">
+
+            <li>
+                <div style="display: inline-block;">
+                    <h4 style="margin: 0px;">{{friend[0]}} </h4> {{friend[1]}}
+                </div>
+
+                <div style="display: inline-block; float:right;">
+                    <button class="button-style" mat-button (click)="deleteFriend(friend[0], friend[1])"><mat-icon [ngStyle]="{'color':'grey'}"> cancel </mat-icon></button>
+                </div>
+
+            </li>
+
+            <br>
+
+        </div>
+    </ul>
+
+    <br>
+    <br>
+
+    <!-- Transactions History -->
+    <div>
+        <h2 style="margin: 2px"> <b> TRANSACTIONS HISTORY </b> </h2>
+        <app-expense-list></app-expense-list>
+    </div>
+
+    <!-- Delete Group -->
+    <div class="center">
+        <button class="delete-group" (click)="deleteGroup()"> 
+            <p style="margin: 0px;"> - Remove Group </p>
+        </button>
+    </div>
+
+</div>

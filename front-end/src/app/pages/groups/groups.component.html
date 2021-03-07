@@ -21,17 +21,26 @@
     <div *ngFor="let group of groups_list">
         <mat-card>
             <mat-card-header>
-                <img src="../../../assets/img/user-avatar.png" alt="">
+                <div>
+                    <div style="float:left;">
+                        <img src="../../../assets/img/group-icon.png" alt="" style="height:80px; width: auto;">
+                    </div>
 
-                <div style="margin: 15px;">
-                    <b> 
-                        {{group.name}}
-                    </b>
-                    <br> Group Members: {{group.friends.length}}
+
+                    <div style="margin: 15px; float:left; padding-top: 6px;">
+                        <b style="font-size: 24px;"> 
+                            {{group.name}}
+                        </b>
+                        <br>
+                        <p style="color: grey;">
+                            Group Members: {{group.friends.length + 1}}
+                        </p>
+                    </div>
                 </div>
             </mat-card-header>
             <mat-card-actions align="end">
-                <button class="button-style" mat-button (click)="moreInfo(group.group_id)"><mat-icon [ngStyle]="{'color':'grey'}"> info </mat-icon></button>
+                <!-- <button class="button-style" mat-button (click)="moreInfo(group.group_id)"><mat-icon [ngStyle]="{'color':'grey'}"> info </mat-icon></button> -->
+                <button class="button-style" mat-button (click)="moreInfo(group.group_id, group.name, group.friends)"><mat-icon [ngStyle]="{'color':'grey'}"> info </mat-icon></button>
             </mat-card-actions>
         </mat-card>
 

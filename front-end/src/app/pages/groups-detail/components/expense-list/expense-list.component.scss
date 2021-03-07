@@ -1,0 +1,10 @@
+.column {
+    padding: 20px;
+    align-items: center;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
