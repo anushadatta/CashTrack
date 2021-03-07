@@ -3,6 +3,10 @@ import { CookieService } from 'ngx-cookie-service';
 import { CookieKeys, UserType } from 'src/app/common/enum';
 import { NavigationEnd, Router } from "@angular/router";
 
+import { MatDialog } from '@angular/material/dialog';
+import {EventEmitter} from 'events';
+import { CreateGroupComponent } from './components/create-group/create-group.component';
+
 @Component({
   selector: 'app-groups',
   templateUrl: './groups.component.html',
@@ -11,6 +15,9 @@ import { NavigationEnd, Router } from "@angular/router";
 export class GroupsComponent implements OnInit {
 
   showLoadingSpinner = true;
+
+  group_name: string; 
+  friend_email: string;
 
   groups_list = [
     { 
@@ -40,7 +47,7 @@ export class GroupsComponent implements OnInit {
     },
   ]
 
-  constructor(private cookie: CookieService, private router: Router) { }
+  constructor(private cookie: CookieService, private router: Router, public dialog: MatDialog,) { }
 
   ngOnInit(): void {
     this.showLoadingSpinner = false;
@@ -49,6 +56,15 @@ export class GroupsComponent implements OnInit {
 
   createGroup () {
     console.log("Create Group here");
+
+    const dialogRef = this.dialog.open(CreateGroupComponent, {
+      data: {friend_email: this.friend_email, group_name: this.group_name}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed ');
+      console.log('Result is ' + result);
+    });
   }
 
   

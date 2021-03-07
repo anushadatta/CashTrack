@@ -10,6 +10,7 @@ import { AGM_API_KEY } from 'src/app/common/variable';
 import { CommonComponentsModule } from 'src/app/modules/common-components/common-components.module';
 import { CustomMaterialModule } from 'src/app/modules/custom-material/custom-material.module';
 import { GroupsComponent } from './groups.component';
+import { CreateGroupComponent } from './components/create-group/create-group.component';
 
 const appRoutes: Routes = [
     { path: '', component: GroupsComponent }
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [
         GroupsComponent,
+        CreateGroupComponent
     ],
     imports: [
         CommonModule,

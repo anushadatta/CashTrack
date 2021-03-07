@@ -104,5 +104,15 @@ export class GroupsDetailComponent implements OnInit {
     this.router.navigateByUrl('/dashboard/your-groups');
   }
 
+  deleteFriend(friend_name, friend_email) {
+    console.log("delete friend" + friend_name, friend_email);
+
+    for(var i = 0; i< this.friends.length; i++) { 
+
+      if (this.friends[i][1] == friend_email) {
+        this.friends.splice(i, 1);
+      } 
+   }
+  }
 
 }
