@@ -16,17 +16,27 @@ export class GroupsComponent implements OnInit {
     { 
       group_id: 1,
       name : 'Advanced Software Engineering',
-      friends: {0: 'amritaravishankar00@gmail.com', 1: 'mehul@gmail.com', 2: 'alex00@gmail.com'}
+      friends: [['Amrita Ravishankar', 'amritaravishankar00@gmail.com'], 
+                ['Mehul Kumar', 'mehul.kumar171@gmail.com'], 
+                ['Alex Leong', 'alexleong21997@gmail.com'],
+                ['Daniel Loe', 'loe.daniel97@gmail.com'], 
+                ['Elliott Ong', 'airwayaway@gmail.com'], 
+                ['Nicklaus Tan', 'nick0013@e.ntu.edu.sg'], 
+                ['S Sri Kalki', 'harish@gmail.com']] 
     },
     { 
       group_id: 2,
       name : 'MDP Algorithms Team',
-      friends: {0: 'amritaravishankar00@gmail.com', 1: 'mehul@gmail.com', 2: 'alex00@gmail.com'}
+      friends: [['Ritik Bhatia', 'bhatia.ritik5@gmail.com'], 
+                ['Insyirah Nur Lukeman', 'mehul.kumar171@gmail.com']], 
     },
     { 
       group_id: 3,
       name : 'Mala Dinner',
-      friends: {0: 'amritaravishankar00@gmail.com', 1: 'mehul@gmail.com', 2: 'alex00@gmail.com'}
+      friends: [['Mallika Datta', 'mallika.datta25@gmail.com'],
+                ['Dhruv Kapoor', 'dkaps@gmail.com'], 
+                ['Khushi Singhal', 'khushaa24@gmail.com'], 
+                ['Aditya Menon', 'aditya_menon06@gmail.con']], 
     },
   ]
 

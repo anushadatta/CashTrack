@@ -9,13 +9,14 @@
     <div style="display: inline-block;">
 
         <div style="float:left;">
-            <img src="../../../assets/img/user-avatar.png" style="margin-right: 20px;">
+            <img src="../../../assets/img/group-icon.png" style="margin-right: 20px;">
         </div>
         <div style="float:left;">
             <h1 style="margin-bottom: 0px;"> <b> {{group_name}} </b> </h1>
         </div>
 
-        <div>{{group_id}}</div>
+        <!-- Group members count -->
+        <div>Group Members: {{friends.length + 1}}</div>
     </div>
 
     <br>
@@ -46,9 +47,35 @@
     <br>
     <br>
 
+    <!-- Group Mmebers -->
+    <div>
+        <h2 style="margin-bottom: 18px"> <b> GROUP MEMBERS </b> </h2>
+
+        <ul>
+            <li>
+                <h4 style="margin: 0px;"> {{user_name}} </h4> {{user_email}}
+            </li>
+
+            <br>
+
+            <div *ngFor="let friend of friends">
+
+                <li>
+                    <h4 style="margin: 0px;">{{friend[0]}} </h4> {{friend[1]}}
+                </li>
+
+                <br>
+            </div>
+        </ul>
+    </div>
+
+    <br>
+    <br>
+
     <!-- Transactions History -->
     <div>
         <h2 style="margin: 2px"> <b> TRANSACTIONS HISTORY </b> </h2>
         <app-expense-list></app-expense-list>
     </div>
+
 </div>

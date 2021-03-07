@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { CookieKeys, UserType } from 'src/app/common/enum';
+import { SubSink } from 'subsink';
 import { NavigationEnd, Router } from "@angular/router";
 
 import { MatDialog } from '@angular/material/dialog';
@@ -13,12 +14,19 @@ import Chart from 'chart.js';
   templateUrl: './groups-detail.component.html',
   styleUrls: ['./groups-detail.component.css', '../landing/scss/paper-dashboard.scss']
 })
+
 export class GroupsDetailComponent implements OnInit {
 
   showLoadingSpinner = true;
+  subSink: SubSink;
+
+  user_name: string = '';
+  user_email: string = '';
+  
   group_id: string = '';
   group_name: string = '';
-  friends: Object;
+  friends: string[];
+  
 
   public canvas : any;
   public ctx;
@@ -30,9 +38,13 @@ export class GroupsDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.showLoadingSpinner = false;
+    this.subSink = new SubSink();
+
+    this.user_name = this.cookie.get('user-name');
+    this.user_email = this.cookie.get('user-email');
 
     this.group_id = this.cookie.get('selected-group_id');
-    this.group_name = this.cookie.get('selected-group_name');
+    this.group_name = this.cookie.get('selected-group-name');
     this.friends = JSON.parse(this.cookie.get('selected-friends'));
     this.chartColor = "#FFFFFF";
     this.showLoadingSpinner = false;

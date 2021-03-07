@@ -13,6 +13,7 @@ import { GroupsDetailComponent } from './groups-detail.component';
 import { ExpenseListComponent } from './components/expense-list/expense-list.component';
 import { ExpenseCardComponent } from './components/expense-card/expense-card.component';
 
+
 const appRoutes: Routes = [
     { path: '', component: GroupsDetailComponent }
 ];
