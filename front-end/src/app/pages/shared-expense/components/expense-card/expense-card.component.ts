@@ -37,6 +37,10 @@ export class ExpenseCardComponent implements OnInit {
     {
       return "Daniel Leong"
     }
+    else if (name=="amritaravishankar00@gmail.com")
+    {
+      return "Amrita Ravishankar"
+    }
   }
 
   showComments(): void {
@@ -46,7 +50,7 @@ export class ExpenseCardComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.amount = result;
+      console.log(result);
     });
   }
 

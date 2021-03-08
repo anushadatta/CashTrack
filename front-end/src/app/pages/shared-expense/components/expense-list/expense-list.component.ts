@@ -68,7 +68,7 @@ export class ExpenseListComponent implements OnInit {
       category: 'Other',
       created_at: '2nd Febraury, 2021',
       author: 'amritaravishankar00@gmail.com',
-      payers: ['anushadatta@gmail.com'],
+      payers: ['daniel@gmail.com'],
       type: '2',
       comments: [
         {name: "Mehul Kumar", comment: "Pls pay me by next week"}],
