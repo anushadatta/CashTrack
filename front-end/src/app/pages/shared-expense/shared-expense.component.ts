@@ -15,7 +15,56 @@ export class SharedExpenseComponent implements OnInit {
   name: string;
   category: string;
   amount: string;
+  created_at:string;
   update: boolean = false;
+
+  shared_expenses = [
+    {
+      name : 'Pasta Express Lunch',
+      amount: '4.10',
+      category: 'Food',
+      created_at: '6th Febraury, 2021', 
+      author: 'mehul.kumar171@gmail.com',
+      payers: ['amritaravishankar00@gmail.com'],
+      type: '1',
+      comments: [
+        {name: "Mehul Kumar", comment: "Pls pay me by next week"}]
+    },
+    {
+      name : 'Cab to MBS',
+      amount: '17.20',
+      category: 'Travel',
+      created_at: '4th Febraury, 2021', 
+      author: 'daniel@gmail.com',
+      payers: ['amritaravishankar00@gmail.com'],
+      type: '1',
+      comments: [
+        {name: "Anusha Datta", comment: "Pls pay me fast"}]
+    },
+    {
+      name: 'Movie Night',
+      amount: '21.20',
+      category: 'Entertainment',
+      created_at: '2nd Febraury, 2021',
+      author: 'amritaravishankar00@gmail.com',
+      payers: ['mehul.kumar171@gmail.com'],
+      type: '2',
+      comments: [
+        {name: "Amrita Ravishankar", comment: "Pls pay me by next week"},
+        {name:"Mehul Kumar", comment: "Sure"}]
+    },
+    {
+      name: 'Coins for Laundry',
+      amount: '4.30',
+      category: 'Other',
+      created_at: '2nd Febraury, 2021',
+      author: 'amritaravishankar00@gmail.com',
+      payers: ['daniel@gmail.com'],
+      type: '2',
+      comments: [
+        {name: "Mehul Kumar", comment: "Pls pay me by next week"}],
+    },
+  ];
 
   constructor(public dialog: MatDialog) { 
   }
@@ -31,9 +80,35 @@ export class SharedExpenseComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      result.created_at=this.convertDate(Date.now())
       console.log(result);
+      this.shared_expenses.push(result);
     });
   }
+
+  convertDate(timestamp) {
+    timestamp = parseFloat(timestamp);
+    let months = {1: "January", 2:"February", 3:"March", 4:"April", 5:"May", 6: "June", 7: "July", 8:"August", 9:"September", 10:"October", 11:"November", 12:"December"};
+    let theDate = new Date(timestamp);
+    let month = theDate.getMonth() + 1;
+    let date = theDate.getDate() - 1;
+    let year = theDate.getFullYear();
+    let date_postfix = this.datePostfix(date);
+    let final_date = date + date_postfix + " " +  months[month] + ", " + year; 
+    return final_date
+  }
+
+  datePostfix(d) {
+    if (d > 3 && d < 21) 
+      return 'th';
+    switch (d % 10) {
+      case 1:  return "st";
+      case 2:  return "nd";
+      case 3:  return "rd";
+      default: return "th";
+    }
+  }
+
 
 
 }

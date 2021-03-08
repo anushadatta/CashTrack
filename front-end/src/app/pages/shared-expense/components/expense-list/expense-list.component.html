@@ -1,7 +1,7 @@
 <div class="row">
     <div class="column">
         <h3 style="text-align: right; margin-right:40px;"> <b>YOU OWE</b> </h3>
-        <div *ngFor="let expense of shared_expenses">
+        <div *ngFor="let expense of shared_expenses1">
             <div *ngIf="expense.payers.includes('amritaravishankar00@gmail.com')">
                 <app-expense-card [expense]="expense"></app-expense-card>
                 <br>
@@ -11,7 +11,7 @@
 
     <div class="column">
         <h3> <b> YOU ARE OWED </b> </h3>
-        <div *ngFor="let expense of shared_expenses">
+        <div *ngFor="let expense of shared_expenses1">
             <div *ngIf="expense.author ==='amritaravishankar00@gmail.com'">
                 <app-expense-card [expense]="expense"></app-expense-card>
                 <br>

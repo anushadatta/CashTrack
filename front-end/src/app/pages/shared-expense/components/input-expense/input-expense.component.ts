@@ -11,6 +11,7 @@ export interface ExpenseData {
   split_or_not:string;
   split_by_method:string;
   split_data: [];
+  comments: [];
 }
 
 @Component({
@@ -57,11 +58,12 @@ export class InputExpenseComponent implements OnInit {
     console.log("split");
     const dialogRef = this.dialog.open(SplitByComponent, {
       width: '500px',
-      data: {split_by_method: this.split_by_method, expense_amount: this.data.amount, friends: this.data.friend_list, split_data: this.data.split_data}
+      data: {split_by_method: this.split_by_method, expense_amount: this.data.amount, friends: this.data.friend_list, split_data: this.data.split_data, comments: this.data.comments}
     });
    
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.data.split_data = result.split_data;
     });
   }
 }

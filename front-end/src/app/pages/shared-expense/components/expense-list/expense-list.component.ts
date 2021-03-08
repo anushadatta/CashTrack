@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { SharedExpensesHttpService } from '../../../../cashtrack-services/shared-expenses-http.service';
 import { SubSink } from 'subsink';
@@ -26,6 +26,9 @@ export class ExpenseListComponent implements OnInit {
   
   user_email: string;
   subSink: SubSink;
+
+  @Input() expenses;
+  shared_expenses1;
 
   shared_expenses = [
     {
@@ -75,6 +78,16 @@ export class ExpenseListComponent implements OnInit {
     },
   ];
 
+  
+  ngOnInit(): void {
+    this.subSink = new SubSink();
+    this.user_email = this.cookie.get('user-email');
+    this.getSharedExpenseAuthor(this.user_email);
+    this.getSharedExpensePayer(this.user_email);
+    console.log(this.expenses);
+    this.shared_expenses1 = this.expenses;
+  }
+
   check_owe_or_owed() {
     for (let expense of this.shared_expenses)
     {
@@ -93,13 +106,6 @@ export class ExpenseListComponent implements OnInit {
 
   constructor(private cookie: CookieService, private http: SharedExpensesHttpService) { 
     this.check_owe_or_owed();
-  }
-
-  ngOnInit(): void {
-    this.subSink = new SubSink();
-    this.user_email = this.cookie.get('user-email');
-    this.getSharedExpenseAuthor(this.user_email);
-    this.getSharedExpensePayer(this.user_email);
   }
 
   getSharedExpenseAuthor (user_email) {
