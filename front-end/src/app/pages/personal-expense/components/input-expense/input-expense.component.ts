@@ -37,9 +37,9 @@ export class InputExpenseComponent implements OnInit {
   }   
 
   addExpense(): void{
+    this.data.created_at = Date.now();
     this.dialogRef.close(this.data);
     console.log("Data : ", this.data);
-    this.data.created_at = Date.now();
   }
 }
 

@@ -31,7 +31,7 @@ export class ExpenseCardComponent implements OnInit {
   @Input() expense; 
   @Output() onDelete: EventEmitter<void> = new EventEmitter();
   @Output() onEditCard: EventEmitter<void> = new EventEmitter();
-  @Output() updateFlag: EventEmitter<boolean> = new EventEmitter();
+  @Output() sendOld: EventEmitter<void> = new EventEmitter();
 
   subSink: SubSink;
   user_email: string;
@@ -43,7 +43,7 @@ export class ExpenseCardComponent implements OnInit {
   add:boolean = true;
 
   constructor(public dialog: MatDialog, public http: HttpClient, private cookie: CookieService,
-    private userService: ConfigService, private personalExpenseService: PersonalExpensesHttpService) { }
+    private userService: ConfigService) { }
 
   ngOnInit(): void {
     this.subSink = new SubSink();
@@ -90,20 +90,13 @@ export class ExpenseCardComponent implements OnInit {
     this.add = false;
     console.log("Edit new expense");
     const dialogRef = this.dialog.open(InputExpenseComponent, {
-      data: {name: expense.label, category:expense.tag, amount:expense.expense_amount, update:this.update, add: this.add}
+      data: {label: expense.label, tag:expense.tag, expense_amount:expense.expense_amount, update:this.update, add: this.add}
     });
-
-    console.log(expense);
-
+    this.sendOld.emit(expense);
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.amount = result;
+      console.log("Card expense: ", result);
+      this.onEditCard.emit(result);
     });
-    this.postEditedExpense(expense);
-  }
-
-  postEditedExpense(expense) {
-    const body=JSON.stringify(expense);  
-    return this.personalExpenseService.updatePersonalExpenses(body);
   }
 }

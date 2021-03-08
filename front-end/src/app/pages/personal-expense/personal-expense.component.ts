@@ -52,7 +52,9 @@ export class PersonalExpenseComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log("Parent: ", result);
-      this.personal_expense.unshift(result);
+      if (result!=undefined) {
+        this.personal_expense.unshift(result);
+      }  
     });
   }
 

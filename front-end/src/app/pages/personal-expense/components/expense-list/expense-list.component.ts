@@ -23,9 +23,10 @@ export class ExpenseListComponent implements OnInit {
 
   @Input() editExpense;
   @Input() expenses;
-  @Output() onEdit: EventEmitter<void> = new EventEmitter();
-  
+ 
   expense_list;
+  updated;
+  index;
 
   isDataAvailable:boolean=true;
   constructor(public dialog: MatDialog) { }
@@ -52,5 +53,17 @@ export class ExpenseListComponent implements OnInit {
 
   onDeleteExpense(index: number) {
     this.expense_list.splice(index, 1);
+  }
+
+  getOldExpense($event) {
+    this.index = this.expense_list.indexOf($event);
+    console.log("Index: ", this.index);
+  }
+
+  onEditExpense($event) {
+    console.log("On edit expense list");
+    this.updated = $event;
+    console.log("Updated: ", this.updated);
+    this.expense_list[this.index] = this.updated;
   }
 }
