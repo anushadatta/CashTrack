@@ -24,6 +24,7 @@ export class ExpenseCardComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    console.log("Expense card", this.expense);
   }
 
   getName(name) {
@@ -42,6 +43,10 @@ export class ExpenseCardComponent implements OnInit {
     else if (name=="amritaravishankar00@gmail.com")
     {
       return "Amrita Ravishankar"
+    }
+    else
+    {
+      return name
     }
   }
 

@@ -21,6 +21,7 @@ export class SharedExpenseComponent implements OnInit {
   shared_expenses = [
     {
       name : 'Pasta Express Lunch',
+      split_data: [{friend:'amritaravishankar00@gmail.com', amount: '4.10'}],
       amount: '4.10',
       category: 'Food',
       created_at: '6th Febraury, 2021', 
@@ -32,6 +33,7 @@ export class SharedExpenseComponent implements OnInit {
     },
     {
       name : 'Cab to MBS',
+      split_data: [{friend:'amritaravishankar00@gmail.com', amount: '17.20'}],
       amount: '17.20',
       category: 'Travel',
       created_at: '4th Febraury, 2021', 
@@ -43,6 +45,7 @@ export class SharedExpenseComponent implements OnInit {
     },
     {
       name: 'Movie Night',
+      split_data: [{friend:'mehul.kumar171@gmail.com', amount: '21.20'}],
       amount: '21.20',
       category: 'Entertainment',
       created_at: '2nd Febraury, 2021',
@@ -55,6 +58,7 @@ export class SharedExpenseComponent implements OnInit {
     },
     {
       name: 'Coins for Laundry',
+      split_data: [{friend:'daniel@gmail.com', amount: '4.30'}],
       amount: '4.30',
       category: 'Other',
       created_at: '2nd Febraury, 2021',
@@ -81,8 +85,11 @@ export class SharedExpenseComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       result.created_at=this.convertDate(Date.now())
+      result.type='2';
+      result.author = 'amritaravishankar00@gmail.com';
+      result.payers = result.friend_list;
+      this.shared_expenses.unshift(result);
       console.log(result);
-      this.shared_expenses.push(result);
     });
   }
 

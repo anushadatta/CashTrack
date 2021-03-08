@@ -52,6 +52,7 @@ export class SplitByComponent implements OnInit {
   onConfirm(): void {
     this.data.split_by_method = this.split_by_method1;
     console.log(this.data);
+    this.dialogRef.close(this.data);
   }
 
   onCalculate(button) {
