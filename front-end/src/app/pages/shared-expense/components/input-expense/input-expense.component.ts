@@ -6,7 +6,7 @@ import {FormControl, ReactiveFormsModule} from '@angular/forms';
 export interface ExpenseData {
   name: string;
   category: string;
-  amount: string;
+  amount: number;
   friend_list: string[];
   split_or_not:string;
   split_by_method:string;

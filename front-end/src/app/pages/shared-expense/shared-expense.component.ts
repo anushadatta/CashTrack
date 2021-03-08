@@ -14,11 +14,11 @@ export class SharedExpenseComponent implements OnInit {
 
   name: string;
   category: string;
-  amount: string;
+  amount: number;
   created_at:string;
   update: boolean = false;
   split_data = [];
-
+  
   shared_expenses = [
     {
       name : 'Pasta Express Lunch',
@@ -71,7 +71,34 @@ export class SharedExpenseComponent implements OnInit {
     },
   ];
 
+  total_you_owe = 0;
+  total_you_are_owed =0;
+
+  calcSummary1() {
+    for (let i=0; i< this.shared_expenses.length; i++) {
+      if (this.shared_expenses[i].type=='1') {
+        console.log(Number(this.shared_expenses[i].amount));
+        this.total_you_owe =  this.total_you_owe + Number(this.shared_expenses[i].amount);
+      }
+    }
+    return this.total_you_owe;
+  }
+
+  calcSummary2() {
+    for (let i=0; i< this.shared_expenses.length; i++) {
+      if (this.shared_expenses[i].type=='2') {
+        console.log(Number(this.shared_expenses[i].amount));
+        this.total_you_are_owed =this.total_you_are_owed + Number(this.shared_expenses[i].amount);
+      }
+    }
+    return this.total_you_are_owed;
+  }
+
   constructor(public dialog: MatDialog) { 
+    this.total_you_owe = this.calcSummary1();
+    this.total_you_are_owed =this.calcSummary2();
+    console.log("owe: ", this.total_you_owe);
+    console.log("owed: ", this.total_you_are_owed);
   }
 
   addNewExpense(expense?): void {
@@ -95,7 +122,8 @@ export class SharedExpenseComponent implements OnInit {
       for (let i=0; i<len; i++) {
         let copy=JSON.parse(JSON.stringify(result));
         copy.split_data = [copy.split_data[i]];
-        console.log("Copy: ", copy);
+        this.total_you_are_owed =  this.total_you_are_owed + copy.split_data[0].amount;
+        console.log(this.total_you_are_owed);
         this.shared_expenses.unshift(copy);
       }
     });
