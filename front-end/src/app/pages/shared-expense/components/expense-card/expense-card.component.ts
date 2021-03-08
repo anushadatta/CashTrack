@@ -17,7 +17,7 @@ export class ExpenseCardComponent implements OnInit {
 
   name: string;
   category: string;
-  amount: string;
+  amount: number;
   // comments: [{name: "Mehul Kumar", comment: "Pls pay me fast"}];
   comment_text="";
 

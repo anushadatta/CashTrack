@@ -80,20 +80,20 @@ export class SharedExpenseComponent implements OnInit {
     for (let i=0; i< this.shared_expenses.length; i++) {
       if (this.shared_expenses[i].type=='1') {
         console.log(Number(this.shared_expenses[i].amount));
-        this.total_you_owe =  this.total_you_owe + Number(this.shared_expenses[i].amount);
+        this.total_you_owe =  Number(this.total_you_owe) + Number(this.shared_expenses[i].amount);
       }
     }
-    return this.total_you_owe;
+    return Number(this.total_you_owe);
   }
 
   calcSummary2() {
     for (let i=0; i< this.shared_expenses.length; i++) {
       if (this.shared_expenses[i].type=='2') {
         console.log(Number(this.shared_expenses[i].amount));
-        this.total_you_are_owed =this.total_you_are_owed + Number(this.shared_expenses[i].amount);
+        this.total_you_are_owed = Number(this.total_you_are_owed) + Number(this.shared_expenses[i].amount);
       }
     }
-    return this.total_you_are_owed;
+    return Number(this.total_you_are_owed);
   }
 
   constructor(public dialog: MatDialog) { 
