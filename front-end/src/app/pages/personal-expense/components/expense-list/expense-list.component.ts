@@ -1,8 +1,5 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import {EventEmitter} from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
-import { PersonalExpensesHttpService } from '../../../../cashtrack-services/personal-expenses-http.service';
-import { SubSink } from 'subsink';
 import {MatDialog} from '@angular/material/dialog';
 import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
 
@@ -25,20 +22,16 @@ interface PersonalExpenses {
 export class ExpenseListComponent implements OnInit {
 
   @Input() editExpense;
+  @Input() expenses;
   @Output() onEdit: EventEmitter<void> = new EventEmitter();
+  
+  expense_list;
 
-  subSink: SubSink;
-  user_email: string;
-  personal_expenses = [];
-  isDataAvailable:boolean=false;
-  constructor(public dialog: MatDialog, private cookie: CookieService, private http: PersonalExpensesHttpService) { }
+  isDataAvailable:boolean=true;
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.subSink = new SubSink();
-    this.user_email = this.cookie.get('user-email');
-    this.getPersonalExpense(this.user_email).then(() =>
-        this.isDataAvailable = true);
-    console.log(this.isDataAvailable);
+    this.expense_list = this.expenses;
   }
 
   deleteExpenseConfirm(expense) {  
@@ -58,15 +51,6 @@ export class ExpenseListComponent implements OnInit {
   }  
 
   onDeleteExpense(index: number) {
-    this.personal_expenses.splice(index, 1);
-}
-
-  getPersonalExpense (user_email) {
-    return this.http.getPersonalExpenses(user_email).toPromise().
-      then( (res) => {
-        let res_obj : PersonalExpenses = JSON.parse(res.toString());
-        this.personal_expenses = res_obj.data;
-        console.log(this.personal_expenses);
-      }); 
+    this.expense_list.splice(index, 1);
   }
 }
