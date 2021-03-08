@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { SharedExpensesHttpService } from '../../../../cashtrack-services/shared-expenses-http.service';
 import { SubSink } from 'subsink';
@@ -26,6 +26,9 @@ export class ExpenseListComponent implements OnInit {
   
   user_email: string;
   subSink: SubSink;
+
+  @Input() expenses;
+  shared_expenses1;
 
   shared_expenses = [
     {
@@ -68,12 +71,22 @@ export class ExpenseListComponent implements OnInit {
       category: 'Other',
       created_at: '2nd Febraury, 2021',
       author: 'amritaravishankar00@gmail.com',
-      payers: ['anushadatta@gmail.com'],
+      payers: ['daniel@gmail.com'],
       type: '2',
       comments: [
         {name: "Mehul Kumar", comment: "Pls pay me by next week"}],
     },
   ];
+
+  
+  ngOnInit(): void {
+    this.subSink = new SubSink();
+    this.user_email = this.cookie.get('user-email');
+    this.getSharedExpenseAuthor(this.user_email);
+    this.getSharedExpensePayer(this.user_email);
+    console.log(this.expenses);
+    this.shared_expenses1 = this.expenses;
+  }
 
   check_owe_or_owed() {
     for (let expense of this.shared_expenses)
@@ -95,13 +108,6 @@ export class ExpenseListComponent implements OnInit {
     this.check_owe_or_owed();
   }
 
-  ngOnInit(): void {
-    this.subSink = new SubSink();
-    this.user_email = this.cookie.get('user-email');
-    this.getSharedExpenseAuthor(this.user_email);
-    this.getSharedExpensePayer(this.user_email);
-  }
-
   getSharedExpenseAuthor (user_email) {
     this.subSink.sink = this.http.getSharedExpensesAuthor(user_email)
       .subscribe( (res) => {
@@ -115,6 +121,11 @@ export class ExpenseListComponent implements OnInit {
       .subscribe( (res) => {
         let res_obj: SharedExpenses = JSON.parse(JSON.stringify(res));
       }); 
+  }
+
+  SettleUp($event) {
+    let index = this.shared_expenses1.indexOf($event);
+    this.shared_expenses1.splice(index, 1);
   }
 
 }

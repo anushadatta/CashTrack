@@ -3,8 +3,9 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 
 export interface SplitMethodData {
   split_by_method:string;
-  expense_amount:string;
-  friends: string;
+  expense_amount:number;
+  friends: string[];
+  split_data: any[];
 }
 
 @Component({
@@ -16,13 +17,16 @@ export interface SplitMethodData {
 export class SplitByComponent implements OnInit {
 
   split_by_method1 = "";
-  friends = ['Anusha Datta', 'Mehul Kumar'];
+  friends = [];
   amount = 20;
   percent = 0;
   valueAvailable:boolean = false;
   share = 0;
+  lengthFriends = 0;
+  splitEqual = 0;
 
-  split_data = [{friend: 'Anusha Datta', split:0, amount:0}, {friend:'Mehul Kumar', split:0, amount:0}];
+  split_data1 = [{friend: 'Anusha Datta', split:0, amount:0}, {friend:'Mehul Kumar', split:0, amount:0}];
+  split_data = [];
 
   currency_data = [{currency: 'INR', value:0.018}, {currency: 'USD', value:1.32}, {currency: 'AUD', value:1.028}, {currency: 'EUR', value:1.486}]
   selected_currency;
@@ -31,6 +35,14 @@ export class SplitByComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    console.log(this.data.friends);
+    this.friends = this.data.friends;
+    this.lengthFriends = this.friends.length;
+    this.splitEqual= (1/this.lengthFriends) * this.data.expense_amount;
+    for(let f of this.friends) {
+      let split_ele = {friend: f, split: 0, amount: 0};
+      this.split_data.push(split_ele);
+    }
   }
 
   onNoClickSplit(): void {
@@ -40,10 +52,10 @@ export class SplitByComponent implements OnInit {
   onConfirm(): void {
     this.data.split_by_method = this.split_by_method1;
     console.log(this.data);
+    this.dialogRef.close(this.data);
   }
 
   onCalculate(button) {
-
     if(button==="Shares")
     {
       let total = 0;
@@ -55,7 +67,7 @@ export class SplitByComponent implements OnInit {
       console.log(total)
 
       for (let split of this.split_data) {
-        split.amount = (split.split/total) * this.amount;
+        split.amount = (split.split/total) * this.data.expense_amount;
         console.log(split.amount);
       }
     }
@@ -63,7 +75,7 @@ export class SplitByComponent implements OnInit {
     else if (button=="Percent") {
       for (let split of this.split_data) {
         split.split = parseFloat((<HTMLInputElement>document.getElementById(split.friend)).value);
-        split.amount = (split.split/100) * this.amount;
+        split.amount = (split.split/100) * this.data.expense_amount;
         split.amount = Math.round(split.amount * 100) / 100
       }
     } 
@@ -93,5 +105,6 @@ export class SplitByComponent implements OnInit {
       }
     } 
     this.valueAvailable = true;
+    this.data.split_data = this.split_data;
   }
 }
