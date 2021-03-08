@@ -31,7 +31,7 @@ export class SharedExpenseComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.amount = result;
+      console.log(result);
     });
   }
 
