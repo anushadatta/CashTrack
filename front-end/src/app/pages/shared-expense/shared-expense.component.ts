@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import {InputExpenseComponent} from './components/input-expense/input-expense.component';
 import {MatDialog} from '@angular/material/dialog';
 
@@ -10,6 +10,10 @@ import {MatDialog} from '@angular/material/dialog';
 export class SharedExpenseComponent implements OnInit {
 
   ngOnInit(): void {
+    this.total_you_owe = Number(this.calcSummary1().toFixed(2));
+    this.total_you_are_owed = Number(this.calcSummary2().toFixed(2));
+    console.log("owe: ", this.total_you_owe);
+    console.log("owed: ", this.total_you_are_owed);
   }
 
   name: string;
@@ -73,8 +77,8 @@ export class SharedExpenseComponent implements OnInit {
     },
   ];
 
-  total_you_owe = 0;
-  total_you_are_owed =0;
+  public total_you_owe= 0;
+  public total_you_are_owed =0;
 
   calcSummary1() {
     for (let i=0; i< this.shared_expenses.length; i++) {
@@ -96,11 +100,7 @@ export class SharedExpenseComponent implements OnInit {
     return Number(this.total_you_are_owed);
   }
 
-  constructor(public dialog: MatDialog) { 
-    this.total_you_owe = this.calcSummary1();
-    this.total_you_are_owed =this.calcSummary2();
-    console.log("owe: ", this.total_you_owe);
-    console.log("owed: ", this.total_you_are_owed);
+  constructor(public dialog: MatDialog, public ngZone:NgZone) { 
   }
 
   addNewExpense(expense?): void {
@@ -124,7 +124,9 @@ export class SharedExpenseComponent implements OnInit {
       for (let i=0; i<len; i++) {
         let copy=JSON.parse(JSON.stringify(result));
         copy.split_data = [copy.split_data[i]];
-        this.total_you_are_owed =  this.total_you_are_owed + copy.split_data[0].amount;
+        this.ngZone.run(() => {
+          this.total_you_are_owed =  this.total_you_are_owed + copy.split_data[0].amount;
+        })
         console.log(this.total_you_are_owed);
         this.shared_expenses.unshift(copy);
       }
