@@ -28,19 +28,19 @@ export class ExpenseCardComponent implements OnInit {
   }
 
   getName(name) {
-    if (name=="mehul.kumar171@gmail.com")
+    if (name=="mehul.kumar171@gmail.com" || name=="Mehul")
     {
       return "Mehul Kumar"
     }
-    else if (name=="anushadatta@gmail.com")
+    else if (name=="anushadatta@gmail.com" || name=="Anusha")
     {
       return "Anusha Datta"
     }
-    else if (name=="daniel@gmail.com")
+    else if (name=="daniel@gmail.com" || name=="Daniel")
     {
       return "Daniel Leong"
     }
-    else if (name=="amritaravishankar00@gmail.com")
+    else if (name=="amritaravishankar00@gmail.com" || name=="Amrita")
     {
       return "Amrita Ravishankar"
     }

@@ -21,63 +21,12 @@ interface SharedExpenses {
 })
 export class ExpenseListComponent implements OnInit {
 
-  you_owe = [];
-  you_are_owed = [];
   
   user_email: string;
   subSink: SubSink;
 
   @Input() expenses;
   shared_expenses1;
-
-  shared_expenses = [
-    {
-      name : 'Pasta Express Lunch',
-      amount: '4.10',
-      category: 'Food',
-      created_at: '6th Febraury, 2021', 
-      author: 'mehul.kumar171@gmail.com',
-      payers: ['amritaravishankar00@gmail.com'],
-      type: '1',
-      comments: [
-        {name: "Mehul Kumar", comment: "Pls pay me by next week"}]
-    },
-    {
-      name : 'Cab to MBS',
-      amount: '17.20',
-      category: 'Travel',
-      created_at: '4th Febraury, 2021', 
-      author: 'daniel@gmail.com',
-      payers: ['amritaravishankar00@gmail.com'],
-      type: '1',
-      comments: [
-        {name: "Anusha Datta", comment: "Pls pay me fast"}]
-    },
-    {
-      name: 'Movie Night',
-      amount: '21.20',
-      category: 'Entertainment',
-      created_at: '2nd Febraury, 2021',
-      author: 'amritaravishankar00@gmail.com',
-      payers: ['mehul.kumar171@gmail.com'],
-      type: '2',
-      comments: [
-        {name: "Amrita Ravishankar", comment: "Pls pay me by next week"},
-        {name:"Mehul Kumar", comment: "Sure"}]
-    },
-    {
-      name: 'Coins for Laundry',
-      amount: '4.30',
-      category: 'Other',
-      created_at: '2nd Febraury, 2021',
-      author: 'amritaravishankar00@gmail.com',
-      payers: ['daniel@gmail.com'],
-      type: '2',
-      comments: [
-        {name: "Mehul Kumar", comment: "Pls pay me by next week"}],
-    },
-  ];
-
   
   ngOnInit(): void {
     this.subSink = new SubSink();
@@ -86,26 +35,10 @@ export class ExpenseListComponent implements OnInit {
     this.getSharedExpensePayer(this.user_email);
     console.log(this.expenses);
     this.shared_expenses1 = this.expenses;
-  }
-
-  check_owe_or_owed() {
-    for (let expense of this.shared_expenses)
-    {
-      if (expense.author == "amritaravishankar00@gmail.com")
-      {
-        this.you_are_owed.push(expense);
-      }
-      else if(expense.payers.includes("amritaravishankar00@gmail.com"))
-      {
-        this.you_owe.push(expense);
-      }
-    }
-    console.log(this.you_owe);
-    console.log(this.you_are_owed);
+    console.log("FULL LIST: ", this.shared_expenses1);
   }
 
   constructor(private cookie: CookieService, private http: SharedExpensesHttpService) { 
-    this.check_owe_or_owed();
   }
 
   getSharedExpenseAuthor (user_email) {

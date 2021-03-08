@@ -17,6 +17,7 @@ export class SharedExpenseComponent implements OnInit {
   amount: string;
   created_at:string;
   update: boolean = false;
+  split_data = [];
 
   shared_expenses = [
     {
@@ -78,8 +79,7 @@ export class SharedExpenseComponent implements OnInit {
     console.log(expense);
     this.update = expense? true:false;
     const dialogRef = this.dialog.open(InputExpenseComponent, {
-      // width: '500px',
-      data: {name: expense? expense.name:this.name, category:expense? expense.category:this.category, amount:expense? expense.amount:this.amount}
+      data: {name: expense? expense.name:this.name, category:expense? expense.category:this.category, amount:expense? expense.amount:this.amount, split_data: this.split_data}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -88,8 +88,16 @@ export class SharedExpenseComponent implements OnInit {
       result.type='2';
       result.author = 'amritaravishankar00@gmail.com';
       result.payers = result.friend_list;
-      this.shared_expenses.unshift(result);
-      console.log(result);
+      
+      let len = result.friend_list.length;
+      console.log(len);
+
+      for (let i=0; i<len; i++) {
+        let copy=JSON.parse(JSON.stringify(result));
+        copy.split_data = [copy.split_data[i]];
+        console.log("Copy: ", copy);
+        this.shared_expenses.unshift(copy);
+      }
     });
   }
 
