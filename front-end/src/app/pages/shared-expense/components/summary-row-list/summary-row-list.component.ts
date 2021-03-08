@@ -8,8 +8,8 @@ import { SummaryCardsComponent } from '../summary-cards/summary-cards.component'
 })
 export class SummaryRowListComponent implements OnInit {
 
-  @Input() you_are_owed = 0;
-  @Input() you_owe= 0;
+  @Input() you_are_owed;
+  @Input() you_owe;
 
   owed;
   owe;
@@ -21,13 +21,13 @@ export class SummaryRowListComponent implements OnInit {
   ];
 
   constructor() { 
+  }
+
+  ngOnInit(): void {
     this.owed = this.you_are_owed;
     this.owe = this.you_owe;
     this.summary_row[0].amount = this.owed - this.owe;
     this.summary_row[1].amount = this.owe;
     this.summary_row[2].amount = this.owed;
-  }
-
-  ngOnInit(): void {
   }
 }

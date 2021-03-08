@@ -19,6 +19,8 @@ export class SharedExpenseComponent implements OnInit {
   update: boolean = false;
   split_data = [];
   
+  // type 2 - you are owed
+  // type 1 - you owe
   shared_expenses = [
     {
       name : 'Pasta Express Lunch',
@@ -52,7 +54,7 @@ export class SharedExpenseComponent implements OnInit {
       created_at: '2nd Febraury, 2021',
       author: 'amritaravishankar00@gmail.com',
       payers: ['mehul.kumar171@gmail.com'],
-      type: '2',
+      type: '2', 
       comments: [
         {name: "Amrita Ravishankar", comment: "Pls pay me by next week"},
         {name:"Mehul Kumar", comment: "Sure"}]
