@@ -6,11 +6,11 @@ import {FormControl, ReactiveFormsModule} from '@angular/forms';
 export interface ExpenseData {
   name: string;
   category: string;
-  amount: string;
+  amount: number;
   friend_list: string[];
   split_or_not:string;
   split_by_method:string;
-  split_data: [];
+  split_data: any[];
   comments: [];
 }
 
@@ -30,6 +30,7 @@ export class InputExpenseComponent implements OnInit {
   @Input() split_by_method = "";
 
   show_drop_or_not: boolean = true;
+  split2_data:any = [];
   
   constructor(public dialog: MatDialog,
     public dialogRef: MatDialogRef<SplitByComponent>,
@@ -50,12 +51,13 @@ export class InputExpenseComponent implements OnInit {
   }  
 
   addExpense():void {
-    console.log("Expense data: ", this.data);
+    this.data.split_data = this.split2_data;
+    console.log(this.data.split_data);
     this.dialogRef.close(this.data);
+    console.log("Expense data: ", this.data);
   }
 
   SplitByPopUp() {
-    console.log("split");
     const dialogRef = this.dialog.open(SplitByComponent, {
       width: '500px',
       data: {split_by_method: this.split_by_method, expense_amount: this.data.amount, friends: this.data.friend_list, split_data: this.data.split_data, comments: this.data.comments}
@@ -64,6 +66,7 @@ export class InputExpenseComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.data.split_data = result.split_data;
+      this.split2_data = result.split_data;
     });
   }
 }
