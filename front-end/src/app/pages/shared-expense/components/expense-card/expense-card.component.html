@@ -28,7 +28,7 @@
                 <span style="font-weight: 600;"> {{ getName(expense.payers) }} owes you S$ {{ expense.amount }} </span>
             </mat-card-content>
             <mat-card-actions>
-                <button class="button-style" mat-button style="float:right">SETTLE UP</button>
+                <button class="button-style" (click)="onAuthorSettleUp(expense)" mat-button style="float:right">SETTLE UP</button>
                 <button class="button-style" mat-button (click)="showComments()" style="float:right">COMMENTS</button>
             </mat-card-actions>
         </div>

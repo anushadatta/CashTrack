@@ -2,12 +2,10 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {InputExpenseComponent} from '../input-expense/input-expense.component';
-import {PersonalExpensesHttpService} from '../../../../cashtrack-services/personal-expenses-http.service';
 import {HttpClient} from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { ConfigService } from '../../../../cashtrack-services/user-account-http.service';
 import { SubSink } from 'subsink';
-import {Observable} from 'rxjs';
 
 interface PersonalExpense {
   label: string;

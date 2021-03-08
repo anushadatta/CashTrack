@@ -123,4 +123,9 @@ export class ExpenseListComponent implements OnInit {
       }); 
   }
 
+  SettleUp($event) {
+    let index = this.shared_expenses1.indexOf($event);
+    this.shared_expenses1.splice(index, 1);
+  }
+
 }
