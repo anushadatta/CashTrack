@@ -1,38 +1,36 @@
 <div class="notification-wrapper">
     <!-- You can put an icon from Material Design icon or Fontawesome -->
     <div *ngIf="showNotification" class="notification-content">
-      <div class="notification-header">
-        <span class="mdi mdi-settings"></span>
-        <span class="label">Notifications</span>
-      </div>
+        <div class="notification-header">
+            <span class="mdi mdi-settings"></span>
+            <span class="label">Notifications</span>
+        </div>
 
-       <!-- Design notification cards -->
-      <div *ngFor="let notification of notifications">
-        <mat-card class="card-size unread-border">
-          <div style="padding-top: 15px; padding-bottom: 0px;">
-            <mat-card-header>
-              <div mat-card-avatar>
-                  <img src="../../../../../assets/img/logo/R.png">
-                  &nbsp; &nbsp;
-              </div>
-              <div style="padding-left:5px">
-                <div class="row">
-                  <div class="column-title">
-                    <a href="#/dashboard/chat"> <span style="color: #0D1577; font-weight: 800; font-size: 20px;"> {{ notification.title }} </span></a>
-                  </div>
-                  <div>
-                    <span style="font-weight: 200; font-size:12px;"> {{ notification.time }} , {{ notification.date }}  </span>
-                  </div>
+        <!-- Design notification cards -->
+        <div *ngFor="let notification of notifications">
+            <mat-card class="card-size unread-border">
+                <div style="padding-top: 15px; padding-bottom: 0px;">
+                    <mat-card-header>
+
+                        <img src="../../../../../assets/notification-icons/chat.png" style="height:50px; width:auto; margin-right:8px;"> &nbsp; &nbsp;
+
+                        <div style="padding-left:18px">
+                            <div class="row">
+                                <div class="column-title">
+                                    <a href="#/dashboard/chat"> <span style="color: #0D1577; font-weight: 800; font-size: 20px;"> {{ notification.title }} </span></a>
+                                </div>
+                                <div>
+                                    <span style="font-weight: 200; font-size:12px;"> {{ notification.time }} , {{ notification.date }}  </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <span style="font-weight: 200; font-size:12px;"> by {{ notification.sender }} </span>
+                            </div>
+                        </div>
+                    </mat-card-header>
                 </div>
-                <div class="row">
-                    <span style="font-weight: 200; font-size:12px;"> by {{ notification.sender }} </span>
-                </div>
-              </div>  
-          </mat-card-header>
-          </div>
-        </mat-card>
-        <br>
-      </div>
+            </mat-card>
+            <br>
+        </div>
     </div>
 </div>
-

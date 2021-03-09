@@ -4,30 +4,44 @@
 <div class="container">
 
     <!-- User Information -->
-    <div class="user-photo" *ngIf="user_img != 'undefined'" style="background-image:url({{user_img}})"></div>
-    <div class="user-name" *ngIf=" user_name != 'undefined'"> {{user_name}} </div>
-    <div class="user-email" *ngIf="user_email != 'undefined'">{{user_email}}</div>
+    <div style="margin:10px;">
+        <div class="user-photo" *ngIf="user_img != 'undefined'" style="background-image:url({{user_img}})"></div>
+    </div>
 
+
+
+    <div class="user-name" *ngIf=" user_name != 'undefined'" style="font-size:25px; margin: 10px;"> {{user_name}} </div>
+    <div class="user-email" *ngIf="user_email != 'undefined'" style="font-size:25px;">{{user_email}}</div>
+
+
+    <br>
+    <hr>
+    <br>
 
     <!-- Set Personal Expense Limit -->
-    <label>Personal Expense Limit:</label>
-    <select id="personal-expense-limit" value="{{limit_time}}" (change)="changeTime($event)">
+    <label style="font-size: 20px;">Personal Expense Limit:</label>
+    <select id="personal-expense-limit" value="{{limit_time}}" (change)="changeTime($event)" style="float:right;">
         <option value="off">OFF</option>
         <option value="daily">DAILY</option>
         <option value="weekly">WEEKLY</option>
         <option value="monthly">MONTHLY</option>
         <option value="yearly">YEARLY</option>
     </select>
+
+    <br>
     <br>
 
     <!-- Reminder % -->
-    <label>Personal Expense Limit [$]:</label>
-    <input type="text" id="fname" name="fname" placeholder="{{limit}}"><br>
+    <label style="font-size: 20px;">Personal Expense Limit [$]:</label>
+    <input type="text" id="fname" name="fname" placeholder="{{limit}}" style="float:right;">
+
+    <br>
+    <br>
 
     <!-- Personal Expense Reminder Slider -->
-    <label>Reminder when Expense Limit reaches [%]:</label>
+    <label style="font-size: 20px;">Reminder when Expense Limit reaches [%]:</label>
     <div class="slidecontainer center">
-        <mat-slider min="1" max="100" step="1" value="80" (change)="changePercent($event.value)" style="width:100%;"></mat-slider>
+        <mat-slider color="primary" min="1" max="100" step="1" value="80" (change)="changePercent($event.value)" style="width:100%;"></mat-slider>
     </div>
 
     <!-- Delete Account Button  -->
