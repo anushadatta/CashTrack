@@ -42,9 +42,9 @@ export class UserAccountComponent implements OnInit {
 
     console.log(`got name from cookie ${this.user_name}`);
 
-    this.limit_percent = 50;
+    this.limit_percent = Number(this.cookie.get("limit-percent"));
     this.limit = "1000";
-    this.limit_time = "weekly";
+    this.limit_time = this.cookie.get("limit-time");
   }​
 
   getUserAccountInfo (user_email): void {
@@ -55,7 +55,13 @@ export class UserAccountComponent implements OnInit {
   }
 
   changePercent (newVal): void {
+    this.cookie.set('limit-percent', newVal, null, null, null, null, null);
     console.log(newVal);
+  }
+
+  changeTime (newVal): void {
+    this.cookie.set('limit-time', newVal.target.value, null, null, null, null, null);
+    console.log(newVal.target.value);
   }
 
 }

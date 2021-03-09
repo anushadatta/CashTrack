@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js';
+import { CookieService } from 'ngx-cookie-service';
+import { CookieKeys, UserType } from 'src/app/common/enum';
 
 @Component({
   selector: 'app-landing',
@@ -17,12 +19,14 @@ export class LandingComponent implements OnInit {
   public spendingLimit: number;
   public spendingTimeline: string;
 
+  constructor(private cookie: CookieService){}
+
     ngOnInit(){
       this.chartColor = "#FFFFFF";
       this.showLoadingSpinner = false;
 
-      this.spendingLimit = 80;
-      this.spendingTimeline = 'MONTHLY';
+      this.spendingLimit = Number(this.cookie.get("limit-percent"));
+      this.spendingTimeline = this.cookie.get("limit-time").toUpperCase();
 
       this.canvas = document.getElementById("chartHours");
       this.ctx = this.canvas.getContext("2d");

@@ -232,6 +232,9 @@ export class LoginComponent {
                     this.cookie.set('user-email', profile.getEmail(), null, null, null, null, null);
                     this.cookie.set('user-img', profile.getImageUrl(), null, null, null, null, null);
 
+                    this.cookie.set("limit-percent", '80', null, null, null, null, null);
+                    this.cookie.set("limit-time", 'monthly', null, null, null, null, null);
+
                     this.isLoading = false;
                     console.log('from cookie: ', this.cookie.get('user-name'));
 
