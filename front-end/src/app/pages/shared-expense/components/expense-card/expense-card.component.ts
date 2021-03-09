@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import {CommentsComponent} from '../comments/comments.component';
 import {MatDialog} from '@angular/material/dialog';
+import {EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-expense-card',
@@ -12,30 +13,40 @@ export class ExpenseCardComponent implements OnInit {
   @Input() owe: boolean = true;
   @Input() owed: boolean = false;
   @Input() expense; 
+  @Output() settle: EventEmitter<void> = new EventEmitter();
 
   name: string;
   category: string;
-  amount: string;
+  amount: number;
   // comments: [{name: "Mehul Kumar", comment: "Pls pay me fast"}];
   comment_text="";
 
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    console.log("Expense card", this.expense);
   }
 
   getName(name) {
-    if (name=="mehul.kumar171@gmail.com")
+    if (name=="mehul.kumar171@gmail.com" || name=="Mehul")
     {
       return "Mehul Kumar"
     }
-    else if (name=="anushadatta@gmail.com")
+    else if (name=="anushadatta@gmail.com" || name=="Anusha")
     {
       return "Anusha Datta"
     }
-    else if (name=="daniel@gmail.com")
+    else if (name=="daniel@gmail.com" || name=="Daniel")
     {
       return "Daniel Leong"
+    }
+    else if (name=="amritaravishankar00@gmail.com" || name=="Amrita")
+    {
+      return "Amrita Ravishankar"
+    }
+    else
+    {
+      return name
     }
   }
 
@@ -46,8 +57,12 @@ export class ExpenseCardComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.amount = result;
+      console.log(result);
     });
+  }
+
+  onAuthorSettleUp(expense) {
+    this.settle.emit(expense);
   }
 
 }

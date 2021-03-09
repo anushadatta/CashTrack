@@ -9,17 +9,20 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { AGM_API_KEY } from 'src/app/common/variable';
 import { CommonComponentsModule } from 'src/app/modules/common-components/common-components.module';
 import { CustomMaterialModule } from 'src/app/modules/custom-material/custom-material.module';
-import { GroupsComponent } from './groups.component';
-import { CreateGroupComponent } from './components/create-group/create-group.component';
+import { GroupsDetailComponent } from './groups-detail.component';
+import { ExpenseListComponent } from './components/expense-list/expense-list.component';
+import { ExpenseCardComponent } from './components/expense-card/expense-card.component';
+
 
 const appRoutes: Routes = [
-    { path: '', component: GroupsComponent }
+    { path: '', component: GroupsDetailComponent }
 ];
 
 @NgModule({
     declarations: [
-        GroupsComponent,
-        CreateGroupComponent
+        GroupsDetailComponent, 
+        ExpenseCardComponent,
+        ExpenseListComponent,
     ],
     imports: [
         CommonModule,
@@ -31,14 +34,14 @@ const appRoutes: Routes = [
     	}),
         NgbModule,
         CommonComponentsModule,
+        
     ],
 	providers: [
         CookieService
     ],
     entryComponents: [
-        
+        GroupsDetailComponent
     ]
 })
 
-export class GroupsModule {}
-
+export class GroupsDetailModule {}

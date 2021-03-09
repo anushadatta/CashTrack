@@ -27,12 +27,12 @@ export class FriendsComponent implements OnInit {
     },
     {
       name : 'Mehul Kumar',
-      email: 'mehul@gmail.com',
+      email: 'mehul.kumar171@gmail.com',
       is_friend: true,
     },
     {
-      name : 'Alex',
-      email: 'alex00@gmail.com',
+      name : 'Alex Leong',
+      email: 'alexleong21997@gmail.com',
       is_friend: true,
     },
   ]

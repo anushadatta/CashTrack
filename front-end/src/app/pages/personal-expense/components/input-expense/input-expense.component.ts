@@ -1,10 +1,12 @@
-import { Component, OnInit, Inject, Input} from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Component, OnInit, Inject, Input, Output} from '@angular/core';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {HttpClient} from '@angular/common/http';
 
 export interface DialogData {
-  name: string;
-  category: string;
-  amount: string;
+  label: string;
+  tag: string;
+  expense_amount: number;
+  created_at: number;
   add:boolean;
   update:boolean;
 }
@@ -17,14 +19,14 @@ export interface DialogData {
 
 export class InputExpenseComponent implements OnInit {
 
-  categories = ['Food', 'Travel', 'Shopping', 'Others'];
+  categories = ['Food', 'Travel', 'Shopping', 'Entertainment', 'Others'];
   category = '';
 
   updateExpense: string = 'false';
-  
+
   constructor(
     public dialogRef: MatDialogRef<InputExpenseComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    @Inject(MAT_DIALOG_DATA) public data: DialogData, public http: HttpClient) {
     }
 
   onNoClick(): void {
@@ -32,10 +34,12 @@ export class InputExpenseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }  
+  }   
 
-  addExpense():void {
-    console.log(this.data);
+  addExpense(): void{
+    this.data.created_at = Date.now();
+    this.dialogRef.close(this.data);
+    console.log("Data : ", this.data);
   }
 }
 

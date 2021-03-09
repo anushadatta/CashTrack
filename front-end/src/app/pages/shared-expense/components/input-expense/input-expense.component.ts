@@ -6,10 +6,12 @@ import {FormControl, ReactiveFormsModule} from '@angular/forms';
 export interface ExpenseData {
   name: string;
   category: string;
-  amount: string;
+  amount: number;
   friend_list: string[];
   split_or_not:string;
   split_by_method:string;
+  split_data: any[];
+  comments: [];
 }
 
 @Component({
@@ -21,13 +23,14 @@ export interface ExpenseData {
 export class InputExpenseComponent implements OnInit {
 
   categories = ['Food', 'Travel', 'Entertainment', 'Shopping', 'Others'];
-  your_friends = ['Anusha', 'Mehul'];
-  pay_options = ['You owe Anusha money', 'Split Bill'];
+  your_friends = ['Amrita', 'Mehul', 'Daniel', 'Alex', 'Elliot', 'Nicklaus', "Harish"];
+  pay_options = ['You owe Amrita money', 'Split Bill'];
 
   @Input() updateExpense: boolean;
   @Input() split_by_method = "";
 
   show_drop_or_not: boolean = true;
+  split2_data:any = [];
   
   constructor(public dialog: MatDialog,
     public dialogRef: MatDialogRef<SplitByComponent>,
@@ -48,18 +51,22 @@ export class InputExpenseComponent implements OnInit {
   }  
 
   addExpense():void {
+    this.data.split_data = this.split2_data;
+    console.log(this.data.split_data);
+    this.dialogRef.close(this.data);
     console.log("Expense data: ", this.data);
   }
 
   SplitByPopUp() {
-    console.log("split");
     const dialogRef = this.dialog.open(SplitByComponent, {
       width: '500px',
-      data: {split_by_method: this.split_by_method, expense_amount: this.data.amount, friends: this.data.friend_list}
+      data: {split_by_method: this.split_by_method, expense_amount: this.data.amount, friends: this.data.friend_list, split_data: this.data.split_data, comments: this.data.comments}
     });
    
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.data.split_data = result.split_data;
+      this.split2_data = result.split_data;
     });
   }
 }

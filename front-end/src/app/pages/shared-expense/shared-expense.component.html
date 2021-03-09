@@ -11,8 +11,8 @@
             </button>
         </div>
     </div>
-    <app-summary-row-list></app-summary-row-list>
+    <app-summary-row-list [you_are_owed]="total_you_are_owed" [you_owe]="total_you_owe"></app-summary-row-list>
     <br>
     <br>
-    <app-expense-list></app-expense-list>
+    <app-expense-list [expenses]="shared_expenses"></app-expense-list>
 </div>

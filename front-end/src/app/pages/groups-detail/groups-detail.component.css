@@ -11,7 +11,18 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
-.delete-friend {
+.add-friend {
+    float: right;
+    vertical-align: middle;
+    background-color: #383838;
+    color: #f4f4f4;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 1vh;
+    border: none;
+}
+
+.delete-group {
     vertical-align: middle;
     background-color: #383838;
     color: #f4f4f4;

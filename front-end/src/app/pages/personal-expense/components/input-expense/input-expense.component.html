@@ -4,12 +4,12 @@
   <div mat-dialog-content>
     <mat-form-field>
       <mat-label>Label</mat-label>
-      <input matInput [(ngModel)]="data.name">
+      <input matInput [(ngModel)]="data.label">
     </mat-form-field>
     <br>
     <mat-form-field>
       <mat-label>Category</mat-label>
-      <mat-select [(value)]="data.category">
+      <mat-select [(value)]="data.tag">
         <mat-option *ngFor="let cat of categories" [value]="cat">
           {{cat}}
         </mat-option>
@@ -18,7 +18,7 @@
     <br>
     <mat-form-field>
     <mat-label>S$ Amount</mat-label>
-      <input matInput [(ngModel)]="data.amount">
+      <input matInput [(ngModel)]="data.expense_amount">
     </mat-form-field>
   </div>
   <div mat-dialog-actions>
