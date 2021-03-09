@@ -34,7 +34,7 @@ export class ExpenseListComponent implements OnInit {
       category: 'Food',
       created_at: '6th Febraury, 2021', 
       author: 'mehul.kumar171@gmail.com',
-      payers: ['amritaravishankar00@gmail.com'],
+      payers: ['anushadatta@gmail.com'],
       type: '1',
       comments: [
         {name: "Mehul Kumar", comment: "Pls pay me by next week"}]
@@ -44,8 +44,8 @@ export class ExpenseListComponent implements OnInit {
       amount: '19.20',
       category: 'Travel',
       created_at: '4th Febraury, 2021', 
-      author: 'anushadatta@gmail.com',
-      payers: ['amritaravishankar00@gmail.com'],
+      author: 'amritaravishankar00@gmail.com',
+      payers: ['anushadatta@gmail.com'],
       type: '1',
       comments: [
         {name: "Anusha Datta", comment: "Pls pay me fast"}]
@@ -55,7 +55,7 @@ export class ExpenseListComponent implements OnInit {
       amount: '15.20',
       category: 'Entertainment',
       created_at: '2nd Febraury, 2021',
-      author: 'amritaravishankar00@gmail.com',
+      author: 'anushadatta@gmail.com',
       payers: ['mehul.kumar171@gmail.com'],
       type: '2',
       comments: [
@@ -67,7 +67,7 @@ export class ExpenseListComponent implements OnInit {
       amount: '15.80',
       category: 'Travel',
       created_at: '2nd Febraury, 2021',
-      author: 'amritaravishankar00@gmail.com',
+      author: 'anushadatta@gmail.com',
       payers: ['mehul.kumar171@gmail.com'],
       type: '2',
       comments: [
@@ -78,11 +78,11 @@ export class ExpenseListComponent implements OnInit {
   check_owe_or_owed() {
     for (let expense of this.shared_expenses)
     {
-      if (expense.author == "amritaravishankar00@gmail.com")
+      if (expense.author == "anushadatta@gmail.com")
       {
         this.you_are_owed.push(expense);
       }
-      else if(expense.payers.includes("amritaravishankar00@gmail.com"))
+      else if(expense.payers.includes("anushadatta@gmail.com"))
       {
         this.you_owe.push(expense);
       }
