@@ -6,11 +6,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxEchartsModule } from 'ngx-echarts';
+import {MatSliderModule} from '@angular/material/slider';
 import { AGM_API_KEY } from 'src/app/common/variable';
 import { CommonComponentsModule } from 'src/app/modules/common-components/common-components.module';
 import { CustomMaterialModule } from 'src/app/modules/custom-material/custom-material.module';
 import { UserAccountComponent } from './user-account.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 
 const appRoutes: Routes = [
     { path: '', component: UserAccountComponent }
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     	}),
         NgbModule,
         CommonComponentsModule,
-        HttpClientModule
+        HttpClientModule,
+        MatSliderModule
     ],
 	providers: [
         CookieService

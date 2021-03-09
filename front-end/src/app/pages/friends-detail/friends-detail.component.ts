@@ -85,10 +85,4 @@ export class FriendsDetailComponent implements OnInit {
     this.cookie.delete('selected-friend');
     this.router.navigateByUrl('/dashboard/your-friends');
   }
-
-  deleteFriend() {
-    console.log("delete friend here");
-  }
-
-
 }

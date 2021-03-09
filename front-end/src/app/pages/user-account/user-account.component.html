@@ -11,7 +11,7 @@
 
     <!-- Set Personal Expense Limit -->
     <label>Personal Expense Limit:</label>
-    <select id="personal-expense-limit">
+    <select id="personal-expense-limit" value="{{limit_time}}" (change)="changeTime($event)">
         <option value="off">OFF</option>
         <option value="daily">DAILY</option>
         <option value="weekly">WEEKLY</option>
@@ -22,12 +22,12 @@
 
     <!-- Reminder % -->
     <label>Personal Expense Limit [$]:</label>
-    <input type="text" id="fname" name="fname"><br>
+    <input type="text" id="fname" name="fname" placeholder="{{limit}}"><br>
 
     <!-- Personal Expense Reminder Slider -->
     <label>Reminder when Expense Limit reaches [%]:</label>
     <div class="slidecontainer center">
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+        <mat-slider min="1" max="100" step="1" value="80" (change)="changePercent($event.value)" style="width:100%;"></mat-slider>
     </div>
 
     <!-- Delete Account Button  -->
