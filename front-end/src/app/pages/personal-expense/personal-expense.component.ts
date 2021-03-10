@@ -1,11 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { InputExpenseComponent } from './components/input-expense/input-expense.component';
 import {MatDialog} from '@angular/material/dialog';
-import {HttpClient} from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
-import { ConfigService } from '../../cashtrack-services/user-account-http.service';
-import { SubSink } from 'subsink';
-import { PersonalExpensesHttpService } from '../../cashtrack-services/personal-expenses-http.service';
 
 interface PersonalExpense {
   user_id: string;
@@ -30,18 +25,16 @@ export class PersonalExpenseComponent implements OnInit {
   update: boolean = false;
   created_at: number;
   add: boolean = true;
-  personal_expense = [{label:"Prime Supermarket", expense_amount:15.20, tag:"Food", created_at:1612281600000}, {label:"Crowded Bowl", expense_amount:4.70, tag:"Food", created_at:1612296900000}];
+  personal_expense = [
+    {label:"Prime Supermarket", expense_amount:15.20, tag:"Food", created_at:1612281600000}, 
+    {label:"Crowded Bowl", expense_amount:4.70, tag:"Food", created_at:1612296900000}
+  ];
 
-  subSink: SubSink;
-  user_email: string;
-
-  constructor(public dialog: MatDialog, public http: HttpClient, private cookie: CookieService,
-    private userService: ConfigService, private personalExpenseService: PersonalExpensesHttpService) { 
+  constructor(public dialog: MatDialog) { 
   }
 
   ngOnInit(): void {
-    this.subSink = new SubSink();
-    this.user_email = this.cookie.get('user-email');
+
   }
 
   addNewExpense(): void {

@@ -2,10 +2,6 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {InputExpenseComponent} from '../input-expense/input-expense.component';
-import {HttpClient} from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
-import { ConfigService } from '../../../../cashtrack-services/user-account-http.service';
-import { SubSink } from 'subsink';
 
 interface PersonalExpense {
   label: string;
@@ -25,14 +21,10 @@ interface PersonalExpense {
 
 export class ExpenseCardComponent implements OnInit {
 
-  // @Input() expense: PersonalExpense; 
   @Input() expense; 
   @Output() onDelete: EventEmitter<void> = new EventEmitter();
   @Output() onEditCard: EventEmitter<void> = new EventEmitter();
   @Output() sendOld: EventEmitter<void> = new EventEmitter();
-
-  subSink: SubSink;
-  user_email: string;
 
   name: string;
   category: string;
@@ -40,20 +32,10 @@ export class ExpenseCardComponent implements OnInit {
   update:boolean = false;
   add:boolean = true;
 
-  constructor(public dialog: MatDialog, public http: HttpClient, private cookie: CookieService,
-    private userService: ConfigService) { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.subSink = new SubSink();
-    this.user_email = this.cookie.get('user-email');
-    this.getUserAccountInfo(this.user_email);
-  }
 
-  getUserAccountInfo (user_email) {
-    this.subSink.sink = this.userService.getUserInfo(user_email)
-      .subscribe( (res) => {
-        console.log(res);
-      } ) 
   }
 
   convertDate(timestamp) {
