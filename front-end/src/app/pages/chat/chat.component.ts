@@ -37,7 +37,8 @@ export class ChatComponent implements OnInit {
       messages : [
         ['anushadatta@gmail.com', 'Hi, did you send me $ for Pasta Express?', '10:01PM, 10th Feb 2021'], 
         ['amritaravishankar00@gmail.com', 'Not yet, will do tonight!', '10:04PM, 10th Feb 2021'], 
-        ['anushadatta@gmail.com', 'Oks thanks!', '10:10PM, 10th Feb 2021']
+        ['anushadatta@gmail.com', 'Oks thanks!', '10:10PM, 10th Feb 2021'],
+        ['amritaravishankar00@gmail.com', 'Hi! I have sent the $', '3:45PM, 14 March 2021'],
       ],
     },
     { id: 1,
@@ -48,8 +49,8 @@ export class ChatComponent implements OnInit {
       messages : [
         ['mehul.kumar171@gmail.com', 'Hi, sup?', '09:34AM, 27th Feb 2021'], 
         ['anushadatta@gmail.com', 'Nm, just studying', '10:01AM, 27th Feb 2021'], 
-        ['mehul.kumar171@gmail.com', 'Coming for the tutorial?', '10:10PM, 27th Feb 2021'],
-        ['anushadatta@gmail.com', 'Yep, see you!', '11:13PM, 27th Feb 2021'], 
+        ['mehul.kumar171@gmail.com', 'Coming for the tutorial?', '10:10AM, 27th Feb 2021'],
+        ['anushadatta@gmail.com', 'Yep, see you!', '11:13AM, 27th Feb 2021'], 
       ],
     },
     { id: 2,
@@ -60,7 +61,8 @@ export class ChatComponent implements OnInit {
       messages : [
         ['alexleong@gmail.com', 'Heyyy', '10:01PM, 10th Feb 2021'], 
         ['anushadatta@gmail.com', 'Done with wiki?', '10:04PM, 10th Feb 2021'], 
-        ['alexleong@gmail.com', 'not yet..', '10:10PM, 10th Feb 2021']
+        ['alexleong@gmail.com', 'Not yet..', '10:10PM, 10th Feb 2021'],
+        ['anushadatta@gmail.com', 'Okay no rush, just ping me when done', '10:04PM, 10th Feb 2021'],
       ],
     },
   ]

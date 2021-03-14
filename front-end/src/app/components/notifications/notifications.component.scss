@@ -23,7 +23,7 @@
       top: 40px;
       right: 5px;
       width: 350px;
-      height: 200px;
+      height: 450px;
       background-color: whitesmoke;
       z-index: 300;
       //background-color: #0D1577;
@@ -64,6 +64,12 @@
   
   .unread-border {
       border-left: 12px solid #333333;
+      height: 120px;
+      padding-right: 2px;
+  }
+  
+  .read-border {
+      border-left: 12px solid grey;
       height: 120px;
       padding-right: 2px;
   }

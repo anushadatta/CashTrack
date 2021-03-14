@@ -7,30 +7,81 @@
         </div>
 
         <!-- Design notification cards -->
-        <div *ngFor="let notification of notifications">
-            <mat-card class="card-size unread-border">
-                <div style="padding-top: 15px; padding-bottom: 0px;">
-                    <mat-card-header>
+        <!-- <div *ngFor="let notification of notifications"> -->
+        <mat-card class="card-size unread-border">
+            <div style="padding-top: 15px; padding-bottom: 0px;">
+                <mat-card-header>
 
-                        <img src="../../../../../assets/notification-icons/chat.png" style="height:50px; width:auto; margin-right:8px;"> &nbsp; &nbsp;
+                    <img src="../../../../../assets/notification-icons/chat.png" style="height:50px; width:auto; margin-right:8px;"> &nbsp; &nbsp;
 
-                        <div style="padding-left:18px">
-                            <div class="row">
-                                <div class="column-title">
-                                    <a href="#/dashboard/chat"> <span style="color: #0D1577; font-weight: 800; font-size: 20px;"> {{ notification.title }} </span></a>
-                                </div>
-                                <div>
-                                    <span style="font-weight: 200; font-size:12px;"> {{ notification.time }} , {{ notification.date }}  </span>
-                                </div>
+                    <div style="padding-left:18px">
+                        <div class="row">
+                            <div class="column-title">
+                                <a href="#/dashboard/chat"> <span style="color: #0D1577; font-weight: 800; font-size: 20px;">New Chat</span></a>
                             </div>
-                            <div class="row">
-                                <span style="font-weight: 200; font-size:12px;"> by {{ notification.sender }} </span>
+                            <div>
+                                <span style="font-weight: 200; font-size:12px;"> 3:45 p.m, 14 March 2021  </span>
                             </div>
                         </div>
-                    </mat-card-header>
-                </div>
-            </mat-card>
-            <br>
-        </div>
+                        <div class="row">
+                            <span style="font-weight: 200; font-size:12px;"> by Amrita Ravishankar </span>
+                        </div>
+                    </div>
+                </mat-card-header>
+            </div>
+        </mat-card>
+
+        <br>
+
+        <mat-card class="card-size read-border">
+            <div style="padding-top: 15px; padding-bottom: 0px;">
+                <mat-card-header>
+
+                    <img src="../../../../../assets/notification-icons/ack.png" style="height:50px; width:auto; margin-right:8px;"> &nbsp; &nbsp;
+
+                    <div style="padding-left:18px">
+                        <div class="row">
+                            <div class="column-title">
+                                <a href="#/dashboard/chat"> <span style="color: #0D1577; font-weight: 800; font-size: 20px;"> Acknowledgement </span></a>
+                            </div>
+                            <div>
+                                <span style="font-weight: 200; font-size:12px;"> 8:41 a.m, 25th February, 2021  </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <span style="font-weight: 200; font-size:12px;"> by Mehul Kumar </span>
+                        </div>
+                    </div>
+                </mat-card-header>
+            </div>
+
+        </mat-card>
+
+        <br>
+
+        <mat-card class="card-size read-border">
+            <div style="padding-top: 15px; padding-bottom: 0px;">
+                <mat-card-header>
+
+                    <img src="../../../../../assets/notification-icons/bill.png" style="height:60px; width:auto; margin-right:8px;"> &nbsp; &nbsp;
+
+                    <div style="padding-left:18px">
+                        <div class="row">
+                            <div class="column-title">
+                                <a href="#/dashboard/chat"> <span style="color: #0D1577; font-weight: 800; font-size: 20px;"> New Bill </span></a>
+                            </div>
+                            <div>
+                                <span style="font-weight: 200; font-size:12px;"> 3:25 p.m, 28th February, 2021  </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <span style="font-weight: 200; font-size:12px;"> by Alex Leong </span>
+                        </div>
+                    </div>
+                </mat-card-header>
+            </div>
+
+        </mat-card>
+        <!-- </div> -->
     </div>
 </div>

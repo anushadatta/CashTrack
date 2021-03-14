@@ -8,6 +8,19 @@
     src: url('../../../assets/fonts/din-bold-webfont.woff');
 }
 
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+.vertical-center {
+    margin: 0;
+    position: relative;
+    top: 40%;
+    -ms-transform: translateY(-40%);
+    transform: translateY(-40%);
+}
+
 .container-fluid {
     padding: 0px;
     margin: 0px;

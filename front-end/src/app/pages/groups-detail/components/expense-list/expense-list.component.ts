@@ -29,8 +29,8 @@ export class ExpenseListComponent implements OnInit {
 
   shared_expenses = [
     {
-      name : 'Pasta Express Lunch',
-      amount: '4.10',
+      name : 'Subway Dinner',
+      amount: '6.30',
       category: 'Food',
       created_at: '6th Febraury, 2021', 
       author: 'mehul.kumar171@gmail.com',
@@ -38,17 +38,6 @@ export class ExpenseListComponent implements OnInit {
       type: '1',
       comments: [
         {name: "Mehul Kumar", comment: "Pls pay me by next week"}]
-    },
-    {
-      name : 'Cab to MBS',
-      amount: '17.20',
-      category: 'Travel',
-      created_at: '4th Febraury, 2021', 
-      author: 'daniel@gmail.com',
-      payers: ['amritaravishankar00@gmail.com'],
-      type: '1',
-      comments: [
-        {name: "Anusha Datta", comment: "Pls pay me fast"}]
     },
     {
       name: 'Movie Night',
@@ -61,6 +50,17 @@ export class ExpenseListComponent implements OnInit {
       comments: [
         {name: "Amrita Ravishankar", comment: "Pls pay me by next week"},
         {name:"Mehul Kumar", comment: "Sure"}]
+    },
+    {
+      name : 'Cab to Orchard',
+      amount: '17.20',
+      category: 'Travel',
+      created_at: '4th Febraury, 2021', 
+      author: 'daniel@gmail.com',
+      payers: ['amritaravishankar00@gmail.com'],
+      type: '1',
+      comments: [
+        {name: "Anusha Datta", comment: "Pls pay me fast"}]
     },
   ];
 
