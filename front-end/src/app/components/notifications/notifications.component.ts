@@ -30,7 +30,9 @@ export class NotificationsComponent implements OnInit {
   @Input() user_email: string;
 
   notifications = [
-    {title: "New Chat", sender:"Amrita Ravishankar", time:"6:41 p.m", date:"12th February, 2021"}
+    {title: "New Chat", sender:"Amrita Ravishankar", time:"6:41 p.m", date:"12th February, 2021"},
+    {title: "Acknowledgement", sender:"Mehul Kumar", time:"8:41 a.m", date:"25th February, 2021"},
+    {title: "New Bill", sender:"Amrita Ravishankar", time:"3:25 p.m", date:"28th February, 2021"}
   ]
 
   subSink: SubSink;

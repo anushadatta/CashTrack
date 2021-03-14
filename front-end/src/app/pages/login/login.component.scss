@@ -14,6 +14,8 @@
     height: 100%;
     width: 100%;
     background: #0D1577;
+    text-align: center;
+    margin: auto;
 }
 
 // .login-main {
@@ -47,6 +49,12 @@
     // width: 19vh;
 }
 
+.logo2-size {
+    height: 70px;
+    // height: 7vh;
+    // width: 19vh;
+}
+
 .login-window {
     padding: 30px;
 }
@@ -61,8 +69,9 @@
     margin: 0 auto;
     font-size: 32px;
     font-weight: 800;
-    color: #44ab29;
+    color: #0D1577;
     margin: 10px 0px 0px 0px;
+    padding: 10px;
     letter-spacing: 0px;
     font-family: 'DIN-Condense';
 }
@@ -74,8 +83,8 @@
 }
 
 .login-btn {
-    background-color: #E8DA2C ! important;
-    border-color: #E8DA2C ! important;
+    background-color: #464646 ! important;
+    border-color: #464646 ! important;
     width: 200px;
 }
 
