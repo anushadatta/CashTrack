@@ -55,6 +55,8 @@ export class UserAccountComponent implements OnInit {
   }
 
   changePercent (newVal): void {
+    let limit = (<HTMLInputElement>document.getElementById("fname")).value
+    this.cookie.set('limit-value', limit, null, null, null, null, null);
     this.cookie.set('limit-percent', newVal, null, null, null, null, null);
     console.log(newVal);
   }

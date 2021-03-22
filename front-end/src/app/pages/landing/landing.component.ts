@@ -16,8 +16,10 @@ export class LandingComponent implements OnInit {
   public chartHours;
   showLoadingSpinner = true;
 
+  public spending: number;
   public spendingLimit: number;
   public spendingTimeline: string;
+  public spendingAmount: number;
 
   constructor(private cookie: CookieService){}
 
@@ -25,8 +27,13 @@ export class LandingComponent implements OnInit {
       this.chartColor = "#FFFFFF";
       this.showLoadingSpinner = false;
 
-      this.spendingLimit = Number(this.cookie.get("limit-percent"));
+      
       this.spendingTimeline = this.cookie.get("limit-time").toUpperCase();
+      this.spendingAmount = Number(this.cookie.get("limit-value"));
+
+      this.spending = 800;
+      this.spendingLimit = 100-((this.spendingAmount-this.spending)/this.spendingAmount)*100;
+      console.log(`spending limit ${this.spendingLimit}`);
 
       this.canvas = document.getElementById("chartHours");
       this.ctx = this.canvas.getContext("2d");
