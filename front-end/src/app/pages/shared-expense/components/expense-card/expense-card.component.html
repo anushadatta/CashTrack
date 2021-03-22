@@ -31,7 +31,7 @@
                 <span style="font-weight: 600;"> {{ getName(expense.split_data[0].friend) }} owes you S$ {{ expense.split_data[0].amount }} </span>
             </mat-card-content>
             <mat-card-actions>
-                <button class="button-style" (click)="onAuthorSettleUp(expense)" mat-button style="float:right">SETTLE UP</button>
+                <button class="button-style" (click)="onAuthorSettleUp(expense)" mat-button style="float:right">ACKNOWLEDGE</button>
                 <button class="button-style" mat-button (click)="showComments()" style="float:right">COMMENTS</button>
                 <button (onclick)="editExpense()" class="edit-button" mat-button style="float:right;"><mat-icon [ngStyle]="{'color':'white'}"> edit </mat-icon></button>
             </mat-card-actions>

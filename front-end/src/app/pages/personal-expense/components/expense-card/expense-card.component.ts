@@ -43,7 +43,7 @@ export class ExpenseCardComponent implements OnInit {
     let months = {1: "January", 2:"February", 3:"March", 4:"April", 5:"May", 6: "June", 7: "July", 8:"August", 9:"September", 10:"October", 11:"November", 12:"December"};
     let theDate = new Date(timestamp);
     let month = theDate.getMonth() + 1;
-    let date = theDate.getDate() - 1;
+    let date = theDate.getDate();
     let year = theDate.getFullYear();
     let date_postfix = this.datePostfix(date);
     let final_date = date + date_postfix + " " +  months[month] + ", " + year; 

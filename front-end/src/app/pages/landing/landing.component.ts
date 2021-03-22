@@ -32,8 +32,10 @@ export class LandingComponent implements OnInit {
       this.spendingAmount = Number(this.cookie.get("limit-value"));
 
       this.spending = 800;
+
+      // calculation for limit percent
       this.spendingLimit = 100-((this.spendingAmount-this.spending)/this.spendingAmount)*100;
-      console.log(`spending limit ${this.spendingLimit}`);
+
 
       this.canvas = document.getElementById("chartHours");
       this.ctx = this.canvas.getContext("2d");
